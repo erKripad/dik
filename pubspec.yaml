@@ -1,0 +1,61 @@
+#---------------------------------------------------------#
+
+name: dik
+description: un nuovo progetto di app-development
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
+
+#---------------------------------------------------------#
+
+environment:
+  sdk: '>=2.19.2 <3.0.0'
+
+#---------------------------------------------------------#
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.2
+  convex_bottom_bar: ^3.2.0
+  google_fonts: ^4.0.3
+
+#---------------------------------------------------------#
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # serve a mettere l'icona dell'app
+  flutter_launcher_icons: ^0.11.0
+
+  flutter_lints: ^2.0.0
+
+# guarda qui per saperne di più https://dart.dev/tools/pub/pubspec
+
+#---------------------------------------------------------#
+
+# setta il percorso dell'icona, per ora funziona solo per ios perchè android è da sistemare
+
+flutter_icons:
+  ios: true
+  android: true
+  image_path: "assets/Icona palla da discoteca-02.png"
+
+#---------------------------------------------------------#
+
+# Flutter packages
+
+flutter:
+
+  # questa linea inserisce il design di alcune classi di Icone come il "+" della versione base 
+  uses-material-design: true
+
+  # variabnti di assets di icone: https://flutter.dev/assets-and-images/#resolution-aware
+  # come aggiungere i pacchetti di assets: https://flutter.dev/assets-and-images/#from-packages
+
+  # dettagli sui pacchetti di font: https://flutter.dev/custom-fonts/#from-packages 
+
+#---------------------------------------------------------#
