@@ -5,6 +5,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -40,17 +42,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
-      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndTop,
-      bottomNavigationBar: ConvexAppBar(
-        items: const [
-          TabItem(icon: Icons.map, title: 'Map'),
-          TabItem(icon: Icons.home, title: 'Home'),
-          TabItem(icon: Icons.people, title: 'Profile'),
-        ],
-        color: Colors.white,
-        backgroundColor: Colors.black,
-      ),
       body: Container(
         decoration: const BoxDecoration(
             gradient: LinearGradient(
@@ -62,6 +53,17 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           begin: Alignment.bottomCenter,
           end: Alignment.topCenter,
         )),
+      ),
+      extendBodyBehindAppBar: true,
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndTop,
+      bottomNavigationBar: ConvexAppBar(
+        items: const [
+          TabItem(icon: Icons.map, title: 'Map'),
+          TabItem(icon: Icons.home, title: 'Home'),
+          TabItem(icon: Icons.people, title: 'Profile'),
+        ],
+        color: Colors.white,
+        backgroundColor: Colors.black,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -112,3 +114,26 @@ class MessagePage extends StatelessWidget {
 }
 
 //----------------------------------------------------------------------------//
+
+@override
+Widget build(BuildContext context) {
+  return Scaffold(
+    body: AnimationLimiter(
+      child: ListView.builder(
+        itemCount: 100,
+        itemBuilder: (BuildContext context, int index) {
+          return AnimationConfiguration.staggeredList(
+            position: index,
+            duration: const Duration(milliseconds: 375),
+            child: SlideAnimation(
+              verticalOffset: 50.0,
+              child: FadeInAnimation(
+                child: YourListChild(),
+              ),
+            ),
+          );
+        },
+      ),
+    ),
+  );
+}
