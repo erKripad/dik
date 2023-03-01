@@ -39,6 +39,8 @@ class _MyStatefulWidgetState extends State<HomeScreen> {
         ),
       ),
       bottomNavigationBar: ConvexAppBar(
+        curveSize: 80,
+        elevation: 50,
         items: const [
           TabItem(icon: Icons.map, title: 'Map'),
           TabItem(icon: Icons.home, title: 'Home'),

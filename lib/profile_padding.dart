@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:blurrycontainer/blurrycontainer.dart';
 
 class Profile extends StatelessWidget {
   const Profile({super.key});
@@ -7,27 +6,37 @@ class Profile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
-      child: BlurryContainer(
-        color: Colors.black,
-        blur: 8,
-        elevation: 1,
-        height: 240,
+      child: Container(
+        alignment: Alignment.center,
+        color: Colors.purple,
+        height: 1000,
+        width: 500,
         padding: const EdgeInsets.all(32),
         child: Column(
           // mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const CircleAvatar(
-              radius: 50,
-              backgroundColor: Colors.purple,
-              backgroundImage: NetworkImage(
-                  'https://img.indiaforums.com/person/480x360/0/0211-hrithik-roshan.jpg?c=4lP5F3'),
+              radius: 200,
+              backgroundColor: Colors.black,
             ),
-            const Spacer(),
+            const Spacer(
+              flex: 1,
+            ),
             const Text(
-              "0000 0000 0000 0000",
+              "erKripad",
               style: TextStyle(
-                color: Colors.black,
+                color: Colors.white,
+                fontSize: 20,
+              ),
+            ),
+            const Spacer(
+              flex: 10,
+            ),
+            const Text(
+              "bio",
+              style: TextStyle(
+                color: Colors.white,
                 fontSize: 20,
                 fontWeight: FontWeight.w200,
               ),
@@ -37,17 +46,17 @@ class Profile extends StatelessWidget {
               children: [
                 Text(
                   "Ranjeet Rocky".toUpperCase(),
-                  style: TextStyle(
-                    color: Colors.black.withOpacity(0.5),
+                  style: const TextStyle(
+                    color: Colors.white,
                     // fontSize: 16,
                     fontWeight: FontWeight.w200,
                   ),
                 ),
                 const Spacer(),
-                Text(
+                const Text(
                   "VALID",
                   style: TextStyle(
-                    color: Colors.black.withOpacity(0.5),
+                    color: Colors.white,
                     fontWeight: FontWeight.w200,
                   ),
                 ),
