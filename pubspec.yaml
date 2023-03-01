@@ -22,6 +22,7 @@ dependencies:
   convex_bottom_bar: ^3.2.0
   google_fonts: ^4.0.3
   flutter_staggered_animations: ^1.1.1
+  blurrycontainer: ^1.0.2
 
 #---------------------------------------------------------#
 
