@@ -18,16 +18,17 @@ class Profile extends StatelessWidget {
           children: [
             const CircleAvatar(
               radius: 200,
-              backgroundColor: Colors.black,
+              backgroundColor: Colors.yellow,
             ),
             const Spacer(
               flex: 1,
             ),
             const Text(
               "erKripad",
+              textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 20,
+                fontSize: 25,
               ),
             ),
             const Spacer(
@@ -35,17 +36,18 @@ class Profile extends StatelessWidget {
             ),
             const Text(
               "bio",
+              textAlign: TextAlign.justify,
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 20,
-                fontWeight: FontWeight.w200,
+                //fontWeight: FontWeight.w200,
               ),
             ),
             const SizedBox(height: 8),
             Row(
               children: [
                 Text(
-                  "Ranjeet Rocky".toUpperCase(),
+                  "Dikorp".toUpperCase(),
                   style: const TextStyle(
                     color: Colors.white,
                     // fontSize: 16,

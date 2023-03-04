@@ -22,15 +22,16 @@ class _MyStatefulWidgetState extends State<HomeScreen> {
       //
       body: Container(
         decoration: const BoxDecoration(
-            gradient: LinearGradient(
-          transform: GradientRotation(4),
-          colors: [
-            Color.fromARGB(255, 140, 15, 161),
-            Colors.deepOrangeAccent,
-          ],
-          begin: Alignment.bottomCenter,
-          end: Alignment.topCenter,
-        )),
+          gradient: LinearGradient(
+            transform: GradientRotation(4),
+            colors: [
+              Color.fromARGB(255, 140, 15, 161),
+              Colors.deepOrangeAccent,
+            ],
+            begin: Alignment.bottomCenter,
+            end: Alignment.topCenter,
+          ),
+        ),
         height: double.infinity,
         width: double.infinity,
         child: Column(
