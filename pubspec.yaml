@@ -23,6 +23,7 @@ dependencies:
   google_fonts: ^4.0.3
   flutter_staggered_animations: ^1.1.1
   blurrycontainer: ^1.0.2
+  flutter_slider_drawer: ^2.1.3
 
 #---------------------------------------------------------#
 
@@ -50,10 +51,17 @@ flutter_icons:
 
 # Flutter packages
 
+
 flutter:
+
+  fonts:
+  - family: Lobster 
+    fonts:
+    - asset: assets/google_fonts/Lobster-Regular.ttf
 
   # questa linea inserisce il design di alcune classi di Icone come il "+" della versione base 
   uses-material-design: true
+
 
   # variabnti di assets di icone: https://flutter.dev/assets-and-images/#resolution-aware
   # come aggiungere i pacchetti di assets: https://flutter.dev/assets-and-images/#from-packages

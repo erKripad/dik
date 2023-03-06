@@ -2,7 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
-import 'package:dik/theme/profile_page.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:dik/theme/notificattion_page.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -19,6 +20,35 @@ class _MyStatefulWidgetState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //
+      appBar: AppBar(
+        toolbarHeight: 55,
+        elevation: 50,
+        backgroundColor: Colors.black,
+        title: const Text(
+          "Dik",
+          //style: GoogleFonts.lobster(),
+          textAlign: TextAlign.right,
+        ),
+        actions: [
+          FloatingActionButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const NotificationPage()),
+              );
+            },
+            tooltip: 'Notifiche',
+            elevation: 3,
+            backgroundColor: Colors.transparent,
+            child: const Icon(
+              Icons.notifications_none,
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
       //
       body: Container(
         decoration: const BoxDecoration(
@@ -39,6 +69,7 @@ class _MyStatefulWidgetState extends State<HomeScreen> {
           children: const <Widget>[],
         ),
       ),
+      //
       bottomNavigationBar: ConvexAppBar(
         curveSize: 80,
         elevation: 50,
@@ -49,23 +80,15 @@ class _MyStatefulWidgetState extends State<HomeScreen> {
         ],
         color: Colors.white,
         backgroundColor: Colors.black,
+        height: 55,
       ),
+      //
       floatingActionButtonLocation: FloatingActionButtonLocation.miniEndTop,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const ProfilePage()),
-          );
-        },
-        tooltip: 'Profile',
-        elevation: 3,
-        backgroundColor: Colors.transparent,
-        child: const Icon(
-          Icons.person,
-          color: Colors.white,
-        ),
+      //
+      drawer: const Drawer(
+        backgroundColor: Colors.black,
       ),
+      //
     );
   }
 }
