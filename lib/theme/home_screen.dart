@@ -36,7 +36,8 @@ class _MyStatefulWidgetState extends State<HomeScreen> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const ProfileScreen()),
+                MaterialPageRoute(
+                    builder: (context) => const NotificationScreen()),
               );
             },
             tooltip: 'Notifiche',
@@ -106,15 +107,16 @@ class _MyStatefulWidgetState extends State<HomeScreen> {
             ),
             ListTile(
               title: const Text(
-                'Item 1',
+                'Profile',
                 style: TextStyle(color: Colors.white),
               ),
               iconColor: Colors.white,
               onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
-                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ProfileScreen()),
+                );
               },
             ),
             ListTile(
