@@ -1,5 +1,6 @@
 //----------------------------------------------------------------------------//
 
+import 'package:dik/theme/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -35,8 +36,7 @@ class _MyStatefulWidgetState extends State<HomeScreen> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                    builder: (context) => const NotificationPage()),
+                MaterialPageRoute(builder: (context) => const ProfileScreen()),
               );
             },
             tooltip: 'Notifiche',
@@ -85,8 +85,52 @@ class _MyStatefulWidgetState extends State<HomeScreen> {
       //
       floatingActionButtonLocation: FloatingActionButtonLocation.miniEndTop,
       //
-      drawer: const Drawer(
+      drawer: Drawer(
         backgroundColor: Colors.black,
+        child: ListView(
+          // Important: Remove any padding from the ListView.
+          padding: const EdgeInsets.all(8),
+          children: [
+            const DrawerHeader(
+              margin: EdgeInsets.only(top: 75.0, bottom: 15),
+              padding: EdgeInsets.all(50),
+              decoration: BoxDecoration(
+                color: Colors.purple,
+                shape: BoxShape.circle,
+              ),
+              child: CircleAvatar(
+                radius: 40,
+                backgroundColor: Colors.white,
+                //backgroundImage: AssetImage("assets/1.5x/papera.png"),
+              ),
+            ),
+            ListTile(
+              title: const Text(
+                'Item 1',
+                style: TextStyle(color: Colors.white),
+              ),
+              iconColor: Colors.white,
+              onTap: () {
+                // Update the state of the app
+                // ...
+                // Then close the drawer
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: const Text(
+                'Item 2',
+                style: TextStyle(color: Colors.white),
+              ),
+              onTap: () {
+                // Update the state of the app
+                // ...
+                // Then close the drawer
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
       ),
       //
     );
