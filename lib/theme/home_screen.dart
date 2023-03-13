@@ -1,5 +1,7 @@
 //----------------------------------------------------------------------------//
 
+import 'dart:math';
+
 import 'package:dik/theme/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
@@ -29,8 +31,12 @@ class _MyStatefulWidgetState extends State<HomeScreen> {
         backgroundColor: Colors.black,
         title: const Text(
           "Dik",
-          //style: GoogleFonts.lobster(),
           textAlign: TextAlign.right,
+          style: TextStyle(
+            fontFamily: "Lobster",
+            height: 0.75,
+            fontSize: 30,
+          ),
         ),
         actions: [
           FloatingActionButton(
@@ -66,9 +72,21 @@ class _MyStatefulWidgetState extends State<HomeScreen> {
         ),
         height: double.infinity,
         width: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[],
+        child: GridView.count(
+          primary: false,
+          crossAxisCount: 2,
+          mainAxisSpacing: 10,
+          crossAxisSpacing: 10,
+          children: <Widget>[
+            Container(
+              color: Colors.black,
+              padding: const EdgeInsets.all(8),
+            ),
+            Container(
+              color: Colors.black,
+              padding: const EdgeInsets.all(8),
+            ),
+          ],
         ),
       ),
       //

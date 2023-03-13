@@ -1,12 +1,20 @@
+//----------------------------------------------------------------------------//
+
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
+import 'package:dik/theme/profile_editing_screen.dart';
+import 'package:dik/theme/settings.dart';
+
+//----------------------------------------------------------------------------//
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
+    //var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark
+    var textColour = Colors.white;
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         toolbarHeight: 55,
@@ -48,19 +56,24 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10),
-              Text("erKripad",
-                  style: Theme.of(context).textTheme.headlineMedium),
+              Text("erKripad", style: Theme.of(context).textTheme.bodyLarge),
               Text(
                 "erKripad@palle.com",
-                style: Theme.of(context).textTheme.bodyMedium,
+                style: TextStyle(color: textColour),
               ),
               const SizedBox(height: 20),
               SizedBox(
                 width: 200,
                 child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ProfileEditingScreen()),
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.black,
+                      backgroundColor: Colors.white.withOpacity(0.1),
                       side: BorderSide.none,
                       shape: const StadiumBorder(),
                     ),
@@ -70,7 +83,7 @@ class ProfileScreen extends StatelessWidget {
                     )),
               ),
               const SizedBox(height: 30),
-              const Divider(),
+              const Divider(color: Colors.white),
               const SizedBox(height: 10),
 
               //Menu
@@ -78,23 +91,35 @@ class ProfileScreen extends StatelessWidget {
                 title: "Tickets",
                 icon: LineAwesomeIcons.alternate_ticket,
                 onPress: () {},
+                textColor: Colors.white,
               ),
               ProfileMenuWidget(
                 title: "Favorites",
                 icon: LineAwesomeIcons.heart,
                 onPress: () {},
+                textColor: Colors.white,
               ),
               ProfileMenuWidget(
                 title: "Cart",
                 icon: Icons.abc,
                 onPress: () {},
+                textColor: Colors.white,
               ),
               ProfileMenuWidget(
                 title: "Settings",
                 icon: LineAwesomeIcons.cog,
-                onPress: () {},
+                onPress: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SettingsScreen()),
+                  );
+                },
+                textColor: Colors.white,
               ),
-              const Divider(),
+              const Divider(
+                color: Colors.white,
+              ),
               const SizedBox(
                 height: 10,
               ),
@@ -102,12 +127,14 @@ class ProfileScreen extends StatelessWidget {
                 title: "Infopoint",
                 icon: LineAwesomeIcons.info,
                 onPress: () {},
+                textColor: Colors.white,
               ),
               ProfileMenuWidget(
                 title: "Logout",
                 icon: LineAwesomeIcons.alternate_sign_out,
                 endIcon: false,
                 onPress: () {},
+                textColor: Colors.red,
               ),
             ],
           ),
@@ -116,6 +143,8 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 }
+
+//----------------------------------------------------------------------------//
 
 class ProfileMenuWidget extends StatelessWidget {
   const ProfileMenuWidget({
@@ -144,11 +173,19 @@ class ProfileMenuWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(100),
           color: Colors.black.withOpacity(0.1),
         ),
-        child: Icon(icon, color: Colors.black),
+        child: Container(
+          width: 30,
+          height: 30,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(100),
+            color: Colors.white.withOpacity(0.1),
+          ),
+          child: Icon(icon, color: textColor),
+        ),
       ),
       title: Text(
         title,
-        style: Theme.of(context).textTheme.bodyLarge?.apply(color: textColor),
+        style: Theme.of(context).textTheme.bodyMedium?.apply(color: textColor),
       ),
       trailing: endIcon
           ? Container(
@@ -156,15 +193,17 @@ class ProfileMenuWidget extends StatelessWidget {
               height: 30,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(100),
-                color: Colors.grey.withOpacity(0.1),
+                color: Colors.white.withOpacity(0.1),
               ),
               child: const Icon(
                 LineAwesomeIcons.angle_right,
                 size: 18,
-                color: Colors.grey,
+                color: Colors.white,
               ),
             )
           : null,
     );
   }
 }
+
+//----------------------------------------------------------------------------//
