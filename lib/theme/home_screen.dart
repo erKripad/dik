@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:dik/theme/notificattion_page.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -75,9 +76,9 @@ class _MyStatefulWidgetState extends State<HomeScreen> {
         curveSize: 80,
         elevation: 50,
         items: const [
-          TabItem(icon: Icons.map, title: 'Map'),
-          TabItem(icon: Icons.home, title: 'Home'),
-          TabItem(icon: Icons.people, title: 'Profile'),
+          TabItem(icon: LineAwesomeIcons.home, title: 'Home'),
+          TabItem(icon: LineAwesomeIcons.search, title: 'Search'),
+          TabItem(icon: LineAwesomeIcons.map_marked, title: 'Map'),
         ],
         color: Colors.white,
         backgroundColor: Colors.black,
@@ -86,53 +87,9 @@ class _MyStatefulWidgetState extends State<HomeScreen> {
       //
       floatingActionButtonLocation: FloatingActionButtonLocation.miniEndTop,
       //
-      drawer: Drawer(
+      drawer: const Drawer(
         backgroundColor: Colors.black,
-        child: ListView(
-          // Important: Remove any padding from the ListView.
-          padding: const EdgeInsets.all(8),
-          children: [
-            const DrawerHeader(
-              margin: EdgeInsets.only(top: 75.0, bottom: 15),
-              padding: EdgeInsets.all(50),
-              decoration: BoxDecoration(
-                color: Colors.purple,
-                shape: BoxShape.circle,
-              ),
-              child: CircleAvatar(
-                radius: 40,
-                backgroundColor: Colors.white,
-                //backgroundImage: AssetImage("assets/1.5x/papera.png"),
-              ),
-            ),
-            ListTile(
-              title: const Text(
-                'Profile',
-                style: TextStyle(color: Colors.white),
-              ),
-              iconColor: Colors.white,
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const ProfileScreen()),
-                );
-              },
-            ),
-            ListTile(
-              title: const Text(
-                'Item 2',
-                style: TextStyle(color: Colors.white),
-              ),
-              onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
-                Navigator.pop(context);
-              },
-            ),
-          ],
-        ),
+        child: ProfileScreen(),
       ),
       //
     );
