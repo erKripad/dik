@@ -71,12 +71,23 @@ class _MyStatefulWidgetState extends State<HomeScreen> {
         ),
         height: double.infinity,
         width: double.infinity,
-        child: GridView.count(
+        child: ListView(
           primary: false,
-          crossAxisCount: 1,
+          /*crossAxisCount: 1,
           mainAxisSpacing: 0,
-          crossAxisSpacing: 10,
+          crossAxisSpacing: 10,*/
           children: [
+            Padding(
+              padding: const EdgeInsets.all(28.0),
+              child: BlurryContainer(
+                color: Colors.black.withOpacity(0.5),
+                blur: 8,
+                elevation: 6,
+                height: 240,
+                padding: const EdgeInsets.all(32),
+                child: Column(),
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.all(28.0),
               child: BlurryContainer(
