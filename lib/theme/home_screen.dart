@@ -1,13 +1,12 @@
 //----------------------------------------------------------------------------//
 
-import 'dart:math';
-
 import 'package:dik/theme/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:dik/theme/notificattion_page.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
+import 'package:blurrycontainer/blurrycontainer.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -74,17 +73,31 @@ class _MyStatefulWidgetState extends State<HomeScreen> {
         width: double.infinity,
         child: GridView.count(
           primary: false,
-          crossAxisCount: 2,
-          mainAxisSpacing: 10,
+          crossAxisCount: 1,
+          mainAxisSpacing: 0,
           crossAxisSpacing: 10,
-          children: <Widget>[
-            Container(
-              color: Colors.black,
-              padding: const EdgeInsets.all(8),
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(28.0),
+              child: BlurryContainer(
+                color: Colors.black.withOpacity(0.5),
+                blur: 8,
+                elevation: 6,
+                height: 240,
+                padding: const EdgeInsets.all(32),
+                child: Column(),
+              ),
             ),
-            Container(
-              color: Colors.black,
-              padding: const EdgeInsets.all(8),
+            Padding(
+              padding: const EdgeInsets.all(28.0),
+              child: BlurryContainer(
+                color: Colors.black.withOpacity(0.5),
+                blur: 8,
+                elevation: 6,
+                height: 240,
+                padding: const EdgeInsets.all(32),
+                child: Column(),
+              ),
             ),
           ],
         ),
