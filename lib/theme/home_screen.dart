@@ -3,7 +3,6 @@
 import 'package:dik/theme/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:dik/theme/notificattion_page.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:blurrycontainer/blurrycontainer.dart';
