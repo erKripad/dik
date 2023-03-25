@@ -77,9 +77,9 @@ class _MyStatefulWidgetState extends State<HomeScreen> {
           crossAxisSpacing: 10,*/
           children: [
             Padding(
-              padding: const EdgeInsets.all(28.0),
+              padding: const EdgeInsets.all(12.0),
               child: BlurryContainer(
-                color: Colors.black.withOpacity(0.5),
+                color: Colors.black.withOpacity(0.7),
                 blur: 8,
                 elevation: 6,
                 height: 240,
@@ -88,9 +88,9 @@ class _MyStatefulWidgetState extends State<HomeScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(28.0),
+              padding: const EdgeInsets.all(12.0),
               child: BlurryContainer(
-                color: Colors.black.withOpacity(0.5),
+                color: Colors.black.withOpacity(0.7),
                 blur: 8,
                 elevation: 6,
                 height: 240,
@@ -99,9 +99,9 @@ class _MyStatefulWidgetState extends State<HomeScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(28.0),
+              padding: const EdgeInsets.all(12.0),
               child: BlurryContainer(
-                color: Colors.black.withOpacity(0.5),
+                color: Colors.black.withOpacity(0.7),
                 blur: 8,
                 elevation: 6,
                 height: 240,
