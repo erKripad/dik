@@ -2,8 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import 'package:dik/theme/profile_editing_screen.dart';
-import 'package:dik/theme/settings.dart';
 
 //----------------------------------------------------------------------------//
 

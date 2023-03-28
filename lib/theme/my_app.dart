@@ -14,11 +14,10 @@
    estensioni per rendere magico Flutter */
 
 import 'package:flutter/material.dart';
-import 'package:dik/theme/home_screen.dart';
-import 'package:dik/theme/settings.dart';
-import 'package:dik/theme/profile_editing_screen.dart';
-import 'package:dik/theme/notificattion_page.dart';
-//import 'package:dik/theme/home_screen_2.dart';
+import 'package:dik/Theme/Home Screen/home_screen.dart';
+import 'package:dik/Theme/Home Screen/settings_page.dart';
+import 'package:dik/Theme/Home Screen/profile_editing_page.dart';
+import 'package:dik/Theme/Home Screen/notificattion_page.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -40,8 +39,8 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => const HomeScreen(),
-        '/settings': (context) => const SettingsScreen(),
+        '/': (context) => const MyBottomNavigationBar(),
+        '/settings': (context) => const SettingsPage(),
         '/notifications': (context) => const NotificationScreen(),
         '/edite_profile': (context) => const ProfileEditingScreen(),
       },

@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 //----------------------------------------------------------------------------//
 
-class SettingsScreen extends StatelessWidget {
-  const SettingsScreen({super.key});
+class SearchScreen extends StatelessWidget {
+  const SearchScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +16,6 @@ class SettingsScreen extends StatelessWidget {
       ),
       extendBodyBehindAppBar: true,
       backgroundColor: Colors.black,
-      floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
     );
   }
 }

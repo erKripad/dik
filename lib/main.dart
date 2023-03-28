@@ -1,6 +1,6 @@
-import 'package:dik/theme/my_app.dart';
+import 'package:dik/Theme/my_app.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+Future<void> main() async {
   runApp(const MyApp());
 }
