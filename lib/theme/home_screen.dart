@@ -39,13 +39,8 @@ class _MyStatefulWidgetState extends State<HomeScreen> {
         actions: [
           FloatingActionButton(
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const NotificationScreen()),
-              );
+              Navigator.pushNamed(context, '/notifications');
             },
-            tooltip: 'Notifiche',
             elevation: 3,
             backgroundColor: Colors.transparent,
             child: const Icon(

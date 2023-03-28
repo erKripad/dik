@@ -66,11 +66,7 @@ class ProfileScreen extends StatelessWidget {
                 width: 200,
                 child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const ProfileEditingScreen()),
-                      );
+                      Navigator.pushNamed(context, '/edit_profile');
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white.withOpacity(0.1),
@@ -109,11 +105,7 @@ class ProfileScreen extends StatelessWidget {
                 title: "Settings",
                 icon: LineAwesomeIcons.cog,
                 onPress: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const SettingsScreen()),
-                  );
+                  Navigator.pushNamed(context, '/settings');
                 },
                 textColor: Colors.white,
               ),

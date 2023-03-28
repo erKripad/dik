@@ -15,6 +15,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:dik/theme/home_screen.dart';
+import 'package:dik/theme/settings.dart';
+import 'package:dik/theme/profile_editing_screen.dart';
+import 'package:dik/theme/notificattion_page.dart';
 //import 'package:dik/theme/home_screen_2.dart';
 
 //----------------------------------------------------------------------------//
@@ -35,7 +38,13 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.lightBlue[800],
         fontFamily: "Roboto",
       ),
-      home: const HomeScreen(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const HomeScreen(),
+        '/settings': (context) => const SettingsScreen(),
+        '/notifications': (context) => const NotificationScreen(),
+        '/edite_profile': (context) => const ProfileEditingScreen(),
+      },
     );
   }
 }
