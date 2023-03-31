@@ -14,10 +14,10 @@
    estensioni per rendere magico Flutter */
 
 import 'package:flutter/material.dart';
-import 'package:dik/Theme/Home Screen/home_screen.dart';
 import 'package:dik/Theme/Home Screen/settings_page.dart';
 import 'package:dik/Theme/Home Screen/profile_editing_page.dart';
 import 'package:dik/Theme/Home Screen/notificattion_page.dart';
+import 'package:dik/Theme/Home Screen/bottom_bar.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => const MyBottomNavigationBar(),
         '/settings': (context) => const SettingsPage(),
         '/notifications': (context) => const NotificationScreen(),
-        '/edite_profile': (context) => const ProfileEditingScreen(),
+        '/edit_profile': (context) => const ProfileEditingScreen(),
       },
     );
   }

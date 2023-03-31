@@ -12,7 +12,7 @@ class SearchScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: const Text("Settings"),
+        title: const Text("Search"),
       ),
       extendBodyBehindAppBar: true,
       backgroundColor: Colors.black,

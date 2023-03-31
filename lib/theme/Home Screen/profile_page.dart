@@ -12,13 +12,14 @@ class ProfileScreen extends StatelessWidget {
     //var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark
     var textColour = Colors.white;
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.black54,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         toolbarHeight: 55,
         elevation: 1,
-        backgroundColor: Colors.black,
-        /*title: const Text(
+        backgroundColor: Colors.black54,
+      ),
+      /*title: const Text(
           "Profile",
           style: TextStyle(
             color: Colors.white,
@@ -29,7 +30,7 @@ class ProfileScreen extends StatelessWidget {
               onPressed: () {},
               icon: Icon(isDark ? LineAwesomeIcons.sun : LineAwesomeIcons.moon))
         ],*/
-      ),
+
       body: SingleChildScrollView(
         child: Container(
           /*decoration:const BoxDecoration(

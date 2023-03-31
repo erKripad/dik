@@ -1,12 +1,8 @@
 //----------------------------------------------------------------------------//
 
-import 'package:dik/Theme/Home%20Screen/profile_page.dart';
 import 'package:flutter/material.dart';
-import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:blurrycontainer/blurrycontainer.dart';
-import 'package:dik/Theme/Home Screen/calendar_screen.dart';
-import 'package:dik/Theme/Home Screen/map_screen.dart';
-import 'package:dik/Theme/Home Screen/search_screen.dart';
+import 'package:infinite_scroll/infinite_scroll.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -14,196 +10,100 @@ class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _MyStatefulWidgetState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
 //----------------------------------------------------------------------------//
 
-class _MyStatefulWidgetState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen> {
+  Future<List<String>> getNextPageData(int page) async {
+    await Future.delayed(const Duration(seconds: 2));
+    if (page == 3) return [];
+    final items = List<String>.generate(14, (i) => "Item $i Page $page");
+    return items;
+  }
+
+  List<String> data = [];
+  bool everyThingLoaded = false;
+
+  @override
+  void initState() {
+    super.initState();
+
+    loadInitialData();
+  }
+
+  Future<void> loadInitialData() async {
+    data = await getNextPageData(0);
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.purple.shade300,
       //
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            transform: GradientRotation(4),
-            colors: [
-              Color.fromARGB(255, 140, 15, 161),
-              Colors.deepOrangeAccent,
-            ],
-            begin: Alignment.bottomCenter,
-            end: Alignment.topCenter,
-          ),
-        ),
-        height: double.infinity,
-        width: double.infinity,
-        child: ListView(
-          primary: false,
-          /*crossAxisCount: 1,
-          mainAxisSpacing: 0,
-          crossAxisSpacing: 10,*/
+      body: InfiniteScrollList(
+        physics: const BouncingScrollPhysics(),
+        shrinkWrap: true,
+        children: data.map((e) => const ListItem()).toList(),
+        onLoadingStart: (page) async {
+          List<String> newData = await getNextPageData(page);
+          setState(() {
+            data += newData;
+            if (newData.isEmpty) {
+              everyThingLoaded = true;
+            }
+          });
+        },
+        everythingLoaded: everyThingLoaded,
+      ),
+    );
+  }
+}
+
+//----------------------------------------------------------------------------//
+
+class ListItem extends StatelessWidget {
+  const ListItem({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: BlurryContainer(
+        color: Colors.black.withOpacity(0.7),
+        blur: 8,
+        elevation: 6,
+        height: 450,
+        padding: const EdgeInsets.all(32),
+        child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: BlurryContainer(
-                color: Colors.black.withOpacity(0.7),
-                blur: 8,
-                elevation: 6,
-                height: 240,
-                padding: const EdgeInsets.all(32),
-                child: Column(),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: BlurryContainer(
-                color: Colors.black.withOpacity(0.7),
-                blur: 8,
-                elevation: 6,
-                height: 240,
-                padding: const EdgeInsets.all(32),
-                child: Column(),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: BlurryContainer(
-                color: Colors.black.withOpacity(0.7),
-                blur: 8,
-                elevation: 6,
-                height: 240,
-                padding: const EdgeInsets.all(32),
-                child: Column(),
+            Text("Nome Pub", style: Theme.of(context).textTheme.bodyLarge),
+            const SizedBox(height: 20),
+            SizedBox(
+              height: 349,
+              //width: ,
+              child: Row(
+                children: const [
+                  Expanded(
+                    flex: 5,
+                    child: Image(image: AssetImage("assets/bar.jpg")),
+                  ),
+                  VerticalDivider(
+                    color: Colors.white,
+                  ),
+                  Expanded(child: Text("")),
+                ],
               ),
             ),
           ],
         ),
       ),
-      //
     );
   }
 }
 
 //----------------------------------------------------------------------------//
-
-class MyBottomNavigationBar extends StatefulWidget {
-  const MyBottomNavigationBar({super.key});
-
-  @override
-  State<MyBottomNavigationBar> createState() => _MyBottomNavigationBarState();
-}
-
-class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
-  int currentIndex = 0;
-  final List<Widget> _children = [
-    const HomeScreen(),
-    const SearchScreen(),
-    const MapScreen(),
-    const CalendarScreen(),
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: _children[currentIndex],
-      //
-      //
-      //
-      appBar: AppBar(
-        toolbarHeight: 55,
-        elevation: 50,
-        backgroundColor: Colors.black,
-        title: const Text(
-          "Dik",
-          textAlign: TextAlign.right,
-          style: TextStyle(
-            fontFamily: "Lobster",
-            height: 0.75,
-            fontSize: 30,
-          ),
-        ),
-        actions: [
-          FloatingActionButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/notifications');
-            },
-            elevation: 3,
-            backgroundColor: Colors.transparent,
-            child: const Icon(
-              Icons.notifications_none,
-              color: Colors.white,
-            ),
-          ),
-        ],
-      ),
-      //
-      //
-      //
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.black,
-        selectedItemColor: Colors.white,
-        selectedFontSize: 12,
-        unselectedFontSize: 0,
-        elevation: 50,
-        items: const [
-          BottomNavigationBarItem(
-            label: 'Home',
-            icon: Icon(
-              LineAwesomeIcons.home,
-              color: Colors.white,
-              size: 40,
-            ),
-            backgroundColor: Colors.black,
-          ),
-          BottomNavigationBarItem(
-            label: 'Search',
-            icon: Icon(
-              LineAwesomeIcons.search,
-              color: Colors.white,
-              size: 40,
-            ),
-            backgroundColor: Colors.black,
-          ),
-          BottomNavigationBarItem(
-            label: 'Calendario',
-            icon: Icon(
-              LineAwesomeIcons.calendar_with_week_focus,
-              color: Colors.white,
-              size: 40,
-            ),
-            backgroundColor: Colors.black,
-          ),
-          BottomNavigationBarItem(
-            label: 'Map',
-            icon: Icon(
-              LineAwesomeIcons.map_marked,
-              color: Colors.white,
-              size: 40,
-            ),
-            backgroundColor: Colors.black,
-          ),
-        ],
-        selectedLabelStyle: const TextStyle(
-          color: Colors.white,
-          fontSize: 17,
-          fontWeight: FontWeight.bold,
-        ),
-        //selectedItemColor: Colors.red,
-
-        currentIndex: currentIndex,
-        onTap: (int index) {
-          setState(() {
-            currentIndex = index;
-          });
-        },
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndTop,
-      drawer: const Drawer(
-        backgroundColor: Colors.black,
-        child: ProfileScreen(),
-      ),
-    );
-  }
-}

@@ -26,6 +26,7 @@ dependencies:
   flutter_slider_drawer: ^2.1.3
   infinite_scroll_pagination: ^3.2.0
   line_awesome_flutter: ^2.0.0
+  infinite_scroll: ^1.1.1
 
 #---------------------------------------------------------#
 
@@ -58,6 +59,8 @@ flutter:
 
   assets:
     - assets/papera.jpg
+    - assets/esempio.jpg
+    - assets/bar.jpg
 
   fonts:
   - family: Lobster 
