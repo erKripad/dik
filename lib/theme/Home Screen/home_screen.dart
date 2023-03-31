@@ -17,9 +17,9 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   Future<List<String>> getNextPageData(int page) async {
-    await Future.delayed(const Duration(seconds: 2));
-    if (page == 3) return [];
-    final items = List<String>.generate(14, (i) => "Item $i Page $page");
+    await Future.delayed(const Duration(seconds: 1));
+    //if (page == 3) return [];
+    final items = List<String>.generate(5, (i) => "Item $i Page $page");
     return items;
   }
 
