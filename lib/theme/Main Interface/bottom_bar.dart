@@ -1,10 +1,14 @@
-import 'package:dik/Theme/Home%20Screen/profile_page.dart';
+//----------------------------------------------------------------------------//
+
+import 'package:dik/Theme/Drawer/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import 'package:dik/Theme/Home Screen/calendar_screen.dart';
-import 'package:dik/Theme/Home Screen/map_screen.dart';
-import 'package:dik/Theme/Home Screen/search_screen.dart';
-import 'package:dik/Theme/Home Screen/home_screen.dart';
+import 'package:dik/Theme/Main%20Interface/calendar_screen.dart';
+import 'package:dik/Theme/Main%20Interface/map_screen.dart';
+import 'package:dik/Theme/Main%20Interface/search_screen.dart';
+import 'package:dik/Theme/Main Interface/home_screen.dart';
+
+//----------------------------------------------------------------------------//
 
 class MyBottomNavigationBar extends StatefulWidget {
   const MyBottomNavigationBar({super.key});
@@ -12,6 +16,8 @@ class MyBottomNavigationBar extends StatefulWidget {
   @override
   State<MyBottomNavigationBar> createState() => _MyBottomNavigationBarState();
 }
+
+//----------------------------------------------------------------------------//
 
 class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
   int currentIndex = 0;
@@ -25,40 +31,40 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _children[currentIndex],
-      //
-      //
-      //
-      appBar: AppBar(
-        toolbarHeight: 55,
-        elevation: 50,
-        backgroundColor: Colors.black,
-        title: const Text(
-          "Dik",
-          textAlign: TextAlign.right,
-          style: TextStyle(
-            fontFamily: "Lobster",
-            height: 0.75,
-            fontSize: 30,
-          ),
-        ),
-        actions: [
-          FloatingActionButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/notifications');
-            },
-            elevation: 3,
-            backgroundColor: Colors.transparent,
-            child: const Icon(
-              Icons.notifications_none,
-              color: Colors.white,
+      body: NestedScrollView(
+        floatHeaderSlivers: true,
+        headerSliverBuilder: (context, innerBoxIsScrolled) => [
+          SliverAppBar(
+            floating: true,
+            toolbarHeight: 55,
+            elevation: 50,
+            backgroundColor: Colors.black,
+            title: const Text(
+              "Dik",
+              textAlign: TextAlign.right,
+              style: TextStyle(
+                fontFamily: "Lobster",
+                height: 0.75,
+                fontSize: 30,
+              ),
             ),
+            actions: [
+              FloatingActionButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/notifications');
+                },
+                elevation: 3,
+                backgroundColor: Colors.transparent,
+                child: const Icon(
+                  Icons.notifications_none,
+                  color: Colors.white,
+                ),
+              ),
+            ],
           ),
         ],
+        body: _children[currentIndex],
       ),
-      //
-      //
-      //
       bottomNavigationBar: BottomNavigationBar(
         iconSize: 35,
         selectedIconTheme: const IconThemeData(
@@ -77,28 +83,24 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
             icon: Icon(
               LineAwesomeIcons.home,
             ),
-            backgroundColor: Colors.black,
           ),
           BottomNavigationBarItem(
             label: 'Search',
             icon: Icon(
               LineAwesomeIcons.search,
             ),
-            backgroundColor: Colors.black,
           ),
           BottomNavigationBarItem(
             label: 'Calendario',
             icon: Icon(
               LineAwesomeIcons.calendar_with_week_focus,
             ),
-            backgroundColor: Colors.black,
           ),
           BottomNavigationBarItem(
             label: 'Map',
             icon: Icon(
               LineAwesomeIcons.map_marked,
             ),
-            backgroundColor: Colors.black,
           ),
         ],
         selectedLabelStyle: const TextStyle(
@@ -122,3 +124,5 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
     );
   }
 }
+
+//----------------------------------------------------------------------------//

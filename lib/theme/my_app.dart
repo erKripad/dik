@@ -14,10 +14,10 @@
    estensioni per rendere magico Flutter */
 
 import 'package:flutter/material.dart';
-import 'package:dik/Theme/Home Screen/settings_page.dart';
-import 'package:dik/Theme/Home Screen/profile_editing_page.dart';
-import 'package:dik/Theme/Home Screen/notificattion_page.dart';
-import 'package:dik/Theme/Home Screen/bottom_bar.dart';
+import 'package:dik/Theme/Drawer/settings_page.dart';
+import 'package:dik/Theme/Drawer/profile_editing_page.dart';
+import 'package:dik/Theme/Main%20Interface/notifications_page.dart';
+import 'package:dik/Theme/Main%20Interface/bottom_bar.dart';
 
 //----------------------------------------------------------------------------//
 
