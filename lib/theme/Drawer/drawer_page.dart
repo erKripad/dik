@@ -5,19 +5,19 @@ import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 //----------------------------------------------------------------------------//
 
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
+class DrawerPage extends StatelessWidget {
+  const DrawerPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     //var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark
     var textColour = Colors.white;
     return Scaffold(
-      backgroundColor: Colors.black54,
+      backgroundColor: const Color.fromARGB(1, 25, 24, 28),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         toolbarHeight: 55,
-        elevation: 1,
-        backgroundColor: Colors.black54,
+        elevation: 0,
+        backgroundColor: Colors.transparent,
       ),
       /*title: const Text(
           "Profile",
@@ -65,6 +65,7 @@ class ProfileScreen extends StatelessWidget {
                 width: 200,
                 child: ElevatedButton(
                     onPressed: () {
+                      Navigator.pop(context);
                       Navigator.pushNamed(context, '/edit_profile');
                     },
                     style: ElevatedButton.styleFrom(
@@ -85,25 +86,32 @@ class ProfileScreen extends StatelessWidget {
               ProfileMenuWidget(
                 title: "Tickets",
                 icon: LineAwesomeIcons.alternate_ticket,
-                onPress: () {},
+                onPress: () {
+                  Navigator.pop(context);
+                },
                 textColor: Colors.white,
               ),
               ProfileMenuWidget(
                 title: "Favorites",
                 icon: LineAwesomeIcons.heart,
-                onPress: () {},
+                onPress: () {
+                  Navigator.pop(context);
+                },
                 textColor: Colors.white,
               ),
               ProfileMenuWidget(
                 title: "Cart",
                 icon: Icons.abc,
-                onPress: () {},
+                onPress: () {
+                  Navigator.pop(context);
+                },
                 textColor: Colors.white,
               ),
               ProfileMenuWidget(
                 title: "Settings",
                 icon: LineAwesomeIcons.cog,
                 onPress: () {
+                  Navigator.pop(context);
                   Navigator.pushNamed(context, '/settings');
                 },
                 textColor: Colors.white,
@@ -117,14 +125,18 @@ class ProfileScreen extends StatelessWidget {
               ProfileMenuWidget(
                 title: "Infopoint",
                 icon: LineAwesomeIcons.info,
-                onPress: () {},
+                onPress: () {
+                  Navigator.pop(context);
+                },
                 textColor: Colors.white,
               ),
               ProfileMenuWidget(
                 title: "Logout",
                 icon: LineAwesomeIcons.alternate_sign_out,
                 endIcon: false,
-                onPress: () {},
+                onPress: () {
+                  Navigator.pop(context);
+                },
                 textColor: Colors.red,
               ),
             ],

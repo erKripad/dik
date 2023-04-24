@@ -39,16 +39,7 @@ dev_dependencies:
 
   flutter_lints: ^2.0.0
 
-# guarda qui per saperne di più https://dart.dev/tools/pub/pubspec
-
-#---------------------------------------------------------#
-
-# setta il percorso dell'icona, per ora funziona solo per ios perchè android è da sistemare
-
-flutter_icons:
-  ios: true
-  android: true
-  image_path: "assets/Icona palla da discoteca-02.png"
+# guarda qui per saperne di più https://dart.dev/tools/pub/pubspecß
 
 #---------------------------------------------------------#
 
@@ -59,6 +50,7 @@ flutter:
 
   assets:
     - assets/papera.jpg
+    - assets/immagine di profilo.jpg
     - assets/esempio.jpg
     - assets/bar.jpg
 
@@ -66,6 +58,12 @@ flutter:
   - family: Lobster 
     fonts:
     - asset: assets/google_fonts/Lobster-Regular.ttf
+  - family: Gelion Bold
+    fonts:
+    - asset: assets/fonts/Gelion Bold.ttf
+  - family: Gelion Medium
+    fonts:
+    - asset: assets/fonts/Gelion Medium.ttf
 
   # questa linea inserisce il design di alcune classi di Icone come il "+" della versione base 
   uses-material-design: true

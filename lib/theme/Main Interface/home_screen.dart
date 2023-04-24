@@ -18,7 +18,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   Future<List<String>> getNextPageData(int page) async {
     await Future.delayed(const Duration(seconds: 1));
-    //if (page == 3) return [];
     final items = List<String>.generate(5, (i) => "Item $i Page $page");
     return items;
   }
@@ -41,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.purple.shade300,
+      backgroundColor: const Color.fromARGB(255, 25, 24, 28),
       //
       body: InfiniteScrollList(
         physics: const BouncingScrollPhysics(),
@@ -72,76 +71,65 @@ class ListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10.0),
+      padding: EdgeInsets.all(12.0),
       child: BlurryContainer(
-        color: Colors.black.withOpacity(0.8),
+        color: Color.fromARGB(255, 53, 53, 53),
         blur: 8,
         elevation: 6,
-        height: 200,
-        padding: const EdgeInsets.all(0),
-        child: Row(
-          children: [
-            const Image(image: AssetImage("assets/bar.jpg")),
-            const SizedBox(
-              width: 20,
-            ),
-            Column(
-              children: [
-                const SizedBox(
-                  height: 20,
+        width: 00,
+        height: 480,
+        padding: EdgeInsets.all(15.0),
+        child: Padding(
+          padding: EdgeInsets.all(15.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 350,
+                width: 350,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(30),
+                  child: const Image(image: AssetImage("assets/papera.jpg")),
                 ),
-                Row(
-                  children: [
-                    const SizedBox(
-                      height: 20,
-                      width: 140,
-                      child: Text(
-                        "Evento",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          fontFamily: "Prompt",
-                        ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                "Caccia alle Papere",
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  fontFamily: "Gelion Bold",
+                  fontSize: 25,
+                  color: const Color.fromARGB(255, 165, 126, 255),
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                children: [
+                  RichText(
+                      text: TextSpan(children: [
+                    WidgetSpan(
+                      child: Icon(
+                        Icons.place,
+                        size: 15,
                       ),
                     ),
-                    SizedBox(
-                      height: 30,
-                      width: 50,
-                      child: Column(
-                        children: const [
-                          SizedBox(
-                            height: 15,
-                            width: 50,
-                            child: Text(
-                              "20",
-                              textAlign: TextAlign.right,
-                              style:
-                                  TextStyle(fontFamily: "Prompt", fontSize: 12),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 15,
-                            width: 50,
-                            child: Text(
-                              "Jan",
-                              textAlign: TextAlign.right,
-                              style:
-                                  TextStyle(fontFamily: "Prompt", fontSize: 10),
-                            ),
-                          ),
-                        ],
+                    TextSpan(
+                      text: "Catanzaro",
+                      style: TextStyle(
+                        fontFamily: "Gelion Medium",
+                        fontSize: 15,
+                        color: Colors.white,
                       ),
                     ),
-                  ],
-                ),
-                const Divider(color: Colors.white),
-                const SizedBox(
-                  height: 20,
-                  child: Text("ciao"),
-                ),
-                const SizedBox(),
-              ],
-            ),
-          ],
+                  ]))
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
