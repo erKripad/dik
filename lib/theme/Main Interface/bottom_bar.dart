@@ -1,6 +1,5 @@
 //----------------------------------------------------------------------------//
 
-import 'package:dik/Theme/Drawer/drawer_page.dart';
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:dik/Theme/Main%20Interface/calendar_screen.dart';
@@ -8,6 +7,7 @@ import 'package:dik/Theme/Main%20Interface/map_screen.dart';
 import 'package:dik/Theme/Main%20Interface/search_screen.dart';
 import 'package:dik/Theme/Main Interface/home_screen.dart';
 import 'package:dik/Theme/Main Interface/saved_screen.dart';
+import 'package:dik/Theme/colors.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -22,8 +22,6 @@ class MyBottomNavigationBar extends StatefulWidget {
 
 class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
   int currentIndex = 0;
-  var background_color = const Color.fromARGB(255, 25, 24, 28);
-  var color_purple = const Color.fromARGB(255, 165, 126, 255);
   final List<Widget> _children = [
     const HomeScreen(),
     const SearchScreen(),
@@ -33,10 +31,10 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
   ];
   final List<String> title = [
     "Eventi",
-    "SearchPage",
-    "Saved",
-    "Map",
-    "Calendar",
+    "Cerca",
+    "Salvati",
+    "Mappe",
+    "Calendario",
   ];
 
   @override
@@ -47,20 +45,27 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
         centerTitle: false,
         toolbarHeight: 55,
         elevation: 0,
-        backgroundColor: background_color,
+        backgroundColor: primaryBackgroundColour,
         bottomOpacity: 1,
-        title: Text(
-          title[currentIndex],
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontFamily: "Gelion Bold",
-            fontSize: 30,
-            color: Colors.white,
-          ),
+        title: Row(
+          children: [
+            const SizedBox(
+              width: 10,
+            ),
+            Text(
+              title[currentIndex],
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontFamily: "Gelion Bold",
+                fontSize: 30,
+                color: textColour,
+              ),
+            ),
+          ],
         ),
         actions: [
           Padding(
-            padding: const EdgeInsets.all(7.0),
+            padding: const EdgeInsets.all(0.0),
             child: Row(children: [
               FloatingActionButton(
                 onPressed: () {
@@ -68,10 +73,10 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
                 },
                 elevation: 0,
                 backgroundColor: Colors.transparent,
-                child: const Icon(
-                  Icons.notifications_none,
+                child: Icon(
+                  LineAwesomeIcons.bell,
                   size: 35,
-                  color: Colors.white,
+                  color: iconColour,
                 ),
               ),
               FloatingActionButton(
@@ -90,6 +95,9 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
                   ),
                 ),
               ),
+              const SizedBox(
+                width: 10,
+              )
             ]),
           ),
         ],
@@ -97,12 +105,12 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
       body: _children[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         iconSize: 35,
-        selectedIconTheme: const IconThemeData(
-          color: Colors.white,
+        selectedIconTheme: IconThemeData(
+          color: iconColour,
           size: 38,
         ),
         type: BottomNavigationBarType.fixed,
-        backgroundColor: const Color.fromARGB(255, 25, 24, 28),
+        backgroundColor: primaryBackgroundColour,
         //selectedItemColor: Colors.white,
         selectedFontSize: 0,
         unselectedFontSize: 0,
@@ -123,9 +131,9 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
             ),
           ),
           BottomNavigationBarItem(
-            label: 'BookMark',
+            label: 'Favorites',
             icon: Icon(
-              LineAwesomeIcons.bookmark,
+              LineAwesomeIcons.heart,
               size: 35,
             ),
           ),
@@ -144,8 +152,8 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
             ),
           ),
         ],
-        selectedLabelStyle: const TextStyle(
-          color: Colors.white,
+        selectedLabelStyle: TextStyle(
+          color: textColour,
           fontWeight: FontWeight.bold,
         ),
         //selectedItemColor: Colors.red,

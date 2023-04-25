@@ -2,22 +2,23 @@
 
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
+import 'package:dik/Theme/colors.dart';
 
 //----------------------------------------------------------------------------//
 
-class DrawerPage extends StatelessWidget {
-  const DrawerPage({Key? key}) : super(key: key);
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     //var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark
-    var textColour = Colors.white;
     return Scaffold(
-      backgroundColor: const Color.fromARGB(1, 25, 24, 28),
+      backgroundColor: primaryBackgroundColour,
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        automaticallyImplyLeading: true,
         toolbarHeight: 55,
         elevation: 0,
-        backgroundColor: Colors.transparent,
+        backgroundColor: primaryBackgroundColour,
       ),
       /*title: const Text(
           "Profile",
@@ -33,111 +34,111 @@ class DrawerPage extends StatelessWidget {
 
       body: SingleChildScrollView(
         child: Container(
-          /*decoration:const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Colors.black,
-                Color.fromARGB(255, 140, 15, 161),
-              ],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
-          ),*/
           padding: const EdgeInsets.all(20.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
                 width: 120,
                 height: 120,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(100),
-                  child: const Image(image: AssetImage("assets/papera.jpg")),
+                  child: const Image(
+                      image: AssetImage("assets/immagine di profilo.jpg")),
                 ),
               ),
               const SizedBox(height: 10),
-              Text("erKripad", style: Theme.of(context).textTheme.bodyLarge),
               Text(
-                "erKripad@palle.com",
-                style: TextStyle(color: textColour),
+                "erKripad",
+                style: TextStyle(
+                  fontFamily: "Gelion Bold",
+                  fontSize: 25,
+                  color: textColour,
+                ),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                "crippa@palle.com",
+                style: TextStyle(
+                  fontFamily: "Gelion Medium",
+                  fontSize: 16,
+                  color: textColour,
+                ),
               ),
               const SizedBox(height: 20),
               SizedBox(
                 width: 200,
                 child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pop(context);
                       Navigator.pushNamed(context, '/edit_profile');
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white.withOpacity(0.1),
+                      backgroundColor: primaryPurple,
                       side: BorderSide.none,
                       shape: const StadiumBorder(),
                     ),
-                    child: const Text(
+                    child: Text(
                       "Edit Profile",
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: primaryBackgroundColour),
                     )),
               ),
-              const SizedBox(height: 30),
-              const Divider(color: Colors.white),
-              const SizedBox(height: 10),
+              const SizedBox(height: 40),
 
               //Menu
               ProfileMenuWidget(
                 title: "Tickets",
                 icon: LineAwesomeIcons.alternate_ticket,
-                onPress: () {
-                  Navigator.pop(context);
-                },
-                textColor: Colors.white,
+                onPress: () {},
+                textColor: textColour,
               ),
+              const SizedBox(height: 8),
               ProfileMenuWidget(
-                title: "Favorites",
-                icon: LineAwesomeIcons.heart,
-                onPress: () {
-                  Navigator.pop(context);
-                },
-                textColor: Colors.white,
+                title: "Carrello",
+                icon: Icons.shopping_cart_outlined,
+                onPress: () {},
+                textColor: textColour,
               ),
+              const SizedBox(height: 8),
               ProfileMenuWidget(
-                title: "Cart",
-                icon: Icons.abc,
-                onPress: () {
-                  Navigator.pop(context);
-                },
-                textColor: Colors.white,
-              ),
-              ProfileMenuWidget(
-                title: "Settings",
+                title: "Impostazioni",
                 icon: LineAwesomeIcons.cog,
                 onPress: () {
                   Navigator.pop(context);
                   Navigator.pushNamed(context, '/settings');
                 },
-                textColor: Colors.white,
+                textColor: textColour,
               ),
-              const Divider(
-                color: Colors.white,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
+              const SizedBox(height: 8),
               ProfileMenuWidget(
-                title: "Infopoint",
+                title: "Privacy",
+                icon: LineAwesomeIcons.lock,
+                onPress: () {
+                  Navigator.pop(context);
+                },
+                textColor: textColour,
+              ),
+              const SizedBox(height: 8),
+              ProfileMenuWidget(
+                title: "Sicurezza",
+                icon: LineAwesomeIcons.check_circle,
+                onPress: () {
+                  Navigator.pop(context);
+                },
+                textColor: textColour,
+              ),
+              const SizedBox(height: 8),
+              ProfileMenuWidget(
+                title: "Informazioni",
                 icon: LineAwesomeIcons.info,
-                onPress: () {
-                  Navigator.pop(context);
-                },
-                textColor: Colors.white,
+                onPress: () {},
+                textColor: textColour,
               ),
+              const SizedBox(height: 8),
               ProfileMenuWidget(
-                title: "Logout",
+                title: "Esci",
                 icon: LineAwesomeIcons.alternate_sign_out,
-                endIcon: false,
-                onPress: () {
-                  Navigator.pop(context);
-                },
-                textColor: Colors.red,
+                onPress: () {},
+                textColor: textColour,
               ),
             ],
           ),
@@ -174,34 +175,36 @@ class ProfileMenuWidget extends StatelessWidget {
         height: 40,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(100),
-          color: Colors.black.withOpacity(0.1),
+          color: const Color.fromARGB(255, 25, 24, 28),
         ),
         child: Container(
           width: 30,
           height: 30,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(100),
-            color: Colors.white.withOpacity(0.1),
+            color: primaryObjColour,
           ),
           child: Icon(icon, color: textColor),
         ),
       ),
-      title: Text(
-        title,
-        style: Theme.of(context).textTheme.bodyMedium?.apply(color: textColor),
-      ),
+      title: Text(title,
+          style: TextStyle(
+            fontFamily: "Gelion Medium",
+            fontSize: 18,
+            color: textColor,
+          )),
       trailing: endIcon
           ? Container(
               width: 30,
               height: 30,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(100),
-                color: Colors.white.withOpacity(0.1),
+                color: primaryObjColour,
               ),
-              child: const Icon(
+              child: Icon(
                 LineAwesomeIcons.angle_right,
                 size: 18,
-                color: Colors.white,
+                color: iconColour,
               ),
             )
           : null,

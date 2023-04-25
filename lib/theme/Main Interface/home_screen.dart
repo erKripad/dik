@@ -71,16 +71,16 @@ class ListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(12.0),
+      padding: const EdgeInsets.all(15.0),
       child: BlurryContainer(
-        color: Color.fromARGB(255, 53, 53, 53),
+        color: const Color.fromARGB(255, 33, 32, 35),
         blur: 8,
         elevation: 6,
         width: 00,
         height: 480,
-        padding: EdgeInsets.all(15.0),
+        padding: const EdgeInsets.all(15.0),
         child: Padding(
-          padding: EdgeInsets.all(15.0),
+          padding: const EdgeInsets.all(12.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -92,36 +92,36 @@ class ListItem extends StatelessWidget {
                   child: const Image(image: AssetImage("assets/papera.jpg")),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Text(
+              const Text(
                 "Caccia alle Papere",
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   fontFamily: "Gelion Bold",
                   fontSize: 25,
-                  color: const Color.fromARGB(255, 165, 126, 255),
+                  color: Color.fromARGB(255, 165, 126, 255),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Row(
                 children: [
                   RichText(
-                      text: TextSpan(children: [
+                      text: const TextSpan(children: [
                     WidgetSpan(
                       child: Icon(
                         Icons.place,
-                        size: 15,
+                        size: 18,
                       ),
                     ),
                     TextSpan(
                       text: "Catanzaro",
                       style: TextStyle(
                         fontFamily: "Gelion Medium",
-                        fontSize: 15,
+                        fontSize: 18,
                         color: Colors.white,
                       ),
                     ),
