@@ -1,6 +1,7 @@
 //----------------------------------------------------------------------------//
 
 import 'package:flutter/material.dart';
+import 'package:dik/Theme/colors.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -12,10 +13,18 @@ class SavedScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: const Text("Saved"),
+        title: Text(
+          "3",
+          style: TextStyle(
+            fontFamily: "Gelion Bold",
+            fontSize: 25,
+            color: textColour,
+          ),
+        ),
       ),
       extendBodyBehindAppBar: true,
-      backgroundColor: Colors.black,
+      backgroundColor: primaryBackgroundColour,
+      floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
     );
   }
 }

@@ -88,14 +88,18 @@ class ProfilePage extends StatelessWidget {
               ProfileMenuWidget(
                 title: "Tickets",
                 icon: LineAwesomeIcons.alternate_ticket,
-                onPress: () {},
+                onPress: () {
+                  Navigator.pushNamed(context, '/tickets');
+                },
                 textColor: textColour,
               ),
               const SizedBox(height: 8),
               ProfileMenuWidget(
                 title: "Carrello",
                 icon: Icons.shopping_cart_outlined,
-                onPress: () {},
+                onPress: () {
+                  Navigator.pushNamed(context, '/cart');
+                },
                 textColor: textColour,
               ),
               const SizedBox(height: 8),
@@ -103,7 +107,6 @@ class ProfilePage extends StatelessWidget {
                 title: "Impostazioni",
                 icon: LineAwesomeIcons.cog,
                 onPress: () {
-                  Navigator.pop(context);
                   Navigator.pushNamed(context, '/settings');
                 },
                 textColor: textColour,
@@ -113,7 +116,7 @@ class ProfilePage extends StatelessWidget {
                 title: "Privacy",
                 icon: LineAwesomeIcons.lock,
                 onPress: () {
-                  Navigator.pop(context);
+                  Navigator.pushNamed(context, '/privacy');
                 },
                 textColor: textColour,
               ),
@@ -121,16 +124,16 @@ class ProfilePage extends StatelessWidget {
               ProfileMenuWidget(
                 title: "Sicurezza",
                 icon: LineAwesomeIcons.check_circle,
-                onPress: () {
-                  Navigator.pop(context);
-                },
+                onPress: () {},
                 textColor: textColour,
               ),
               const SizedBox(height: 8),
               ProfileMenuWidget(
                 title: "Informazioni",
                 icon: LineAwesomeIcons.info,
-                onPress: () {},
+                onPress: () {
+                  Navigator.pushNamed(context, '/info');
+                },
                 textColor: textColour,
               ),
               const SizedBox(height: 8),

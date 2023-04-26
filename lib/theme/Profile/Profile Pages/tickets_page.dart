@@ -5,8 +5,8 @@ import 'package:dik/Theme/colors.dart';
 
 //----------------------------------------------------------------------------//
 
-class SearchScreen extends StatelessWidget {
-  const SearchScreen({super.key});
+class TicketsPage extends StatelessWidget {
+  const TicketsPage({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +14,7 @@ class SearchScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: Text(
-          "2",
+          "Tickets",
           style: TextStyle(
             fontFamily: "Gelion Bold",
             fontSize: 25,

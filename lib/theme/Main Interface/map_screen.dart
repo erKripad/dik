@@ -1,6 +1,7 @@
 //----------------------------------------------------------------------------//
 
 import 'package:flutter/material.dart';
+import 'package:dik/Theme/colors.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -12,10 +13,18 @@ class MapScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: const Text("Map"),
+        title: Text(
+          "4",
+          style: TextStyle(
+            fontFamily: "Gelion Bold",
+            fontSize: 25,
+            color: textColour,
+          ),
+        ),
       ),
       extendBodyBehindAppBar: true,
-      backgroundColor: Colors.black,
+      backgroundColor: primaryBackgroundColour,
+      floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
     );
   }
 }

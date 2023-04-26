@@ -13,12 +13,16 @@
 /* in questa sezione vengono importati tutti i pacchetti di Dart cioè le 
    estensioni per rendere magico Flutter */
 
-import 'package:dik/Theme/Drawer/profile_page.dart';
+import 'package:dik/Theme/Profile/profile_page.dart';
 import 'package:flutter/material.dart';
-import 'package:dik/Theme/Drawer/settings_page.dart';
-import 'package:dik/Theme/Drawer/profile_editing_page.dart';
+import 'package:dik/Theme/Profile/Profile%20Pages/settings_page.dart';
+import 'package:dik/Theme/Profile/profile_editing_page.dart';
 import 'package:dik/Theme/Main%20Interface/notifications_page.dart';
 import 'package:dik/Theme/Main%20Interface/bottom_bar.dart';
+import 'package:dik/Theme/Profile/Profile%20Pages/cart_page.dart';
+import 'package:dik/Theme/Profile/Profile%20Pages/info_page.dart';
+import 'package:dik/Theme/Profile/Profile%20Pages/privacy_page.dart';
+import 'package:dik/Theme/Profile/Profile%20Pages/tickets_page.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -45,6 +49,10 @@ class MyApp extends StatelessWidget {
         '/notifications': (context) => const NotificationScreen(),
         '/edit_profile': (context) => const ProfileEditingScreen(),
         '/profile': (context) => const ProfilePage(),
+        '/cart': (context) => const CartPage(),
+        '/privacy': (context) => const PrivacyPage(),
+        '/info': (context) => const InfoPage(),
+        '/tickets': (context) => const TicketsPage(),
       },
     );
   }
