@@ -103,67 +103,73 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
         ],
       ),
       body: _children[currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        iconSize: 35,
-        selectedIconTheme: IconThemeData(
-          color: iconColour,
-          size: 38,
-        ),
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: primaryBackgroundColour,
-        //selectedItemColor: Colors.white,
-        selectedFontSize: 0,
-        unselectedFontSize: 0,
-        elevation: 50,
-        items: const [
-          BottomNavigationBarItem(
-            label: 'Home',
-            icon: Icon(
-              LineAwesomeIcons.home,
-              size: 35,
+      bottomNavigationBar: Container(
+        padding: EdgeInsets.all(0),
+        child: SizedBox(
+          height: 80,
+          child: BottomNavigationBar(
+            iconSize: 35,
+            selectedIconTheme: IconThemeData(
+              color: iconColour,
+              size: 38,
             ),
-          ),
-          BottomNavigationBarItem(
-            label: 'Search',
-            icon: Icon(
-              LineAwesomeIcons.search,
-              size: 35,
+            type: BottomNavigationBarType.fixed,
+            backgroundColor: primaryBackgroundColour,
+            //selectedItemColor: Colors.white,
+            selectedFontSize: 0,
+            unselectedFontSize: 0,
+            elevation: 50,
+            items: const [
+              BottomNavigationBarItem(
+                label: 'Home',
+                icon: Icon(
+                  LineAwesomeIcons.home,
+                  size: 35,
+                ),
+              ),
+              BottomNavigationBarItem(
+                label: 'Search',
+                icon: Icon(
+                  LineAwesomeIcons.search,
+                  size: 35,
+                ),
+              ),
+              BottomNavigationBarItem(
+                label: 'Favorites',
+                icon: Icon(
+                  LineAwesomeIcons.heart,
+                  size: 35,
+                ),
+              ),
+              BottomNavigationBarItem(
+                label: 'Map',
+                icon: Icon(
+                  LineAwesomeIcons.map_marked,
+                  size: 35,
+                ),
+              ),
+              BottomNavigationBarItem(
+                label: 'Calendario',
+                icon: Icon(
+                  LineAwesomeIcons.calendar_with_week_focus,
+                  size: 35,
+                ),
+              ),
+            ],
+            selectedLabelStyle: TextStyle(
+              color: textColour,
+              fontWeight: FontWeight.bold,
             ),
-          ),
-          BottomNavigationBarItem(
-            label: 'Favorites',
-            icon: Icon(
-              LineAwesomeIcons.heart,
-              size: 35,
-            ),
-          ),
-          BottomNavigationBarItem(
-            label: 'Map',
-            icon: Icon(
-              LineAwesomeIcons.map_marked,
-              size: 35,
-            ),
-          ),
-          BottomNavigationBarItem(
-            label: 'Calendario',
-            icon: Icon(
-              LineAwesomeIcons.calendar_with_week_focus,
-              size: 35,
-            ),
-          ),
-        ],
-        selectedLabelStyle: TextStyle(
-          color: textColour,
-          fontWeight: FontWeight.bold,
-        ),
-        //selectedItemColor: Colors.red,
+            //selectedItemColor: Colors.red,
 
-        currentIndex: currentIndex,
-        onTap: (int index) {
-          setState(() {
-            currentIndex = index;
-          });
-        },
+            currentIndex: currentIndex,
+            onTap: (int index) {
+              setState(() {
+                currentIndex = index;
+              });
+            },
+          ),
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.miniEndTop,
     );

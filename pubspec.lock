@@ -113,6 +113,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.5"
+  endless:
+    dependency: transitive
+    description:
+      name: endless
+      sha256: "2016ce4df3cb44ac8ea505207b8954f46a3400ce8ba8026a914607499cae3bb2"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.6.3"
   fake_async:
     dependency: transitive
     description:
@@ -283,6 +291,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.8.0"
+  paginated_search_bar:
+    dependency: "direct main"
+    description:
+      name: paginated_search_bar
+      sha256: "61ad88426b55586e688b7f650a57f560b04ea8f89fd57fbb52aafa62b007dd97"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.2"
   path:
     dependency: transitive
     description:
@@ -379,6 +395,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.2.4"
+  rxdart:
+    dependency: transitive
+    description:
+      name: rxdart
+      sha256: "0c7c0cedd93788d996e33041ffecda924cc54389199cde4e6a34b440f50044cb"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.27.7"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -408,6 +432,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.11.0"
+  state_property:
+    dependency: transitive
+    description:
+      name: state_property
+      sha256: "9762a86f4f0c30c264734069cc10899a211ab4869a392289ac4eddb8f3dbf6dc"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.1"
   stream_channel:
     dependency: transitive
     description:

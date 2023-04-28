@@ -27,6 +27,7 @@ dependencies:
   infinite_scroll_pagination: ^3.2.0
   line_awesome_flutter: ^2.0.0
   infinite_scroll: ^1.1.1
+  paginated_search_bar: ^1.1.2
 
 #---------------------------------------------------------#
 

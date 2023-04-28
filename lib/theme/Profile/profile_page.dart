@@ -78,7 +78,7 @@ class ProfilePage extends StatelessWidget {
                       shape: const StadiumBorder(),
                     ),
                     child: Text(
-                      "Edit Profile",
+                      "Modifica Profilo",
                       style: TextStyle(color: primaryBackgroundColour),
                     )),
               ),

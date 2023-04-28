@@ -1,6 +1,7 @@
 //----------------------------------------------------------------------------//
 
 import 'package:flutter/material.dart';
+import 'package:dik/Theme/colors.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -12,10 +13,17 @@ class ProfileEditingScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: const Text("Profile Editing"),
+        title: Text(
+          "Modifica Profilo",
+          style: TextStyle(
+            fontFamily: "Gelion Bold",
+            fontSize: 25,
+            color: textColour,
+          ),
+        ),
       ),
       extendBodyBehindAppBar: true,
-      backgroundColor: Colors.black,
+      backgroundColor: primaryBackgroundColour,
       floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
     );
   }
