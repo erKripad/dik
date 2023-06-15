@@ -1,8 +1,11 @@
 //----------------------------------------------------------------------------//
 
 import 'package:flutter/material.dart';
-import 'package:blurrycontainer/blurrycontainer.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:animations/animations.dart';
+//import 'package:blurrycontainer/blurrycontainer.dart';
 import 'package:infinite_scroll/infinite_scroll.dart';
+import 'package:dik/Theme/colors.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -40,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 25, 24, 28),
+      backgroundColor: primaryBackgroundColour,
       //
       body: InfiniteScrollList(
         physics: const BouncingScrollPhysics(),
@@ -72,15 +75,22 @@ class ListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(15.0),
-      child: BlurryContainer(
-        color: const Color.fromARGB(255, 33, 32, 35),
-        blur: 8,
-        elevation: 6,
+      child: Container(
+        //blur: 8,
+        //elevation: 6,
+        decoration: BoxDecoration(
+          color: primaryPurple,
+          /*border: Border.all(
+            color: Colors.black,
+            width: 1,
+          ),*/
+          borderRadius: const BorderRadius.all(Radius.circular(30)),
+        ),
         width: 00,
         height: 480,
         padding: const EdgeInsets.all(15.0),
-        child: Padding(
-          padding: const EdgeInsets.all(12.0),
+        child: const Padding(
+          padding: EdgeInsets.all(8.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -88,14 +98,15 @@ class ListItem extends StatelessWidget {
                 height: 350,
                 width: 350,
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(30),
-                  child: const Image(image: AssetImage("assets/papera.jpg")),
+                  borderRadius: BorderRadius.all(Radius.circular(30)),
+                  child: Image(
+                      image: AssetImage("assets/papera.jpg"), fit: BoxFit.fill),
                 ),
               ),
-              const SizedBox(
+              SizedBox(
                 height: 10,
               ),
-              const Text(
+              Text(
                 "Caccia alle Papere",
                 textAlign: TextAlign.left,
                 style: TextStyle(
@@ -104,10 +115,10 @@ class ListItem extends StatelessWidget {
                   color: Color.fromARGB(255, 165, 126, 255),
                 ),
               ),
-              const SizedBox(
+              SizedBox(
                 height: 10,
               ),
-              Row(
+              /*Row(
                 children: [
                   RichText(
                       text: const TextSpan(children: [
@@ -127,7 +138,7 @@ class ListItem extends StatelessWidget {
                     ),
                   ]))
                 ],
-              )
+              )*/
             ],
           ),
         ),

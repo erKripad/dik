@@ -43,8 +43,8 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
       extendBody: true,
       appBar: AppBar(
         centerTitle: false,
-        toolbarHeight: 55,
-        elevation: 0,
+        toolbarHeight: 70,
+        elevation: 3,
         backgroundColor: primaryBackgroundColour,
         bottomOpacity: 1,
         title: Row(
@@ -91,7 +91,9 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(100),
                     child: const Image(
-                        image: AssetImage("assets/immagine di profilo.jpg")),
+                      image: AssetImage("assets/immagine di profilo.jpg"),
+                      fit: BoxFit.fill,
+                    ),
                   ),
                 ),
               ),
@@ -104,9 +106,9 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
       ),
       body: _children[currentIndex],
       bottomNavigationBar: Container(
-        padding: EdgeInsets.all(0),
+        padding: const EdgeInsets.all(0),
         child: SizedBox(
-          height: 80,
+          height: 70,
           child: BottomNavigationBar(
             iconSize: 35,
             selectedIconTheme: IconThemeData(
@@ -118,7 +120,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
             //selectedItemColor: Colors.white,
             selectedFontSize: 0,
             unselectedFontSize: 0,
-            elevation: 50,
+            elevation: 3,
             items: const [
               BottomNavigationBarItem(
                 label: 'Home',

@@ -1,6 +1,6 @@
 //----------------------------------------------------------------------------//
 
-import 'package:dik/Theme/Main%20Interface/home_screen.dart';
+//import 'package:dik/Theme/Main%20Interface/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:dik/Theme/colors.dart';
 import 'package:paginated_search_bar/paginated_search_bar.dart';
@@ -55,7 +55,7 @@ class SearchScreen extends StatelessWidget {
               width: 600,
               child: PaginatedSearchBar(
                 containerDecoration: BoxDecoration(
-                  color: Color.fromARGB(255, 53, 53, 53),
+                  color: primaryObjColour,
                   borderRadius: BorderRadius.circular(20),
                 ),
                 inputStyle: TextStyle(
