@@ -41,12 +41,18 @@ class ProfilePage extends StatelessWidget {
               SizedBox(
                 width: 120,
                 height: 120,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(100),
-                  child: const Image(
-                      image: AssetImage("assets/immagine di profilo.jpg")),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/edit_profile_picture');
+                  },
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(100),
+                    child: const Image(
+                        image: AssetImage("assets/immagine di profilo.jpg")),
+                  ),
                 ),
               ),
+
               const SizedBox(height: 10),
               Text(
                 "erKripad",

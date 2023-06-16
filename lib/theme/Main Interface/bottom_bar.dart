@@ -31,7 +31,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
   ];
   final List<String> title = [
     "Eventi",
-    "Cerca",
+    "",
     "Salvati",
     "Mappe",
     "Calendario",
@@ -44,9 +44,9 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
       appBar: AppBar(
         centerTitle: false,
         toolbarHeight: 70,
-        elevation: 3,
         backgroundColor: primaryBackgroundColour,
         bottomOpacity: 1,
+        toolbarOpacity: 1,
         title: Row(
           children: [
             const SizedBox(

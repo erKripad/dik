@@ -14,6 +14,7 @@
    estensioni per rendere magico Flutter */
 
 import 'package:dik/Theme/Profile/profile_page.dart';
+import 'package:dik/theme/Main%20Interface/selected_page.dart';
 import 'package:flutter/material.dart';
 import 'package:dik/Theme/Profile/Profile%20Pages/settings_page.dart';
 import 'package:dik/Theme/Profile/profile_editing_page.dart';
@@ -23,6 +24,7 @@ import 'package:dik/Theme/Profile/Profile%20Pages/cart_page.dart';
 import 'package:dik/Theme/Profile/Profile%20Pages/info_page.dart';
 import 'package:dik/Theme/Profile/Profile%20Pages/privacy_page.dart';
 import 'package:dik/Theme/Profile/Profile%20Pages/tickets_page.dart';
+import 'package:dik/Theme/Profile/profile_picture_editing_page.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -53,6 +55,8 @@ class MyApp extends StatelessWidget {
         '/privacy': (context) => const PrivacyPage(),
         '/info': (context) => const InfoPage(),
         '/tickets': (context) => const TicketsPage(),
+        '/new_page': (context) => const SelectedPage(),
+        '/edit_profile_picture': (context) => const ProfilePictureEditingPage(),
       },
     );
   }
