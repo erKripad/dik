@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
         '/info': (context) => const InfoPage(),
         '/tickets': (context) => const TicketsPage(),
         '/new_page': (context) => const SelectedPage(),
-        '/edit_profile_picture': (context) => const ProfilePictureEditingPage(),
+        '/edit_profile_picture': (context) => ProfilePictureEditingPage(),
       },
     );
   }

@@ -5,8 +5,16 @@ import 'package:dik/Theme/colors.dart';
 
 //----------------------------------------------------------------------------//
 
-class ProfilePictureEditingPage extends StatelessWidget {
-  const ProfilePictureEditingPage({super.key});
+class ProfilePictureEditingPage extends StatefulWidget {
+  @override
+  _ProfilePictureEditingPageState createState() =>
+      _ProfilePictureEditingPageState();
+}
+
+class _ProfilePictureEditingPageState extends State<ProfilePictureEditingPage> {
+  /*var _image = File();
+  final picker = ImagePicker();*/
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,18 +36,16 @@ class ProfilePictureEditingPage extends StatelessWidget {
       backgroundColor: primaryBackgroundColour,
       //floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
 
-      body: Container(
-        child: Column(
-          children: [
-            AspectRatio(
-              aspectRatio: 5 / 2,
-              child: SizedBox(),
-            ),
-            Image(
-              image: AssetImage("assets/immagine di profilo.jpg"),
-            ),
-          ],
-        ),
+      body: const Column(
+        children: [
+          AspectRatio(
+            aspectRatio: 5 / 2,
+            child: SizedBox(),
+          ),
+          Image(
+            image: AssetImage("assets/immagine di profilo.jpg"),
+          ),
+        ],
       ),
     );
   }

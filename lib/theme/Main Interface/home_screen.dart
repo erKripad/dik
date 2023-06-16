@@ -1,8 +1,8 @@
 //----------------------------------------------------------------------------//
 
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:animations/animations.dart';
+//import 'package:flutter/scheduler.dart';
+//import 'package:animations/animations.dart';
 import 'package:infinite_scroll/infinite_scroll.dart';
 import 'package:dik/Theme/colors.dart';
 
