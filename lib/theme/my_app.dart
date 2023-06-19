@@ -14,7 +14,7 @@
    estensioni per rendere magico Flutter */
 
 import 'package:dik/Theme/Profile/profile_page.dart';
-import 'package:dik/theme/Main%20Interface/selected_page.dart';
+import 'package:dik/theme/Main%20Interface/Screens/Home%20Page/selected_page.dart';
 import 'package:flutter/material.dart';
 import 'package:dik/Theme/Profile/Profile%20Pages/settings_page.dart';
 import 'package:dik/Theme/Profile/profile_editing_page.dart';
@@ -33,16 +33,12 @@ import 'package:dik/Theme/Profile/profile_picture_editing_page.dart';
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  static const String _title = "Dik Demo";
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: _title,
       theme: ThemeData(
         brightness: Brightness.dark,
-        primaryColor: Colors.lightBlue[800],
-        fontFamily: "Roboto",
+        fontFamily: "Gelion Bold",
       ),
       initialRoute: '/',
       routes: {
