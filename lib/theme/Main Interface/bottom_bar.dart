@@ -2,11 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import 'package:dik/Theme/Main%20Interface/calendar_screen.dart';
-import 'package:dik/Theme/Main%20Interface/map_screen.dart';
-import 'package:dik/Theme/Main%20Interface/search_screen.dart';
-import 'package:dik/Theme/Main Interface/home_screen.dart';
-import 'package:dik/Theme/Main Interface/saved_screen.dart';
+import 'package:dik/Theme/Main%20Interface/Screens/calendar_screen.dart';
+import 'package:dik/Theme/Main%20Interface/Screens/map_screen.dart';
+import 'package:dik/Theme/Main%20Interface/Screens/search_screen.dart';
+import 'package:dik/Theme/Main Interface/Screens/Home Page/home_screen.dart';
+import 'package:dik/Theme/Main Interface/Screens/saved_screen.dart';
 import 'package:dik/Theme/colors.dart';
 import 'package:dik/Theme/Main Interface/appbar.dart';
 

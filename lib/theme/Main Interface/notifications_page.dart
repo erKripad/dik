@@ -12,7 +12,7 @@ class NotificationScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 70,
-        backgroundColor: Colors.transparent,
+        backgroundColor: primaryBackgroundColour,
         title: Text(
           "Notifiche",
           style: TextStyle(
