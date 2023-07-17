@@ -76,8 +76,6 @@ flutter:
   assets:
     - assets/papera.jpg
     - assets/immagine di profilo.jpg
-    - assets/esempio.jpg
-    - assets/bar.jpg
 
   fonts:
   - family: Lobster 
