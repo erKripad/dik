@@ -1,5 +1,9 @@
 //----------------------------------------------------------------------------//
 
+// interfaccia principale dell'app, si avvia nella home ed è possibile scorrere tra le diverse opzioni della bottom-bar
+
+//----------------------------------------------------------------------------//
+
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:dik/Theme/Main%20Interface/Screens/calendar_screen.dart';
@@ -22,7 +26,7 @@ class MyBottomNavigationBar extends StatefulWidget {
 //----------------------------------------------------------------------------//
 
 class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
-  int currentIndex = 0;
+  //inizializzo la lista di elementi contenuti nella bottom-nar
   final List<Widget> _children = [
     const HomeScreen(),
     const SearchScreen(),
@@ -30,6 +34,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
     const MapScreen(),
     const CalendarScreen(),
   ];
+  //inizializzo la lista di titoli degli elementi contenuti nella bottom-nar
   final List<String> title = [
     "Eventi",
     "",
@@ -37,6 +42,8 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
     "Mappe",
     "Calendario",
   ];
+  // l'applicazione si avvia dal primo elemento della lista
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +67,6 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
             backgroundColor: primaryBackgroundColour,
             selectedFontSize: 0,
             unselectedFontSize: 0,
-            elevation: 3,
             items: const [
               BottomNavigationBarItem(
                 label: 'Home',

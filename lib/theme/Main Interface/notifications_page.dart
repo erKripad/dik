@@ -1,5 +1,11 @@
 //----------------------------------------------------------------------------//
 
+// pagina dedicata esclusivamente dalle notifiche in-app
+
+// è composta da una serie di container (eliminabili) contenenti il messaggio della notifica
+
+//----------------------------------------------------------------------------//
+
 import 'package:flutter/material.dart';
 import 'package:dik/Theme/colors.dart';
 
@@ -58,3 +64,5 @@ class NotificationItem extends StatelessWidget {
     );
   }
 }
+
+//----------------------------------------------------------------------------//

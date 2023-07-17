@@ -1,17 +1,6 @@
 //----------------------------------------------------------------------------//
-//----------------------------------------------------------------------------//
-//                                                                            //
-//                            ___      _ _                                    //
-//                           / _ \__ _| | | ___                               //
-//                          / /_)/ _` | | |/ _ \                              //
-//                         / ___/ (_| | | |  __/                              //
-//                         \/    \__,_|_|_|\___|                              //
-//                                                                            //
-//----------------------------------------------------------------------------//
-//----------------------------------------------------------------------------//
 
-/* in questa sezione vengono importati tutti i pacchetti di Dart cioè le 
-   estensioni per rendere magico Flutter */
+// in questa sezione vengono importati tutti i pacchetti di Dart cioè le estensioni per rendere magico Flutter
 
 import 'package:dik/Theme/Main%20Interface/Profile/profile_page.dart';
 import 'package:dik/theme/Main%20Interface/Screens/Home%20Page/selected_page.dart';
@@ -28,7 +17,7 @@ import 'package:dik/Theme/Main%20Interface/Profile/profile_picture_editing_page.
 
 //----------------------------------------------------------------------------//
 
-/* in questa sezione viene creata e gestita l'applicazione appena lanciata*/
+// in questa sezione viene creata e gestita l'applicazione appena lanciata
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

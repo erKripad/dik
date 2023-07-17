@@ -20,11 +20,8 @@ class _MyAppBarState extends State<MyAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      centerTitle: false,
       toolbarHeight: 70,
       backgroundColor: primaryBackgroundColour,
-      bottomOpacity: 1,
-      toolbarOpacity: 1,
       title: Row(
         children: [
           const SizedBox(
