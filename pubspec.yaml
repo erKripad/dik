@@ -46,8 +46,6 @@ dev_dependencies:
 
   flutter_lints: ^2.0.0
 
-# guarda qui per saperne di più https://dart.dev/tools/pub/pubspecß
-
 #---------------------------------------------------------#
 
 # Flutter packages
@@ -70,6 +68,7 @@ flutter_launcher_icons:
     generate: true
     image_path: "assets/icona v2.png"
 
+#---------------------------------------------------------#
 
 flutter:
 
