@@ -81,9 +81,9 @@ class ListItem extends StatelessWidget {
         child: AspectRatio(
           aspectRatio: 10 / 12,
           child: Container(
-            decoration: const BoxDecoration(
-              color: Color.fromARGB(244, 11, 12, 15),
-              borderRadius: BorderRadius.all(Radius.circular(30)),
+            decoration: BoxDecoration(
+              color: primaryObjColour,
+              borderRadius: const BorderRadius.all(Radius.circular(30)),
             ),
             padding: const EdgeInsets.all(15.0),
             child: Padding(
@@ -104,13 +104,13 @@ class ListItem extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  const Text(
+                  Text(
                     "Caccia alle Papere",
                     textAlign: TextAlign.left,
                     style: TextStyle(
                       fontFamily: "Gelion Bold",
                       fontSize: 25,
-                      color: Color.fromARGB(255, 165, 126, 255),
+                      color: primaryPurple,
                     ),
                   ),
                   const SizedBox(
@@ -119,22 +119,25 @@ class ListItem extends StatelessWidget {
                   Row(
                     children: [
                       RichText(
-                          text: const TextSpan(children: [
-                        WidgetSpan(
-                          child: Icon(
-                            Icons.place,
-                            size: 18,
-                          ),
+                        text: TextSpan(
+                          children: [
+                            const WidgetSpan(
+                              child: Icon(
+                                Icons.place,
+                                size: 18,
+                              ),
+                            ),
+                            TextSpan(
+                              text: "Catanzaro",
+                              style: TextStyle(
+                                fontFamily: "Gelion Medium",
+                                fontSize: 18,
+                                color: textColour,
+                              ),
+                            ),
+                          ],
                         ),
-                        TextSpan(
-                          text: "Catanzaro",
-                          style: TextStyle(
-                            fontFamily: "Gelion Medium",
-                            fontSize: 18,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ]))
+                      ),
                     ],
                   )
                 ],

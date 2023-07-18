@@ -2,6 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:dik/Theme/colors.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
+var _scrollController = ScrollController();
+
+void goUp() {
+  _scrollController.animateTo(
+    0.0,
+    duration: Duration(milliseconds: 500),
+    curve: Curves.easeInOutQuart,
+  );
+}
+
 class MyAppBar extends StatefulWidget implements PreferredSizeWidget {
   const MyAppBar({
     Key? key,
@@ -11,7 +21,7 @@ class MyAppBar extends StatefulWidget implements PreferredSizeWidget {
   final String title;
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight + 5);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
   @override
   State<MyAppBar> createState() => _MyAppBarState();
 }
@@ -28,13 +38,20 @@ class _MyAppBarState extends State<MyAppBar> {
             const SizedBox(
               width: 10,
             ),
-            Text(
-              widget.title,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontFamily: "Gelion Bold",
-                fontSize: 30,
-                color: textColour,
+            GestureDetector(
+              onTap: () {
+                _scrollController;
+              },
+              child: Container(
+                child: Text(
+                  widget.title,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontFamily: "Gelion Bold",
+                    fontSize: 30,
+                    color: textColour,
+                  ),
+                ),
               ),
             ),
           ],

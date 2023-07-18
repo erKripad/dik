@@ -12,10 +12,12 @@ import 'package:flutter/material.dart';
 
 // colori principali dell'app (tema scuro)
 
-var primaryBackgroundColour = const Color.fromARGB(255, 25, 24, 28);
-var primaryObjColour = const Color.fromARGB(255, 22, 24, 28);
-var primaryPurple = const Color.fromARGB(255, 165, 126, 255);
-var textColour = const Color.fromARGB(255, 255, 255, 255);
-var iconColour = const Color.fromARGB(255, 255, 255, 255);
+//creare effetto per la bottom bar che quando scorre svaniscono le schedfe
+
+const Color primaryBackgroundColour = Color.fromARGB(245, 24, 23, 28);
+const Color primaryObjColour = Color.fromARGB(255, 19, 18, 22);
+const Color primaryPurple = Color.fromARGB(255, 165, 126, 255);
+const Color textColour = Color.fromARGB(255, 255, 255, 255);
+const Color iconColour = Color.fromARGB(255, 255, 255, 255);
 
 //----------------------------------------------------------------------------//
