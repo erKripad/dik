@@ -1,5 +1,6 @@
 //----------------------------------------------------------------------------//
 
+import 'package:dik/theme/user_info.dart';
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:dik/Theme/colors.dart';
@@ -20,18 +21,6 @@ class ProfilePage extends StatelessWidget {
         elevation: 0,
         backgroundColor: primaryBackgroundColour,
       ),
-      /*title: const Text(
-          "Profile",
-          style: TextStyle(
-            color: Colors.white,
-          ), //Theme.of(context).textTheme.headlineSmall,
-        ),
-        actions: [
-          IconButton(
-              onPressed: () {},
-              icon: Icon(isDark ? LineAwesomeIcons.sun : LineAwesomeIcons.moon))
-        ],*/
-
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(20.0),
@@ -55,7 +44,7 @@ class ProfilePage extends StatelessWidget {
 
               const SizedBox(height: 10),
               Text(
-                "erKripad",
+                username,
                 style: TextStyle(
                   fontFamily: "Gelion Bold",
                   fontSize: 25,
@@ -64,7 +53,7 @@ class ProfilePage extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               Text(
-                "crippa@palle.com",
+                email,
                 style: TextStyle(
                   fontFamily: "Gelion Medium",
                   fontSize: 16,

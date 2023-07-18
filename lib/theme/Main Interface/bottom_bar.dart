@@ -36,7 +36,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
   ];
   //inizializzo la lista di titoli degli elementi contenuti nella bottom-nar
   final List<String> title = [
-    "Eventi",
+    "Tonight",
     "",
     "Salvati",
     "Mappe",
@@ -53,67 +53,69 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
         title: title[currentIndex],
       ),
       body: _children[currentIndex],
-      bottomNavigationBar: Container(
+      bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(0),
-        child: SizedBox(
-          height: kToolbarHeight + 5,
-          child: BottomNavigationBar(
-            iconSize: 35,
-            selectedIconTheme: IconThemeData(
-              color: iconColour,
-              size: 38,
+        child: AspectRatio(
+          aspectRatio: 4 / 1,
+          child: SizedBox(
+            child: BottomNavigationBar(
+              iconSize: 35,
+              selectedIconTheme: IconThemeData(
+                color: iconColour,
+                size: 40,
+              ),
+              type: BottomNavigationBarType.fixed,
+              backgroundColor: primaryBackgroundColour,
+              selectedFontSize: 0,
+              unselectedFontSize: 0,
+              items: const [
+                BottomNavigationBarItem(
+                  label: 'Home',
+                  icon: Icon(
+                    LineAwesomeIcons.home,
+                    size: 38,
+                  ),
+                ),
+                BottomNavigationBarItem(
+                  label: 'Search',
+                  icon: Icon(
+                    LineAwesomeIcons.search,
+                    size: 38,
+                  ),
+                ),
+                BottomNavigationBarItem(
+                  label: 'Favorites',
+                  icon: Icon(
+                    LineAwesomeIcons.heart,
+                    size: 38,
+                  ),
+                ),
+                BottomNavigationBarItem(
+                  label: 'Map',
+                  icon: Icon(
+                    LineAwesomeIcons.map_marked,
+                    size: 38,
+                  ),
+                ),
+                BottomNavigationBarItem(
+                  label: 'Calendario',
+                  icon: Icon(
+                    LineAwesomeIcons.calendar_with_week_focus,
+                    size: 38,
+                  ),
+                ),
+              ],
+              selectedLabelStyle: TextStyle(
+                color: textColour,
+                fontWeight: FontWeight.bold,
+              ),
+              currentIndex: currentIndex,
+              onTap: (int index) {
+                setState(() {
+                  currentIndex = index;
+                });
+              },
             ),
-            type: BottomNavigationBarType.fixed,
-            backgroundColor: primaryBackgroundColour,
-            selectedFontSize: 0,
-            unselectedFontSize: 0,
-            items: const [
-              BottomNavigationBarItem(
-                label: 'Home',
-                icon: Icon(
-                  LineAwesomeIcons.home,
-                  size: 35,
-                ),
-              ),
-              BottomNavigationBarItem(
-                label: 'Search',
-                icon: Icon(
-                  LineAwesomeIcons.search,
-                  size: 35,
-                ),
-              ),
-              BottomNavigationBarItem(
-                label: 'Favorites',
-                icon: Icon(
-                  LineAwesomeIcons.heart,
-                  size: 35,
-                ),
-              ),
-              BottomNavigationBarItem(
-                label: 'Map',
-                icon: Icon(
-                  LineAwesomeIcons.map_marked,
-                  size: 35,
-                ),
-              ),
-              BottomNavigationBarItem(
-                label: 'Calendario',
-                icon: Icon(
-                  LineAwesomeIcons.calendar_with_week_focus,
-                  size: 35,
-                ),
-              ),
-            ],
-            selectedLabelStyle: TextStyle(
-              color: textColour,
-              fontWeight: FontWeight.bold,
-            ),
-            currentIndex: currentIndex,
-            onTap: (int index) {
-              setState(() {
-                currentIndex = index;
-              });
-            },
           ),
         ),
       ),

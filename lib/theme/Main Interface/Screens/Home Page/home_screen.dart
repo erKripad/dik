@@ -78,66 +78,67 @@ class ListItem extends StatelessWidget {
         onTap: () {
           Navigator.pushNamed(context, '/new_page');
         },
-        child: Container(
-          decoration: const BoxDecoration(
-            color: Color.fromARGB(244, 11, 12, 15),
-            borderRadius: BorderRadius.all(Radius.circular(30)),
-          ),
-          width: 00,
-          height: 480,
-          padding: const EdgeInsets.all(15.0),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(
-                  height: 350,
-                  width: 350,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.all(Radius.circular(30)),
-                    child: Image(
-                        image: AssetImage("assets/papera.jpg"),
-                        fit: BoxFit.fill),
+        child: AspectRatio(
+          aspectRatio: 10 / 12,
+          child: Container(
+            decoration: const BoxDecoration(
+              color: Color.fromARGB(244, 11, 12, 15),
+              borderRadius: BorderRadius.all(Radius.circular(30)),
+            ),
+            padding: const EdgeInsets.all(15.0),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(
+                    height: 350,
+                    width: 350,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                      child: Image(
+                          image: AssetImage("assets/papera.jpg"),
+                          fit: BoxFit.fill),
+                    ),
                   ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                const Text(
-                  "Caccia alle Papere",
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    fontFamily: "Gelion Bold",
-                    fontSize: 25,
-                    color: Color.fromARGB(255, 165, 126, 255),
+                  const SizedBox(
+                    height: 10,
                   ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Row(
-                  children: [
-                    RichText(
-                        text: const TextSpan(children: [
-                      WidgetSpan(
-                        child: Icon(
-                          Icons.place,
-                          size: 18,
+                  const Text(
+                    "Caccia alle Papere",
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      fontFamily: "Gelion Bold",
+                      fontSize: 25,
+                      color: Color.fromARGB(255, 165, 126, 255),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    children: [
+                      RichText(
+                          text: const TextSpan(children: [
+                        WidgetSpan(
+                          child: Icon(
+                            Icons.place,
+                            size: 18,
+                          ),
                         ),
-                      ),
-                      TextSpan(
-                        text: "Catanzaro",
-                        style: TextStyle(
-                          fontFamily: "Gelion Medium",
-                          fontSize: 18,
-                          color: Colors.white,
+                        TextSpan(
+                          text: "Catanzaro",
+                          style: TextStyle(
+                            fontFamily: "Gelion Medium",
+                            fontSize: 18,
+                            color: Colors.white,
+                          ),
                         ),
-                      ),
-                    ]))
-                  ],
-                )
-              ],
+                      ]))
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
         ),
