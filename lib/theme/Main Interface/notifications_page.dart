@@ -54,9 +54,9 @@ class NotificationItem extends StatelessWidget {
             //Navigator.pushNamed();
           },
           child: Container(
-            decoration: const BoxDecoration(
-              color: Color.fromARGB(244, 11, 12, 15),
-              borderRadius: BorderRadius.all(Radius.circular(15)),
+            decoration: BoxDecoration(
+              color: primaryObjColour,
+              borderRadius: const BorderRadius.all(Radius.circular(20)),
             ),
           ),
         ),

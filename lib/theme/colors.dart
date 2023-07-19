@@ -12,9 +12,11 @@ import 'package:flutter/material.dart';
 
 // colori principali dell'app (tema scuro)
 
-//creare effetto per la bottom bar che quando scorre svaniscono le schedfe
+// creare effetto per la bottom bar che quando scorre svaniscono le schedfe
 
-const Color primaryBackgroundColour = Color.fromARGB(245, 24, 23, 28);
+// fare l'app bar con lo stesso container della bottombar
+
+const Color primaryBackgroundColour = Color.fromARGB(255, 24, 23, 28);
 const Color primaryObjColour = Color.fromARGB(255, 19, 18, 22);
 const Color primaryPurple = Color.fromARGB(255, 165, 126, 255);
 const Color textColour = Color.fromARGB(255, 255, 255, 255);

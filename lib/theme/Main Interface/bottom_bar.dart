@@ -56,7 +56,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(0),
         child: AspectRatio(
-          aspectRatio: 4 / 1,
+          aspectRatio: 13 / 3,
           child: SizedBox(
             child: BottomNavigationBar(
               iconSize: 35,
