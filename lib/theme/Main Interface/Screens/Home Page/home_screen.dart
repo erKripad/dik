@@ -143,38 +143,37 @@ class CategoryListItem extends StatelessWidget {
           Navigator.pushNamed(context, '/new_page');
         },
         child: Container(
-          height: 75,
-          width: 190,
-          decoration: BoxDecoration(
-            color: primaryObjColour,
-            borderRadius: const BorderRadius.all(Radius.circular(20)),
-          ),
-          padding: const EdgeInsets.all(15.0),
-          child: Row(
-            children: [
-              SizedBox(
-                width: 10,
+            height: 50,
+            width: 125,
+            decoration: BoxDecoration(
+              color: primaryObjColour,
+              borderRadius: const BorderRadius.all(Radius.circular(45)),
+            ),
+            padding: const EdgeInsets.all(14.0),
+            child: FittedBox(
+              fit: BoxFit.fitWidth,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Icon(
+                    LineAwesomeIcons.theater_masks,
+                    size: 24,
+                    color: Colors.yellow,
+                  ),
+                  SizedBox(width: 6),
+                  Text(
+                    "Teatro",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontFamily: "Gelion Medium",
+                      fontSize: 16,
+                      color: Colors.yellow,
+                    ),
+                  ),
+                ],
               ),
-              Icon(
-                LineAwesomeIcons.theater_masks,
-                size: 38,
-                color: Colors.yellow,
-              ),
-              SizedBox(
-                width: 20,
-              ),
-              Text(
-                "Teatro",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontFamily: "Gelion Medium",
-                  fontSize: 20,
-                  color: Colors.yellow,
-                ),
-              ),
-            ],
-          ),
-        ),
+            )),
       ),
     );
   }

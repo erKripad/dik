@@ -29,74 +29,91 @@ class MyAppBar extends StatefulWidget implements PreferredSizeWidget {
 class _MyAppBarState extends State<MyAppBar> {
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 3 / 1,
-      child: AppBar(
-        backgroundColor: primaryBackgroundColour,
-        title: Row(
+    return Container(
+        height: 150,
+        color: primaryBackgroundColour,
+        child: Column(
           children: [
-            const SizedBox(
-              width: 10,
+            SizedBox(
+              height: 55,
             ),
-            GestureDetector(
-              onTap: () {
-                _scrollController;
-              },
-              child: Container(
-                child: Text(
-                  widget.title,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontFamily: "Gelion Bold",
-                    fontSize: 30,
-                    color: textColour,
-                  ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    const SizedBox(
+                      width: 8,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        _scrollController;
+                      },
+                      child: Container(
+                          child: Padding(
+                        padding: EdgeInsets.all(12),
+                        child: Text(
+                          widget.title,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontFamily: "Gelion Bold",
+                            fontSize: 30,
+                            color: textColour,
+                          ),
+                        ),
+                      )),
+                    ),
+                  ],
                 ),
-              ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(0.0),
+                      child: Row(children: [
+                        FloatingActionButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/notifications');
+                          },
+                          elevation: 0,
+                          backgroundColor: Colors.transparent,
+                          child: Icon(
+                            LineAwesomeIcons.bell,
+                            size: 35,
+                            color: iconColour,
+                          ),
+                        ),
+                        FloatingActionButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/profile');
+                          },
+                          elevation: 0,
+                          backgroundColor: Colors.transparent,
+                          child: SizedBox(
+                            width: 40,
+                            height: 40,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(100),
+                              child: const Image(
+                                image: AssetImage(
+                                    "assets/immagine di profilo.jpg"),
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        )
+                      ]),
+                    ),
+                  ],
+                )
+              ],
             ),
           ],
-        ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(0.0),
-            child: Row(children: [
-              FloatingActionButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/notifications');
-                },
-                elevation: 0,
-                backgroundColor: Colors.transparent,
-                child: Icon(
-                  LineAwesomeIcons.bell,
-                  size: 35,
-                  color: iconColour,
-                ),
-              ),
-              FloatingActionButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/profile');
-                },
-                elevation: 0,
-                backgroundColor: Colors.transparent,
-                child: SizedBox(
-                  width: 40,
-                  height: 40,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(100),
-                    child: const Image(
-                      image: AssetImage("assets/immagine di profilo.jpg"),
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                width: 10,
-              )
-            ]),
-          ),
-        ],
-      ),
-    );
+        ));
   }
 }
