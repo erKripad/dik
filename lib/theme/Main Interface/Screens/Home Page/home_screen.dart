@@ -189,6 +189,7 @@ class ListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenheight = MediaQuery.of(context).size.height;
+    double screenwidth = MediaQuery.of(context).size.width;
     return Padding(
         padding: const EdgeInsets.all(5.0),
         child: Column(
@@ -198,7 +199,7 @@ class ListItem extends StatelessWidget {
                 Navigator.pushNamed(context, '/new_page');
               },
               child: Container(
-                height: screenheight * 2 / 3,
+                height: screenwidth * 6 / 5,
                 decoration: BoxDecoration(
                   color: primaryObjColour,
                   borderRadius: const BorderRadius.all(Radius.circular(30)),

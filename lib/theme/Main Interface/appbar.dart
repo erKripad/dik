@@ -30,10 +30,8 @@ class _MyAppBarState extends State<MyAppBar> {
     return Container(
         color: primaryBackgroundColour,
         child: Column(
+          verticalDirection: VerticalDirection.up,
           children: [
-            SizedBox(
-              height: 30,
-            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,

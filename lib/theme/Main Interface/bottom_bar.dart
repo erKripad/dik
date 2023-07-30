@@ -53,7 +53,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
     return Scaffold(
       extendBody: true,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(screenheight / 11),
+        preferredSize: Size.fromHeight(screenheight / 20),
         child: MyAppBar(
           title: title[currentIndex],
         ),
@@ -62,7 +62,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(0),
         child: SizedBox(
-          height: screenheight / 11,
+          height: screenheight / 10,
           child: BottomNavigationBar(
             iconSize: 35,
             selectedIconTheme: IconThemeData(
