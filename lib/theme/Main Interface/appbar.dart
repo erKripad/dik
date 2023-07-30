@@ -12,7 +12,7 @@ void goUp() {
   );
 }
 
-class MyAppBar extends StatefulWidget implements PreferredSizeWidget {
+class MyAppBar extends StatefulWidget {
   const MyAppBar({
     Key? key,
     required this.title,
@@ -21,8 +21,6 @@ class MyAppBar extends StatefulWidget implements PreferredSizeWidget {
   final String title;
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
-  @override
   State<MyAppBar> createState() => _MyAppBarState();
 }
 
@@ -30,12 +28,11 @@ class _MyAppBarState extends State<MyAppBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 150,
         color: primaryBackgroundColour,
         child: Column(
           children: [
             SizedBox(
-              height: 55,
+              height: 30,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

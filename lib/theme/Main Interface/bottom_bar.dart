@@ -47,75 +47,79 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
 
   @override
   Widget build(BuildContext context) {
+    //prendo le misure dello schermo
+    double screenheight = MediaQuery.of(context).size.height;
+    double screenwidth = MediaQuery.of(context).size.width;
     return Scaffold(
       extendBody: true,
-      appBar: MyAppBar(
-        title: title[currentIndex],
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(screenheight / 11),
+        child: MyAppBar(
+          title: title[currentIndex],
+        ),
       ),
       body: _children[currentIndex],
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(0),
-        child: AspectRatio(
-          aspectRatio: 13 / 3,
-          child: SizedBox(
-            child: BottomNavigationBar(
-              iconSize: 35,
-              selectedIconTheme: IconThemeData(
-                color: iconColour,
-                size: 40,
-              ),
-              type: BottomNavigationBarType.fixed,
-              backgroundColor: primaryBackgroundColour,
-              selectedFontSize: 0,
-              unselectedFontSize: 0,
-              items: const [
-                BottomNavigationBarItem(
-                  label: 'Home',
-                  icon: Icon(
-                    LineAwesomeIcons.home,
-                    size: 38,
-                  ),
-                ),
-                BottomNavigationBarItem(
-                  label: 'Search',
-                  icon: Icon(
-                    LineAwesomeIcons.search,
-                    size: 38,
-                  ),
-                ),
-                BottomNavigationBarItem(
-                  label: 'Favorites',
-                  icon: Icon(
-                    LineAwesomeIcons.heart,
-                    size: 38,
-                  ),
-                ),
-                BottomNavigationBarItem(
-                  label: 'Map',
-                  icon: Icon(
-                    LineAwesomeIcons.map_marked,
-                    size: 38,
-                  ),
-                ),
-                BottomNavigationBarItem(
-                  label: 'Calendario',
-                  icon: Icon(
-                    LineAwesomeIcons.calendar_with_week_focus,
-                    size: 38,
-                  ),
-                ),
-              ],
-              selectedLabelStyle: TextStyle(
-                color: textColour,
-                fontWeight: FontWeight.bold,
-              ),
-              currentIndex: currentIndex,
-              onTap: (int index) {
-                setState(() {
-                  currentIndex = index;
-                });
-              },
+        child: SizedBox(
+          height: screenheight / 11,
+          child: BottomNavigationBar(
+            iconSize: 35,
+            selectedIconTheme: IconThemeData(
+              color: iconColour,
+              size: 40,
             ),
+            type: BottomNavigationBarType.fixed,
+            backgroundColor: primaryBackgroundColour,
+            selectedFontSize: 0,
+            unselectedFontSize: 0,
+            items: const [
+              BottomNavigationBarItem(
+                label: 'Home',
+                icon: Icon(
+                  LineAwesomeIcons.home,
+                  size: 38,
+                ),
+              ),
+              BottomNavigationBarItem(
+                label: 'Search',
+                icon: Icon(
+                  LineAwesomeIcons.search,
+                  size: 38,
+                ),
+              ),
+              BottomNavigationBarItem(
+                label: 'Favorites',
+                icon: Icon(
+                  LineAwesomeIcons.heart,
+                  size: 38,
+                ),
+              ),
+              BottomNavigationBarItem(
+                label: 'Map',
+                icon: Icon(
+                  LineAwesomeIcons.map_marked,
+                  size: 38,
+                ),
+              ),
+              BottomNavigationBarItem(
+                label: 'Calendario',
+                icon: Icon(
+                  LineAwesomeIcons.calendar_with_week_focus,
+                  size: 38,
+                ),
+              ),
+            ],
+            selectedLabelStyle: TextStyle(
+              color: textColour,
+              fontWeight: FontWeight.bold,
+            ),
+            currentIndex: currentIndex,
+            onTap: (int index) {
+              setState(() {
+                currentIndex = index;
+              });
+            },
           ),
         ),
       ),

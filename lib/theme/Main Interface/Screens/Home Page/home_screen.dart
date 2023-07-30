@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 //import 'package:flutter/scheduler.dart';
 //import 'package:animations/animations.dart';
-import 'package:infinite_scroll/infinite_scroll.dart';
+//import 'package:infinite_scroll/infinite_scroll.dart';
 import 'package:dik/Theme/colors.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
@@ -42,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
         backgroundColor: primaryBackgroundColour,
         //
         body: Padding(
@@ -136,6 +136,8 @@ class CategoryListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenwidth = MediaQuery.of(context).size.width;
+    double screenheight = MediaQuery.of(context).size.height;
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: GestureDetector(
@@ -143,8 +145,8 @@ class CategoryListItem extends StatelessWidget {
           Navigator.pushNamed(context, '/new_page');
         },
         child: Container(
-            height: 50,
-            width: 125,
+            height: screenheight / 14,
+            width: screenwidth / 3,
             decoration: BoxDecoration(
               color: primaryObjColour,
               borderRadius: const BorderRadius.all(Radius.circular(45)),
@@ -186,6 +188,7 @@ class ListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenheight = MediaQuery.of(context).size.height;
     return Padding(
         padding: const EdgeInsets.all(5.0),
         child: Column(
@@ -194,70 +197,68 @@ class ListItem extends StatelessWidget {
               onTap: () {
                 Navigator.pushNamed(context, '/new_page');
               },
-              child: AspectRatio(
-                aspectRatio: 10 / 12,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: primaryObjColour,
-                    borderRadius: const BorderRadius.all(Radius.circular(30)),
-                  ),
-                  padding: const EdgeInsets.all(15.0),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const SizedBox(
-                          height: 350,
-                          width: 350,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.all(Radius.circular(30)),
-                            child: Image(
-                                image: AssetImage("assets/papera.jpg"),
-                                fit: BoxFit.fill),
-                          ),
+              child: Container(
+                height: screenheight * 2 / 3,
+                decoration: BoxDecoration(
+                  color: primaryObjColour,
+                  borderRadius: const BorderRadius.all(Radius.circular(30)),
+                ),
+                padding: const EdgeInsets.all(15.0),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(
+                        height: 350,
+                        width: 350,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.all(Radius.circular(30)),
+                          child: Image(
+                              image: AssetImage("assets/papera.jpg"),
+                              fit: BoxFit.fill),
                         ),
-                        const SizedBox(
-                          height: 10,
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        "Caccia alle Papere",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontFamily: "Gelion Bold",
+                          fontSize: 25,
+                          color: primaryPurple,
                         ),
-                        Text(
-                          "Caccia alle Papere",
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                            fontFamily: "Gelion Bold",
-                            fontSize: 25,
-                            color: primaryPurple,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Row(
-                          children: [
-                            RichText(
-                              text: TextSpan(
-                                children: [
-                                  const WidgetSpan(
-                                    child: Icon(
-                                      Icons.place,
-                                      size: 18,
-                                    ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        children: [
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                const WidgetSpan(
+                                  child: Icon(
+                                    Icons.place,
+                                    size: 18,
                                   ),
-                                  TextSpan(
-                                    text: "Catanzaro",
-                                    style: TextStyle(
-                                      fontFamily: "Gelion Medium",
-                                      fontSize: 18,
-                                      color: textColour,
-                                    ),
+                                ),
+                                TextSpan(
+                                  text: "Catanzaro",
+                                  style: TextStyle(
+                                    fontFamily: "Gelion Medium",
+                                    fontSize: 18,
+                                    color: textColour,
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
-                          ],
-                        )
-                      ],
-                    ),
+                          ),
+                        ],
+                      )
+                    ],
                   ),
                 ),
               ),
