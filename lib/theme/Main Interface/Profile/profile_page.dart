@@ -61,7 +61,7 @@ class ProfilePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              SizedBox(
+              /*SizedBox(
                 width: 200,
                 child: ElevatedButton(
                     onPressed: () {
@@ -76,8 +76,8 @@ class ProfilePage extends StatelessWidget {
                       "Modifica Profilo",
                       style: TextStyle(color: primaryBackgroundColour),
                     )),
-              ),
-              const SizedBox(height: 40),
+              ),*/
+              const SizedBox(height: 20),
 
               //Menu
               ProfileMenuWidget(

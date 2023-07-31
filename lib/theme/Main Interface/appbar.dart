@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:dik/Theme/colors.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
+import 'package:dik/theme/icons.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 var _scrollController = ScrollController();
 

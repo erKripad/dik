@@ -1,2 +1,2 @@
-const username = "erKripad";
-const email = "crippa@palle.com";
+String username = "erKripad";
+String email = "crippa@palle.com";

@@ -151,7 +151,7 @@ class CategoryListItem extends StatelessWidget {
               color: primaryObjColour,
               borderRadius: const BorderRadius.all(Radius.circular(45)),
             ),
-            padding: const EdgeInsets.all(14.0),
+            padding: const EdgeInsets.all(15.0),
             child: FittedBox(
               fit: BoxFit.fitWidth,
               child: Row(
@@ -169,7 +169,7 @@ class CategoryListItem extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontFamily: "Gelion Medium",
-                      fontSize: 16,
+                      fontSize: 15,
                       color: Colors.yellow,
                     ),
                   ),
@@ -191,84 +191,82 @@ class ListItem extends StatelessWidget {
     double screenheight = MediaQuery.of(context).size.height;
     double screenwidth = MediaQuery.of(context).size.width;
     return Padding(
-        padding: const EdgeInsets.all(5.0),
-        child: Column(
-          children: [
-            GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, '/new_page');
-              },
-              child: Container(
-                height: screenwidth * 6 / 5,
-                decoration: BoxDecoration(
-                  color: primaryObjColour,
-                  borderRadius: const BorderRadius.all(Radius.circular(30)),
-                ),
-                padding: const EdgeInsets.all(15.0),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const SizedBox(
-                        height: 350,
-                        width: 350,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.all(Radius.circular(30)),
-                          child: Image(
-                              image: AssetImage("assets/papera.jpg"),
-                              fit: BoxFit.fill),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "Caccia alle Papere",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontFamily: "Gelion Bold",
-                          fontSize: 25,
-                          color: primaryPurple,
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        children: [
-                          RichText(
-                            text: TextSpan(
-                              children: [
-                                const WidgetSpan(
-                                  child: Icon(
-                                    Icons.place,
-                                    size: 18,
-                                  ),
-                                ),
-                                TextSpan(
-                                  text: "Catanzaro",
-                                  style: TextStyle(
-                                    fontFamily: "Gelion Medium",
-                                    fontSize: 18,
-                                    color: textColour,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      )
-                    ],
+      padding: const EdgeInsets.all(5.0),
+      child: Column(
+        children: [
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, '/new_page');
+            },
+            child: Container(
+              height: screenwidth * 120 / 100,
+              decoration: BoxDecoration(
+                color: primaryObjColour,
+                borderRadius: const BorderRadius.all(Radius.circular(30)),
+              ),
+              padding: const EdgeInsets.all(15.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: screenwidth * 85 / 100,
+                    width: screenwidth * 85 / 100,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                      child: Image(
+                          image: AssetImage("assets/papera.jpg"),
+                          fit: BoxFit.fill),
+                    ),
                   ),
-                ),
+                  SizedBox(
+                    height: screenheight * 1 / 100,
+                  ),
+                  Text(
+                    "Caccia alle Papere",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontFamily: "Gelion Bold",
+                      fontSize: 20,
+                      color: primaryPurple,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    children: [
+                      RichText(
+                        text: TextSpan(
+                          children: [
+                            const WidgetSpan(
+                              child: Icon(
+                                Icons.place,
+                                size: 18,
+                              ),
+                            ),
+                            TextSpan(
+                              text: "Catanzaro",
+                              style: TextStyle(
+                                fontFamily: "Gelion Medium",
+                                fontSize: 18,
+                                color: textColour,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  )
+                ],
               ),
             ),
-            SizedBox(
-              height: 20,
-            ),
-          ],
-        ));
+          ),
+          SizedBox(
+            height: 20,
+          ),
+        ],
+      ),
+    );
   }
 }
 

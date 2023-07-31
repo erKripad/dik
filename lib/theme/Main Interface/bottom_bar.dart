@@ -13,6 +13,8 @@ import 'package:dik/Theme/Main Interface/Screens/Home Page/home_screen.dart';
 import 'package:dik/Theme/Main Interface/Screens/saved_screen.dart';
 import 'package:dik/Theme/colors.dart';
 import 'package:dik/Theme/Main Interface/appbar.dart';
+import 'package:dik/theme/icons.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -53,7 +55,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
     return Scaffold(
       extendBody: true,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(screenheight / 20),
+        preferredSize: Size.fromHeight(screenheight / 16),
         child: MyAppBar(
           title: title[currentIndex],
         ),
@@ -69,16 +71,18 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
               color: iconColour,
               size: 40,
             ),
-            type: BottomNavigationBarType.fixed,
-            backgroundColor: primaryBackgroundColour,
             selectedFontSize: 0,
             unselectedFontSize: 0,
-            items: const [
+            type: BottomNavigationBarType.fixed,
+            backgroundColor: primaryBackgroundColour,
+            items: [
               BottomNavigationBarItem(
                 label: 'Home',
-                icon: Icon(
-                  LineAwesomeIcons.home,
-                  size: 38,
+                icon: SvgPicture.asset(
+                  CustomIcons.home,
+                  height: 36,
+                  width: 36,
+                  color: iconColour,
                 ),
               ),
               BottomNavigationBarItem(
@@ -111,7 +115,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
               ),
             ],
             selectedLabelStyle: TextStyle(
-              color: textColour,
+              color: iconColour,
               fontWeight: FontWeight.bold,
             ),
             currentIndex: currentIndex,
