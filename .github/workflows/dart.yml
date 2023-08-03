@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - name: Setup Flutter ${{ matrix.flutter-version }}
-        uses: DanTup/gh-actions/setup-flutter@main
+        uses: DanTup/gh-actions/setup-flutter@master
       - uses: actions/checkout@v3
 
       # Note: This workflow uses the latest stable version of the Dart SDK.
