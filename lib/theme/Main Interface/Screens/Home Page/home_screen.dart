@@ -147,12 +147,12 @@ class CategoryListItem extends StatelessWidget {
         child: Container(
             height: screenheight / 14,
             width: screenwidth / 3,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: primaryObjColour,
-              borderRadius: const BorderRadius.all(Radius.circular(45)),
+              borderRadius: const BorderRadius.all(Radius.circular(20)),
             ),
             padding: const EdgeInsets.all(15.0),
-            child: FittedBox(
+            child: const FittedBox(
               fit: BoxFit.fitWidth,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -202,7 +202,7 @@ class ListItem extends StatelessWidget {
               height: screenwidth * 120 / 100,
               decoration: BoxDecoration(
                 color: primaryObjColour,
-                borderRadius: const BorderRadius.all(Radius.circular(30)),
+                borderRadius: const BorderRadius.all(Radius.circular(20)),
               ),
               padding: const EdgeInsets.all(15.0),
               child: Column(
@@ -212,7 +212,7 @@ class ListItem extends StatelessWidget {
                     height: screenwidth * 85 / 100,
                     width: screenwidth * 85 / 100,
                     child: ClipRRect(
-                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
                       child: Image(
                           image: AssetImage("assets/papera.jpg"),
                           fit: BoxFit.fill),

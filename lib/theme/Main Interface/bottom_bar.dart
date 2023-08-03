@@ -12,9 +12,9 @@ import 'package:dik/Theme/Main%20Interface/Screens/search_screen.dart';
 import 'package:dik/Theme/Main Interface/Screens/Home Page/home_screen.dart';
 import 'package:dik/Theme/Main Interface/Screens/saved_screen.dart';
 import 'package:dik/Theme/colors.dart';
-import 'package:dik/Theme/Main Interface/appbar.dart';
 import 'package:dik/theme/icons.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:dik/theme/Main Interface/appbar.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -55,11 +55,12 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
     return Scaffold(
       extendBody: true,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(screenheight / 16),
-        child: MyAppBar(
-          title: title[currentIndex],
-        ),
-      ),
+          preferredSize: Size.fromHeight(screenheight / 16),
+          child: MyAppBar(
+            title: title[currentIndex],
+            notifications: true,
+            profile: true,
+          )),
       body: _children[currentIndex],
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(0),
