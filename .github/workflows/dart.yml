@@ -16,6 +16,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # https://github.com/flutter/flutter-intellij/issues/3807#issuecomment-566000300
       - name: Setup Flutter ${{ matrix.flutter-version }}
         uses: DanTup/gh-actions/setup-flutter@master
         
