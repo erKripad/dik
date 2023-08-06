@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 //import 'package:infinite_scroll/infinite_scroll.dart';
 import 'package:dik/Theme/colors.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
+import 'package:dik/theme/events_examples.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -98,8 +99,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Column(
                   children: <Widget>[
-                    ListItem(),
-                    ListItem(),
+                    ListItem(
+                      title: "Titolo",
+                      place: "Luogo",
+                      date: "gg/mm/yy",
+                      time: "hh/mm",
+                      price: 50,
+                    ),
                   ],
                 ),
                 SizedBox(
@@ -129,11 +135,16 @@ class _HomeScreenState extends State<HomeScreen> {
 
 //----------------------------------------------------------------------------//
 
-class CategoryListItem extends StatelessWidget {
+class CategoryListItem extends StatefulWidget {
   const CategoryListItem({
     Key? key,
   }) : super(key: key);
 
+  @override
+  State<CategoryListItem> createState() => _CategoryListItemState();
+}
+
+class _CategoryListItemState extends State<CategoryListItem> {
   @override
   Widget build(BuildContext context) {
     double screenwidth = MediaQuery.of(context).size.width;
@@ -181,15 +192,32 @@ class CategoryListItem extends StatelessWidget {
   }
 }
 
-class ListItem extends StatelessWidget {
+class ListItem extends StatefulWidget {
   const ListItem({
     Key? key,
+    required this.title,
+    required this.date,
+    required this.place,
+    required this.time,
+    required this.price,
   }) : super(key: key);
 
+  final String title;
+  final String date;
+  final String time;
+  final String place;
+  final int price;
+
+  @override
+  State<ListItem> createState() => _ListItemState();
+}
+
+class _ListItemState extends State<ListItem> {
   @override
   Widget build(BuildContext context) {
     double screenheight = MediaQuery.of(context).size.height;
     double screenwidth = MediaQuery.of(context).size.width;
+    int price = widget.price;
     return Padding(
       padding: const EdgeInsets.all(5.0),
       child: Column(
@@ -206,63 +234,103 @@ class ListItem extends StatelessWidget {
               ),
               padding: const EdgeInsets.all(15.0),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
-                    height: screenwidth * 85 / 100,
-                    width: screenwidth * 85 / 100,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.all(Radius.circular(20)),
-                      child: Image(
-                          image: AssetImage("assets/papera.jpg"),
-                          fit: BoxFit.fill),
+                  Center(
+                    child: SizedBox(
+                      height: screenwidth * 85 / 100,
+                      width: screenwidth * 85 / 100,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                        child: Image(
+                            image: AssetImage("assets/papera.jpg"),
+                            fit: BoxFit.fill),
+                      ),
                     ),
                   ),
                   SizedBox(
                     height: screenheight * 1 / 100,
                   ),
-                  Text(
-                    "Caccia alle Papere",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontFamily: "Gelion Bold",
-                      fontSize: 20,
-                      color: primaryPurple,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
                   Row(
                     children: [
-                      RichText(
-                        text: TextSpan(
-                          children: [
-                            const WidgetSpan(
-                              child: Icon(
-                                Icons.place,
-                                size: 18,
-                              ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            widget.title,
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                              fontFamily: "Gelion Bold",
+                              fontSize: 24,
+                              color: primaryPurple,
                             ),
-                            TextSpan(
-                              text: "Catanzaro",
-                              style: TextStyle(
-                                fontFamily: "Gelion Medium",
-                                fontSize: 18,
-                                color: textColour,
-                              ),
+                          ),
+                          SizedBox(height: screenheight * 1 / 100),
+                          Text(
+                            widget.place,
+                            style: TextStyle(
+                              fontFamily: "Gelion Medium",
+                              fontSize: 18,
+                              color: textColour,
                             ),
-                          ],
-                        ),
+                          ),
+                          SizedBox(height: screenheight * 1 / 100),
+                          Text(
+                            widget.date,
+                            style: TextStyle(
+                              fontFamily: "Gelion Medium",
+                              fontSize: 18,
+                              color: textColour,
+                            ),
+                          ),
+                        ],
                       ),
+                      Expanded(child: SizedBox()),
+                      Column(
+                        children: [
+                          //SizedBox(height: screenheight * 1 / 100),
+                          SizedBox(
+                            height: screenwidth * 10 / 100,
+                            width: screenwidth * 15 / 100,
+                            child: ClipRRect(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20)),
+                              child: ColoredBox(
+                                  color: primaryBackgroundColour,
+                                  child: Center(
+                                    child: Text(
+                                      "$price\$",
+                                      style: TextStyle(
+                                        fontFamily: "Gelion Medium",
+                                        fontSize: 18,
+                                        color: primaryPurple,
+                                      ),
+                                    ),
+                                  )),
+                            ),
+                          ),
+                          SizedBox(height: screenheight * 1 / 100),
+                          MyButtonHype(),
+                        ],
+                      )
                     ],
                   )
+                  /*
+                  Row(
+                    children: [
+                      
+                    ],
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      
+                      
+                    ],
+                  )*/
                 ],
               ),
             ),
-          ),
-          SizedBox(
-            height: 20,
           ),
         ],
       ),
@@ -271,3 +339,48 @@ class ListItem extends StatelessWidget {
 }
 
 //----------------------------------------------------------------------------//
+
+class MyButtonHype extends StatefulWidget {
+  const MyButtonHype({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<MyButtonHype> createState() => _MyButtonHypeState();
+}
+
+class _MyButtonHypeState extends State<MyButtonHype> {
+  bool hyped = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 45,
+      width: 45,
+      child: FloatingActionButton(
+        onPressed: () {
+          hyped == true
+              ? setState(() {
+                  hyped = false;
+                })
+              : setState(() {
+                  hyped = true;
+                });
+        },
+        elevation: 0,
+        backgroundColor: primaryBackgroundColour,
+        child: hyped == false
+            ? const Icon(
+                LineAwesomeIcons.heart,
+                size: 28,
+                color: iconColour,
+              )
+            : const Icon(
+                LineAwesomeIcons.heart_1,
+                size: 28,
+                color: iconColour,
+              ),
+      ),
+    );
+  }
+}

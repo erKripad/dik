@@ -41,9 +41,10 @@ class _MyAppBarState extends State<MyAppBar> {
     double screenheight = MediaQuery.of(context).size.height;
     double screenwidth = MediaQuery.of(context).size.width;
     return Container(
-      color: primaryBackgroundColour,
+      color: Colors.transparent,
       child: Column(
-        verticalDirection: VerticalDirection.up,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

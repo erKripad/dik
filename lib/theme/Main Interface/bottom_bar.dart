@@ -52,7 +52,9 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
     //prendo le misure dello schermo
     double screenheight = MediaQuery.of(context).size.height;
     double screenwidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
+      backgroundColor: primaryBackgroundColour,
       extendBody: true,
       appBar: PreferredSize(
           preferredSize: Size.fromHeight(screenheight / 16),

@@ -78,7 +78,6 @@ flutter:
     - assets/papera.jpg
     - assets/immagine di profilo.jpg
     - assets/icons/
-    - assets/icons/Tonight_1.svg
 
   fonts:
   - family: Lobster 
