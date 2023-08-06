@@ -1,9 +1,12 @@
 //----------------------------------------------------------------------------//
 
+import 'package:dik/theme/Main%20Interface/appbar.dart';
 import 'package:dik/theme/user_info.dart';
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:dik/Theme/colors.dart';
+import 'package:dik/theme/icons.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -12,14 +15,17 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark
+    double screenheight = MediaQuery.of(context).size.height;
+    double screenwidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: primaryBackgroundColour,
-      appBar: AppBar(
-        automaticallyImplyLeading: true,
-        toolbarHeight: 55,
-        elevation: 0,
-        backgroundColor: primaryBackgroundColour,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(screenheight / 16),
+        child: const MyAppBar(
+          gobackbutton: true,
+          profile: false,
+          notifications: false,
+        ),
       ),
       body: SingleChildScrollView(
         child: Container(
