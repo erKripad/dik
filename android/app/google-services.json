@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "133433635467",
+    "project_id": "dik-project",
+    "storage_bucket": "dik-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:133433635467:android:0c4ddac2fb9d18d133da8e",
+        "android_client_info": {
+          "package_name": "com.example.dik"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "133433635467-cpreh215p9qsf2dmlemk2nfb4msfo5md.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCH5PgONRG7Id6e7ORHwRh8i5DD0SrY9OM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "133433635467-cpreh215p9qsf2dmlemk2nfb4msfo5md.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
