@@ -88,12 +88,7 @@ class ProfilePage extends StatelessWidget {
               //Menu
               ProfileMenuWidget(
                 title: "Tickets",
-                icon: SvgPicture.asset(
-                  CustomIcons.ticket,
-                  height: 28,
-                  width: 28,
-                  color: iconColour,
-                ),
+                icon: LineAwesomeIcons.alternate_ticket,
                 onPress: () {
                   Navigator.pushNamed(context, '/tickets');
                 },

@@ -62,7 +62,7 @@ class SelectedPage extends StatelessWidget {
                             style: TextStyle(
                               fontFamily: "Gelion Bold",
                               fontSize: 26,
-                              color: primaryPurple,
+                              color: textColour,
                             ),
                           ),
                         ),

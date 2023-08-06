@@ -373,12 +373,12 @@ class _MyButtonHypeState extends State<MyButtonHype> {
             ? const Icon(
                 LineAwesomeIcons.heart,
                 size: 28,
-                color: iconColour,
+                color: primaryPurple,
               )
             : const Icon(
                 LineAwesomeIcons.heart_1,
                 size: 28,
-                color: iconColour,
+                color: primaryPurple,
               ),
       ),
     );
