@@ -13,7 +13,7 @@ class SavedScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Text(
+        title: const Text(
           "3",
           style: TextStyle(
             fontFamily: "Gelion Bold",

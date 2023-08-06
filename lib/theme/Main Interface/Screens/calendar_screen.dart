@@ -13,7 +13,7 @@ class CalendarScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Text(
+        title: const Text(
           "5",
           style: TextStyle(
             fontFamily: "Gelion Bold",

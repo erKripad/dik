@@ -1,5 +1,7 @@
 //----------------------------------------------------------------------------//
 
+// ignore_for_file: unused_import, unused_local_variable
+
 import 'package:dik/theme/Main%20Interface/appbar.dart';
 import 'package:dik/theme/user_info.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +53,7 @@ class ProfilePage extends StatelessWidget {
               const SizedBox(height: 10),
               Text(
                 username,
-                style: TextStyle(
+                style: const TextStyle(
                   fontFamily: "Gelion Bold",
                   fontSize: 25,
                   color: textColour,
@@ -60,7 +62,7 @@ class ProfilePage extends StatelessWidget {
               const SizedBox(height: 8),
               Text(
                 email,
-                style: TextStyle(
+                style: const TextStyle(
                   fontFamily: "Gelion Medium",
                   fontSize: 16,
                   color: textColour,
@@ -205,7 +207,7 @@ class ProfileMenuWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(100),
                 color: primaryObjColour,
               ),
-              child: Icon(
+              child: const Icon(
                 LineAwesomeIcons.angle_right,
                 size: 18,
                 color: iconColour,

@@ -13,7 +13,7 @@ class PrivacyPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Text(
+        title: const Text(
           "Privacy",
           style: TextStyle(
             fontFamily: "Gelion Bold",

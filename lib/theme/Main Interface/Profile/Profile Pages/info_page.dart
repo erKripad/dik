@@ -13,7 +13,7 @@ class InfoPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Text(
+        title: const Text(
           "Informazioni",
           style: TextStyle(
             fontFamily: "Gelion Bold",

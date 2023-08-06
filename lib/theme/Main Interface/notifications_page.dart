@@ -6,6 +6,8 @@
 
 //----------------------------------------------------------------------------//
 
+// ignore_for_file: unused_local_variable
+
 import 'package:flutter/material.dart';
 import 'package:dik/Theme/colors.dart';
 import 'package:dik/theme/Main Interface/appbar.dart';
@@ -51,9 +53,9 @@ class NotificationItem extends StatelessWidget {
             //Navigator.pushNamed();
           },
           child: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: primaryObjColour,
-              borderRadius: const BorderRadius.all(Radius.circular(20)),
+              borderRadius: BorderRadius.all(Radius.circular(20)),
             ),
           ),
         ),

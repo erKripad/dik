@@ -58,7 +58,7 @@ class SearchScreen extends StatelessWidget {
                   color: primaryObjColour,
                   borderRadius: BorderRadius.circular(20),
                 ),
-                inputStyle: TextStyle(
+                inputStyle: const TextStyle(
                   fontFamily: "Gelion Medium",
                   fontSize: 25,
                   color: textColour,

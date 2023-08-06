@@ -6,14 +6,13 @@ import 'package:dik/Theme/Main%20Interface/Profile/profile_page.dart';
 import 'package:dik/theme/Main%20Interface/Screens/Home%20Page/selected_page.dart';
 import 'package:flutter/material.dart';
 import 'package:dik/Theme/Main%20Interface/Profile/Profile%20Pages/settings_page.dart';
-import 'package:dik/Theme/Main%20Interface/Profile/profile_editing_page.dart';
+import 'package:dik/Theme/Main%20Interface/Profile/profile_picture_editing_page.dart';
 import 'package:dik/Theme/Main%20Interface/notifications_page.dart';
 import 'package:dik/Theme/Main%20Interface/bottom_bar.dart';
 import 'package:dik/Theme/Main%20Interface/Profile/Profile%20Pages/cart_page.dart';
 import 'package:dik/Theme/Main%20Interface/Profile/Profile%20Pages/info_page.dart';
 import 'package:dik/Theme/Main%20Interface/Profile/Profile%20Pages/privacy_page.dart';
 import 'package:dik/Theme/Main%20Interface/Profile/Profile%20Pages/tickets_page.dart';
-import 'package:dik/Theme/Main%20Interface/Profile/profile_picture_editing_page.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -34,7 +33,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => const MyBottomNavigationBar(),
         '/settings': (context) => const SettingsPage(),
         '/notifications': (context) => const NotificationScreen(),
-        '/edit_profile': (context) => const ProfileEditingScreen(),
+        // '/edit_profile': (context) => const ProfileEditingScreen(),
         '/profile': (context) => const ProfilePage(),
         '/cart': (context) => const CartPage(),
         '/privacy': (context) => const PrivacyPage(),

@@ -1,7 +1,8 @@
 //----------------------------------------------------------------------------//
 
-import 'dart:developer';
+// ignore_for_file: unused_import
 
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:dik/Theme/colors.dart';
 import 'package:dik/theme/Main Interface/appbar.dart';
@@ -29,7 +30,7 @@ class SelectedPage extends StatelessWidget {
       body:
           // considero un bordo padding standard di 15 come nelle altre schede
           Padding(
-              padding: EdgeInsets.all(15),
+              padding: const EdgeInsets.all(15),
               // inizio a creare la pagina mettendo in colonna i diversi elementi
               child: Column(
                 children: [
@@ -43,7 +44,7 @@ class SelectedPage extends StatelessWidget {
                           child: SizedBox(
                             height: screenwidth * 60 / 100,
                             width: screenwidth * 60 / 100,
-                            child: ClipRRect(
+                            child: const ClipRRect(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(20)),
                               child: Image(
@@ -55,7 +56,7 @@ class SelectedPage extends StatelessWidget {
                         SizedBox(
                           height: screenheight * 2 / 100,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           child: Text(
                             "Titolo",
                             textAlign: TextAlign.start,
@@ -75,9 +76,9 @@ class SelectedPage extends StatelessWidget {
                         ),
                         Row(
                           children: [
-                            InfoBox(),
+                            const InfoBox(),
                             SizedBox(width: screenwidth * 4 / 100),
-                            ServiceBox(),
+                            const ServiceBox(),
                           ],
                         ),
                       ],
@@ -107,7 +108,7 @@ class DescriptionBox extends StatelessWidget {
         padding: const EdgeInsets.all(15),
         decoration: const BoxDecoration(
           color: primaryObjColour,
-          borderRadius: const BorderRadius.all(Radius.circular(20)),
+          borderRadius: BorderRadius.all(Radius.circular(20)),
         ),
         child: const Text(
           "descrizione",
@@ -129,6 +130,7 @@ class DescriptionBox extends StatelessWidget {
 
 class ServiceBox extends StatelessWidget {
   const ServiceBox({super.key});
+  @override
   Widget build(context) {
     double screenheight = MediaQuery.of(context).size.height;
     double screenwidth = MediaQuery.of(context).size.width;
@@ -139,7 +141,7 @@ class ServiceBox extends StatelessWidget {
         padding: const EdgeInsets.all(15),
         decoration: const BoxDecoration(
           color: primaryObjColour,
-          borderRadius: const BorderRadius.all(Radius.circular(20)),
+          borderRadius: BorderRadius.all(Radius.circular(20)),
         ),
         child: const Text(
           "Servizi",
@@ -161,6 +163,7 @@ class ServiceBox extends StatelessWidget {
 
 class InfoBox extends StatelessWidget {
   const InfoBox({super.key});
+  @override
   Widget build(context) {
     double screenheight = MediaQuery.of(context).size.height;
     double screenwidth = MediaQuery.of(context).size.width;
@@ -171,7 +174,7 @@ class InfoBox extends StatelessWidget {
         padding: const EdgeInsets.all(15),
         decoration: const BoxDecoration(
           color: primaryBackgroundColour,
-          borderRadius: const BorderRadius.all(Radius.circular(20)),
+          borderRadius: BorderRadius.all(Radius.circular(20)),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -187,7 +190,7 @@ class InfoBox extends StatelessWidget {
                 SizedBox(
                   width: screenwidth * 2 / 100,
                 ),
-                Text(
+                const Text(
                   "Data e Ora",
                   textAlign: TextAlign.right,
                   style: TextStyle(
@@ -212,7 +215,7 @@ class InfoBox extends StatelessWidget {
                 SizedBox(
                   width: screenwidth * 2 / 100,
                 ),
-                Text(
+                const Text(
                   "Luogo",
                   textAlign: TextAlign.right,
                   style: TextStyle(
@@ -237,7 +240,7 @@ class InfoBox extends StatelessWidget {
                 SizedBox(
                   width: screenwidth * 2 / 100,
                 ),
-                Text(
+                const Text(
                   "Costo",
                   textAlign: TextAlign.right,
                   style: TextStyle(
