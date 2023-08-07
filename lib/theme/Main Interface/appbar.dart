@@ -1,6 +1,12 @@
+// ignore: unused_import
+import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:dik/Theme/colors.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
+// ignore: unused_import
+import 'package:dik/theme/icons.dart';
+// ignore: unused_import
+import 'package:flutter_svg/flutter_svg.dart';
 
 var _scrollController = ScrollController();
 
@@ -35,6 +41,7 @@ class MyAppBar extends StatefulWidget {
 class _MyAppBarState extends State<MyAppBar> {
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
     double screenheight = MediaQuery.of(context).size.height;
     double screenwidth = MediaQuery.of(context).size.width;
     return Container(
@@ -78,8 +85,7 @@ class _MyAppBarState extends State<MyAppBar> {
                     onTap: () {
                       _scrollController;
                     },
-                    child: Container(
-                        child: Padding(
+                    child: Padding(
                       padding: const EdgeInsets.all(12),
                       child: Text(
                         widget.title ?? "",
@@ -90,7 +96,7 @@ class _MyAppBarState extends State<MyAppBar> {
                           color: textColour,
                         ),
                       ),
-                    )),
+                    ),
                   ),
                 ],
               ),

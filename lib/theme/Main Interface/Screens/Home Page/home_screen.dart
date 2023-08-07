@@ -1,5 +1,7 @@
 //----------------------------------------------------------------------------//
 
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
 //import 'package:flutter/scheduler.dart';
 //import 'package:animations/animations.dart';
@@ -159,7 +161,7 @@ class _CategoryListItemState extends State<CategoryListItem> {
             width: screenwidth * 30 / 100,
             decoration: const BoxDecoration(
               color: primaryObjColour,
-              borderRadius: BorderRadius.all(Radius.circular(50)),
+              borderRadius: BorderRadius.all(Radius.circular(20)),
             ),
             padding: const EdgeInsets.all(15.0),
             child: const FittedBox(

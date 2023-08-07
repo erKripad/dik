@@ -1,3 +1,5 @@
+// ignore_for_file: unused_element, unnecessary_new
+
 class Event {
   final String name;
   final String date;

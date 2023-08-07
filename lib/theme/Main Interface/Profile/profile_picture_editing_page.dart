@@ -1,11 +1,15 @@
 //----------------------------------------------------------------------------//
 
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:dik/Theme/colors.dart';
 
 //----------------------------------------------------------------------------//
 
 class ProfilePictureEditingPage extends StatefulWidget {
+  const ProfilePictureEditingPage({super.key});
+
   @override
   _ProfilePictureEditingPageState createState() =>
       _ProfilePictureEditingPageState();
@@ -23,7 +27,7 @@ class _ProfilePictureEditingPageState extends State<ProfilePictureEditingPage> {
         toolbarHeight: 55,
         elevation: 0,
         backgroundColor: primaryBackgroundColour,
-        title: Text(
+        title: const Text(
           "Immagine di profilo",
           style: TextStyle(
             fontFamily: "Gelion Bold",

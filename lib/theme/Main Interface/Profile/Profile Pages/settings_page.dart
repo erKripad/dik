@@ -13,7 +13,7 @@ class SettingsPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Text(
+        title: const Text(
           "Impostazioni",
           style: TextStyle(
             fontFamily: "Gelion Bold",

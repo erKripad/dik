@@ -51,6 +51,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
   Widget build(BuildContext context) {
     //prendo le misure dello schermo
     double screenheight = MediaQuery.of(context).size.height;
+    // ignore: unused_local_variable
     double screenwidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
@@ -70,7 +71,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
           height: screenheight / 10,
           child: BottomNavigationBar(
             iconSize: 35,
-            selectedIconTheme: IconThemeData(
+            selectedIconTheme: const IconThemeData(
               color: iconColour,
               size: 40,
             ),
@@ -88,28 +89,28 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
                   color: iconColour,
                 ),
               ),
-              BottomNavigationBarItem(
+              const BottomNavigationBarItem(
                 label: 'Search',
                 icon: Icon(
                   LineAwesomeIcons.search,
                   size: 38,
                 ),
               ),
-              BottomNavigationBarItem(
+              const BottomNavigationBarItem(
                 label: 'Favorites',
                 icon: Icon(
                   LineAwesomeIcons.heart,
                   size: 38,
                 ),
               ),
-              BottomNavigationBarItem(
+              const BottomNavigationBarItem(
                 label: 'Map',
                 icon: Icon(
                   LineAwesomeIcons.map_marked,
                   size: 38,
                 ),
               ),
-              BottomNavigationBarItem(
+              const BottomNavigationBarItem(
                 label: 'Calendario',
                 icon: Icon(
                   LineAwesomeIcons.calendar_with_week_focus,
@@ -117,7 +118,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
                 ),
               ),
             ],
-            selectedLabelStyle: TextStyle(
+            selectedLabelStyle: const TextStyle(
               color: iconColour,
               fontWeight: FontWeight.bold,
             ),
