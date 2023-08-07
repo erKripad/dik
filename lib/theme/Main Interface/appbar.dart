@@ -1,16 +1,13 @@
-import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:dik/Theme/colors.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import 'package:dik/theme/icons.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 var _scrollController = ScrollController();
 
 void goUp() {
   _scrollController.animateTo(
     0.0,
-    duration: Duration(milliseconds: 500),
+    duration: const Duration(milliseconds: 500),
     curve: Curves.easeInOutQuart,
   );
 }
@@ -83,7 +80,7 @@ class _MyAppBarState extends State<MyAppBar> {
                     },
                     child: Container(
                         child: Padding(
-                      padding: EdgeInsets.all(12),
+                      padding: const EdgeInsets.all(12),
                       child: Text(
                         widget.title ?? "",
                         textAlign: TextAlign.center,
@@ -105,12 +102,14 @@ class _MyAppBarState extends State<MyAppBar> {
                     child: Row(
                       children: [
                         widget.notifications == true
-                            ? MyAppbarButtonNotifications()
-                            : SizedBox(),
+                            ? const MyAppbarButtonNotifications()
+                            : const SizedBox(),
                         widget.profile == true
-                            ? MyAppbarButtonProfile()
-                            : SizedBox(),
-                        widget.hype == true ? MyAppbarButtonHype() : SizedBox(),
+                            ? const MyAppbarButtonProfile()
+                            : const SizedBox(),
+                        widget.hype == true
+                            ? const MyAppbarButtonHype()
+                            : const SizedBox(),
                       ],
                     ),
                   ),
@@ -159,7 +158,7 @@ class _MyAppbarButtonHypeState extends State<MyAppbarButtonHype> {
           : const Icon(
               LineAwesomeIcons.heart_1,
               size: 35,
-              color: iconColour,
+              color: primaryPurple,
             ),
     );
   }

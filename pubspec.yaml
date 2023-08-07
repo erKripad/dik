@@ -35,6 +35,7 @@ dependencies:
   equatable: ^2.0.5
   flutter_svg: ^2.0.7
   image: ^4.0.17
+  palette_generator: ^0.3.3+2
   
 
 #---------------------------------------------------------#
@@ -77,6 +78,7 @@ flutter:
   assets:
     - assets/papera.jpg
     - assets/immagine di profilo.jpg
+    - assets/prova1.jpg
     - assets/icons/
 
   fonts:

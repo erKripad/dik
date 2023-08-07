@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 //import 'package:infinite_scroll/infinite_scroll.dart';
 import 'package:dik/Theme/colors.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import 'package:dik/theme/events_examples.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -156,11 +155,11 @@ class _CategoryListItemState extends State<CategoryListItem> {
           Navigator.pushNamed(context, '/new_page');
         },
         child: Container(
-            height: screenheight / 14,
-            width: screenwidth / 3,
+            height: screenheight * 5 / 100,
+            width: screenwidth * 30 / 100,
             decoration: const BoxDecoration(
               color: primaryObjColour,
-              borderRadius: const BorderRadius.all(Radius.circular(20)),
+              borderRadius: BorderRadius.all(Radius.circular(50)),
             ),
             padding: const EdgeInsets.all(15.0),
             child: const FittedBox(
@@ -228,9 +227,9 @@ class _ListItemState extends State<ListItem> {
             },
             child: Container(
               height: screenwidth * 120 / 100,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: primaryObjColour,
-                borderRadius: const BorderRadius.all(Radius.circular(20)),
+                borderRadius: BorderRadius.all(Radius.circular(20)),
               ),
               padding: const EdgeInsets.all(15.0),
               child: Column(
@@ -240,10 +239,10 @@ class _ListItemState extends State<ListItem> {
                     child: SizedBox(
                       height: screenwidth * 85 / 100,
                       width: screenwidth * 85 / 100,
-                      child: ClipRRect(
+                      child: const ClipRRect(
                         borderRadius: BorderRadius.all(Radius.circular(20)),
                         child: Image(
-                            image: AssetImage("assets/papera.jpg"),
+                            image: AssetImage("assets/prova1.jpg"),
                             fit: BoxFit.fill),
                       ),
                     ),
@@ -259,7 +258,7 @@ class _ListItemState extends State<ListItem> {
                           Text(
                             widget.title,
                             textAlign: TextAlign.start,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontFamily: "Gelion Bold",
                               fontSize: 24,
                               color: primaryPurple,
@@ -268,7 +267,7 @@ class _ListItemState extends State<ListItem> {
                           SizedBox(height: screenheight * 1 / 100),
                           Text(
                             widget.place,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontFamily: "Gelion Medium",
                               fontSize: 18,
                               color: textColour,
@@ -277,7 +276,7 @@ class _ListItemState extends State<ListItem> {
                           SizedBox(height: screenheight * 1 / 100),
                           Text(
                             widget.date,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontFamily: "Gelion Medium",
                               fontSize: 18,
                               color: textColour,
@@ -285,22 +284,22 @@ class _ListItemState extends State<ListItem> {
                           ),
                         ],
                       ),
-                      Expanded(child: SizedBox()),
+                      const Expanded(child: SizedBox()),
                       Column(
                         children: [
-                          //SizedBox(height: screenheight * 1 / 100),
+                          SizedBox(height: screenheight * 1 / 100),
                           SizedBox(
                             height: screenwidth * 10 / 100,
                             width: screenwidth * 15 / 100,
                             child: ClipRRect(
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
+                                  const BorderRadius.all(Radius.circular(20)),
                               child: ColoredBox(
                                   color: primaryBackgroundColour,
                                   child: Center(
                                     child: Text(
                                       "$price\$",
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         fontFamily: "Gelion Medium",
                                         fontSize: 18,
                                         color: primaryPurple,
@@ -310,7 +309,7 @@ class _ListItemState extends State<ListItem> {
                             ),
                           ),
                           SizedBox(height: screenheight * 1 / 100),
-                          MyButtonHype(),
+                          const MyButtonHype(),
                         ],
                       )
                     ],
@@ -373,7 +372,7 @@ class _MyButtonHypeState extends State<MyButtonHype> {
             ? const Icon(
                 LineAwesomeIcons.heart,
                 size: 28,
-                color: primaryPurple,
+                color: iconColour,
               )
             : const Icon(
                 LineAwesomeIcons.heart_1,
