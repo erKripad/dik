@@ -38,10 +38,7 @@ class MyApp extends StatelessWidget {
         '/privacy': (context) => const PrivacyPage(),
         '/info': (context) => const InfoPage(),
         '/tickets': (context) => const TicketsPage(),
-        '/new_page': (context) => const SelectedPage(
-            //setColor: setColor,
-            //color: color,
-            ),
+        '/new_page': (context) => const SelectedPage(),
         '/edit_profile_picture': (context) => ProfilePictureEditingPage(),
       },
     );
