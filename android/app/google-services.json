@@ -1,34 +1,41 @@
 {
   "project_info": {
-    "project_number": "133433635467",
-    "project_id": "dik-project",
-    "storage_bucket": "dik-project.appspot.com"
+    "project_number": "43969926316",
+    "project_id": "dikorp-393116",
+    "storage_bucket": "dikorp-393116.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:133433635467:android:0c4ddac2fb9d18d133da8e",
+        "mobilesdk_app_id": "1:43969926316:android:9a45f614e0f066539afb09",
         "android_client_info": {
           "package_name": "com.example.dik"
         }
       },
       "oauth_client": [
         {
-          "client_id": "133433635467-cpreh215p9qsf2dmlemk2nfb4msfo5md.apps.googleusercontent.com",
+          "client_id": "43969926316-otj3mssl6rpduvmd4g6f4pah4l0bvjpf.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCH5PgONRG7Id6e7ORHwRh8i5DD0SrY9OM"
+          "current_key": "AIzaSyAqmOILGqn4zBANaIXfcx7PXtijSyRLeG8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "133433635467-cpreh215p9qsf2dmlemk2nfb4msfo5md.apps.googleusercontent.com",
+              "client_id": "43969926316-o64qs4cvqbuhlekq8m8ktm52gnucu9up.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "43969926316-m73qffkf87dk3cmccm14qrov97h516h9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.dik"
+              }
             }
           ]
         }

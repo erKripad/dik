@@ -44,40 +44,40 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDXJgGiC0BEREcFjWuBCzW2uLWTEeQNa6E',
-    appId: '1:133433635467:web:bdda9fa9fc6baacb33da8e',
-    messagingSenderId: '133433635467',
-    projectId: 'dik-project',
-    authDomain: 'dik-project.firebaseapp.com',
-    storageBucket: 'dik-project.appspot.com',
-    measurementId: 'G-SWD3V87Q15',
+    apiKey: 'AIzaSyBMyZnaYfzy_Rp6YUGcACPE5CoKYo6QWlE',
+    appId: '1:43969926316:web:87515a8f99e4bf749afb09',
+    messagingSenderId: '43969926316',
+    projectId: 'dikorp-393116',
+    authDomain: 'dikorp-393116.firebaseapp.com',
+    storageBucket: 'dikorp-393116.appspot.com',
+    measurementId: 'G-Z96877JG1L',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCH5PgONRG7Id6e7ORHwRh8i5DD0SrY9OM',
-    appId: '1:133433635467:android:0c4ddac2fb9d18d133da8e',
-    messagingSenderId: '133433635467',
-    projectId: 'dik-project',
-    storageBucket: 'dik-project.appspot.com',
+    apiKey: 'AIzaSyAqmOILGqn4zBANaIXfcx7PXtijSyRLeG8',
+    appId: '1:43969926316:android:9a45f614e0f066539afb09',
+    messagingSenderId: '43969926316',
+    projectId: 'dikorp-393116',
+    storageBucket: 'dikorp-393116.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAdV7deLJPSRFaeXWSgycsM5vluS3bRsK4',
-    appId: '1:133433635467:ios:f071025aabefdd1c33da8e',
-    messagingSenderId: '133433635467',
-    projectId: 'dik-project',
-    storageBucket: 'dik-project.appspot.com',
-    iosClientId: '133433635467-9pf9uku5855m64b2jl9cneufoojsj6qu.apps.googleusercontent.com',
+    apiKey: 'AIzaSyDTIks_myfxyCO5jwgPJ-kzneEP1IBcOH8',
+    appId: '1:43969926316:ios:8d8030845baeecb69afb09',
+    messagingSenderId: '43969926316',
+    projectId: 'dikorp-393116',
+    storageBucket: 'dikorp-393116.appspot.com',
+    iosClientId: '43969926316-m73qffkf87dk3cmccm14qrov97h516h9.apps.googleusercontent.com',
     iosBundleId: 'com.example.dik',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyAdV7deLJPSRFaeXWSgycsM5vluS3bRsK4',
-    appId: '1:133433635467:ios:f071025aabefdd1c33da8e',
-    messagingSenderId: '133433635467',
-    projectId: 'dik-project',
-    storageBucket: 'dik-project.appspot.com',
-    iosClientId: '133433635467-9pf9uku5855m64b2jl9cneufoojsj6qu.apps.googleusercontent.com',
+    apiKey: 'AIzaSyDTIks_myfxyCO5jwgPJ-kzneEP1IBcOH8',
+    appId: '1:43969926316:ios:8d8030845baeecb69afb09',
+    messagingSenderId: '43969926316',
+    projectId: 'dikorp-393116',
+    storageBucket: 'dikorp-393116.appspot.com',
+    iosClientId: '43969926316-m73qffkf87dk3cmccm14qrov97h516h9.apps.googleusercontent.com',
     iosBundleId: 'com.example.dik',
   );
 }
