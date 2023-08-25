@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 //import 'package:infinite_scroll/infinite_scroll.dart';
 import 'package:dik/Theme/colors.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
+import 'package:dik/theme/Main Interface/Screens/Home Page/selected_page.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -225,7 +226,7 @@ class _ListItemState extends State<ListItem> {
         children: [
           GestureDetector(
             onTap: () {
-              Navigator.pushNamed(context, '/new_page');
+              Navigator.of(context).push(_createRoute());
             },
             child: Container(
               height: screenwidth * 120 / 100,
@@ -341,6 +342,28 @@ class _ListItemState extends State<ListItem> {
 
 //----------------------------------------------------------------------------//
 
+Route _createRoute() {
+  return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) =>
+          const SelectedPage(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        const begin = Offset(0.0, 1.0);
+        const end = Offset.zero;
+        const curve = Curves.ease;
+
+        final tween = Tween(begin: begin, end: end);
+        final curvedAnimation = CurvedAnimation(
+          parent: animation,
+          curve: curve,
+        );
+
+        return SlideTransition(
+          position: tween.animate(curvedAnimation),
+          child: child,
+        );
+      });
+}
+
 class MyButtonHype extends StatefulWidget {
   const MyButtonHype({
     Key? key,
@@ -356,8 +379,8 @@ class _MyButtonHypeState extends State<MyButtonHype> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 45,
-      width: 45,
+      height: 44,
+      width: 44,
       child: FloatingActionButton(
         onPressed: () {
           hyped == true
