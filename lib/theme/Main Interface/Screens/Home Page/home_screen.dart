@@ -2,12 +2,15 @@
 
 // ignore_for_file: unused_import
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 //import 'package:flutter/scheduler.dart';
 //import 'package:animations/animations.dart';
 //import 'package:infinite_scroll/infinite_scroll.dart';
 import 'package:dik/Theme/colors.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
+import 'package:dik/theme/events_examples.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -44,72 +47,70 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-        backgroundColor: primaryBackgroundColour,
+    return Scaffold(
+        backgroundColor: primaryBackgroundColor,
         //
         body: Padding(
-          padding: EdgeInsets.all(8),
+          padding: const EdgeInsets.all(8),
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
-                Padding(
+                const Padding(
                   padding: EdgeInsets.all(12),
                   child: Text(
                     "Scopri le categorie",
                     style: TextStyle(
                       fontFamily: "Gelion Bold",
-                      fontSize: 26,
-                      color: textColour,
+                      fontSize: 32,
+                      color: textColor,
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                SingleChildScrollView(
+                const SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: <Widget>[
                       CategoryListItem(),
-                      CategoryListItem(),
-                      CategoryListItem(),
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 45,
                 ),
-                Padding(
+                const Padding(
                   padding: EdgeInsets.all(12),
                   child: Text(
                     "Eventi",
                     style: TextStyle(
                       fontFamily: "Gelion Bold",
-                      fontSize: 26,
-                      color: textColour,
+                      fontSize: 32,
+                      color: textColor,
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Column(
                   children: <Widget>[
                     ListItem(
-                      title: "Titolo",
-                      place: "Luogo",
-                      date: "gg/mm/yy",
-                      time: "hh/mm",
-                      price: 50,
+                      title: title,
+                      place: place,
+                      date: date,
+                      time: time,
+                      price: price,
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 80,
                 ),
               ],
@@ -160,7 +161,7 @@ class _CategoryListItemState extends State<CategoryListItem> {
             height: screenheight * 5 / 100,
             width: screenwidth * 30 / 100,
             decoration: const BoxDecoration(
-              color: primaryObjColour,
+              color: primaryObjColor,
               borderRadius: BorderRadius.all(Radius.circular(20)),
             ),
             padding: const EdgeInsets.all(15.0),
@@ -173,7 +174,7 @@ class _CategoryListItemState extends State<CategoryListItem> {
                   Icon(
                     LineAwesomeIcons.theater_masks,
                     size: 24,
-                    color: Colors.yellow,
+                    color: primaryPurple,
                   ),
                   SizedBox(width: 6),
                   Text(
@@ -182,7 +183,7 @@ class _CategoryListItemState extends State<CategoryListItem> {
                     style: TextStyle(
                       fontFamily: "Gelion Medium",
                       fontSize: 15,
-                      color: Colors.yellow,
+                      color: primaryPurple,
                     ),
                   ),
                 ],
@@ -196,6 +197,8 @@ class _CategoryListItemState extends State<CategoryListItem> {
 class ListItem extends StatefulWidget {
   const ListItem({
     Key? key,
+    //required this.height,
+    //required this.width,
     required this.title,
     required this.date,
     required this.place,
@@ -203,6 +206,8 @@ class ListItem extends StatefulWidget {
     required this.price,
   }) : super(key: key);
 
+  //final int height;
+  //final int width;
   final String title;
   final String date;
   final String time;
@@ -214,10 +219,32 @@ class ListItem extends StatefulWidget {
 }
 
 class _ListItemState extends State<ListItem> {
+  /*double imageHeight = 300;
+  double imageWidth = 300;
+
+  void _moveBox() {
+    imageHeight == 300
+        ? setState(() {
+            imageHeight = 100;
+            imageWidth = 100;
+          })
+        : setState(() {
+            imageHeight = 300;
+            imageWidth = 300;
+          });
+  }*/
+
+  void timer() {
+    Timer(const Duration(milliseconds: 0), () {
+      Navigator.pushNamed(context, '/new_page');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     double screenheight = MediaQuery.of(context).size.height;
     double screenwidth = MediaQuery.of(context).size.width;
+
     int price = widget.price;
     return Padding(
       padding: const EdgeInsets.all(5.0),
@@ -225,12 +252,24 @@ class _ListItemState extends State<ListItem> {
         children: [
           GestureDetector(
             onTap: () {
-              Navigator.pushNamed(context, '/new_page');
+              //_moveBox();
+
+              timer();
             },
-            child: Container(
+            onDoubleTap: () {
+              hyped == true
+                  ? setState(() {
+                      hyped = false;
+                    })
+                  : setState(() {
+                      hyped = true;
+                    });
+            },
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 500),
               height: screenwidth * 120 / 100,
               decoration: const BoxDecoration(
-                color: primaryObjColour,
+                color: primaryObjColor,
                 borderRadius: BorderRadius.all(Radius.circular(20)),
               ),
               padding: const EdgeInsets.all(15.0),
@@ -238,14 +277,15 @@ class _ListItemState extends State<ListItem> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Center(
-                    child: SizedBox(
+                    child: AnimatedContainer(
+                      duration: const Duration(milliseconds: 200),
                       height: screenwidth * 85 / 100,
                       width: screenwidth * 85 / 100,
-                      child: const ClipRRect(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                        child: Image(
-                            image: AssetImage("assets/prova1.jpg"),
-                            fit: BoxFit.fill),
+                      child: ClipRRect(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(20)),
+                        child:
+                            Image(image: AssetImage(image), fit: BoxFit.fill),
                       ),
                     ),
                   ),
@@ -272,7 +312,7 @@ class _ListItemState extends State<ListItem> {
                             style: const TextStyle(
                               fontFamily: "Gelion Medium",
                               fontSize: 18,
-                              color: textColour,
+                              color: textColor,
                             ),
                           ),
                           SizedBox(height: screenheight * 1 / 100),
@@ -281,7 +321,7 @@ class _ListItemState extends State<ListItem> {
                             style: const TextStyle(
                               fontFamily: "Gelion Medium",
                               fontSize: 18,
-                              color: textColour,
+                              color: textColor,
                             ),
                           ),
                         ],
@@ -297,7 +337,7 @@ class _ListItemState extends State<ListItem> {
                               borderRadius:
                                   const BorderRadius.all(Radius.circular(20)),
                               child: ColoredBox(
-                                  color: primaryBackgroundColour,
+                                  color: primaryBackgroundColor,
                                   child: Center(
                                     child: Text(
                                       "$price\$",
@@ -351,7 +391,7 @@ class MyButtonHype extends StatefulWidget {
 }
 
 class _MyButtonHypeState extends State<MyButtonHype> {
-  bool hyped = false;
+  //bool hyped = false;
 
   @override
   Widget build(BuildContext context) {
@@ -369,12 +409,12 @@ class _MyButtonHypeState extends State<MyButtonHype> {
                 });
         },
         elevation: 0,
-        backgroundColor: primaryBackgroundColour,
+        backgroundColor: primaryBackgroundColor,
         child: hyped == false
             ? const Icon(
                 LineAwesomeIcons.heart,
                 size: 28,
-                color: iconColour,
+                color: iconColor,
               )
             : const Icon(
                 LineAwesomeIcons.heart_1,

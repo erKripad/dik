@@ -4,4 +4,6 @@ class CustomIcons {
   static const String title_2 = "assets/icons/Tonight_2.svg";
   static const String empty_calendar = "assets/icons/calendario_0.svg";
   static const String ticket = "assets/icons/ticket.svg";
+  static const String appendi_abiti = "assets/icons/appendiabiti.svg";
+  static const String trattore = "assets/icons/trattore.svg";
 }

@@ -18,12 +18,12 @@ class SavedScreen extends StatelessWidget {
           style: TextStyle(
             fontFamily: "Gelion Bold",
             fontSize: 25,
-            color: textColour,
+            color: textColor,
           ),
         ),
       ),
       extendBodyBehindAppBar: true,
-      backgroundColor: primaryBackgroundColour,
+      backgroundColor: primaryBackgroundColor,
       floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
     );
   }

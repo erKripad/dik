@@ -6,6 +6,8 @@ import 'package:dik/theme/Main Interface/appbar.dart';
 import 'package:dik/theme/icons.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:palette_generator/palette_generator.dart';
+import 'package:dik/theme/events_examples.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -17,10 +19,8 @@ class SelectedPage extends StatefulWidget {
 }
 
 class _SelectedPageState extends State<SelectedPage> {
-  static String image = "assets/prova1.jpg";
-
   PaletteGenerator? paletteGenerator;
-  Color defaultColor = primaryObjColour;
+  Color defaultColor = primaryObjColor;
 
   void generateColors() async {
     paletteGenerator = await PaletteGenerator.fromImageProvider(
@@ -43,12 +43,21 @@ class _SelectedPageState extends State<SelectedPage> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(screenheight / 16),
-        child: const MyAppBar(
+        child: MyAppBar(
           hype: true,
+          hypeColor: paletteGenerator == null
+              ? defaultColor
+              : paletteGenerator?.dominantColor == null
+                  ? paletteGenerator?.lightVibrantColor == null
+                      ? defaultColor
+                      : paletteGenerator?.lightVibrantColor?.color ??
+                          defaultColor
+                  : paletteGenerator?.dominantColor?.color.withOpacity(1) ??
+                      defaultColor,
           gobackbutton: true,
         ),
       ),
-      backgroundColor: primaryBackgroundColour,
+      backgroundColor: primaryBackgroundColor,
       extendBodyBehindAppBar: true,
       body:
           // considero un bordo padding standard di 15 come nelle altre schede
@@ -68,16 +77,17 @@ class _SelectedPageState extends State<SelectedPage> {
                       colors: [
                         paletteGenerator == null
                             ? defaultColor
-                            : paletteGenerator?.vibrantColor == null
+                            : paletteGenerator?.dominantColor == null
                                 ? paletteGenerator?.lightVibrantColor == null
                                     ? defaultColor
-                                    : paletteGenerator
-                                            ?.lightVibrantColor?.color ??
+                                    : paletteGenerator?.lightVibrantColor?.color
+                                            .withOpacity(1) ??
                                         defaultColor
-                                : paletteGenerator?.vibrantColor?.color ??
+                                : paletteGenerator?.dominantColor?.color
+                                        .withOpacity(1) ??
                                     defaultColor,
                         //paletteGenerator?.vibrantColor?.color ?? defaultColor,
-                        primaryBackgroundColour,
+                        primaryBackgroundColor,
                       ],
                     ),
                   ),
@@ -104,14 +114,14 @@ class _SelectedPageState extends State<SelectedPage> {
                         SizedBox(
                           height: screenheight * 2 / 100,
                         ),
-                        const SizedBox(
+                        SizedBox(
                           child: Text(
-                            "Titolo",
+                            title,
                             textAlign: TextAlign.start,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontFamily: "Gelion Bold",
                               fontSize: 30,
-                              color: textColour,
+                              color: textColor,
                             ),
                           ),
                         ),
@@ -204,7 +214,7 @@ class DescriptionBox extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(15),
         decoration: const BoxDecoration(
-          color: primaryObjColour,
+          color: primaryObjColor,
           borderRadius: BorderRadius.all(Radius.circular(20)),
         ),
         child: const Text(
@@ -213,7 +223,7 @@ class DescriptionBox extends StatelessWidget {
           style: TextStyle(
             fontFamily: "Gelion Medium",
             fontSize: 14,
-            color: textColour,
+            color: textColor,
           ),
         ),
       ),
@@ -237,14 +247,14 @@ class ServiceBox extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(15),
         decoration: const BoxDecoration(
-          color: primaryObjColour,
+          color: primaryObjColor,
           borderRadius: BorderRadius.all(Radius.circular(20)),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           //crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Center(
+            /*const Center(
               child: Text(
                 "Info Servizi",
                 textAlign: TextAlign.start,
@@ -254,15 +264,16 @@ class ServiceBox extends StatelessWidget {
                   color: primaryPurple,
                 ),
               ),
-            ),
+            ),*/
             SizedBox(height: screenheight * 2 / 100),
             Row(
               children: [
                 SvgPicture.asset(
-                  CustomIcons.ticket,
-                  height: 28,
-                  width: 28,
-                  color: iconColour,
+                  CustomIcons.appendi_abiti,
+                  height: 32,
+                  width: 32,
+                  // ignore: deprecated_member_use
+                  color: iconColor,
                 ),
                 SizedBox(width: screenwidth * 2 / 100),
                 const Text(
@@ -271,7 +282,7 @@ class ServiceBox extends StatelessWidget {
                   style: TextStyle(
                     fontFamily: "Gelion Bold",
                     fontSize: 18,
-                    color: textColour,
+                    color: textColor,
                   ),
                 ),
               ],
@@ -281,9 +292,10 @@ class ServiceBox extends StatelessWidget {
               children: [
                 SvgPicture.asset(
                   CustomIcons.ticket,
-                  height: 28,
-                  width: 28,
-                  color: iconColour,
+                  height: 36,
+                  width: 36,
+                  // ignore: deprecated_member_use
+                  color: iconColor,
                 ),
                 SizedBox(
                   width: screenwidth * 2 / 100,
@@ -294,7 +306,7 @@ class ServiceBox extends StatelessWidget {
                   style: TextStyle(
                     fontFamily: "Gelion Bold",
                     fontSize: 18,
-                    color: textColour,
+                    color: textColor,
                   ),
                 ),
               ],
@@ -306,7 +318,8 @@ class ServiceBox extends StatelessWidget {
                   CustomIcons.ticket,
                   height: 28,
                   width: 28,
-                  color: iconColour,
+                  // ignore: deprecated_member_use
+                  color: iconColor,
                 ),
                 SizedBox(width: screenwidth * 2 / 100),
                 const Text(
@@ -315,7 +328,7 @@ class ServiceBox extends StatelessWidget {
                   style: TextStyle(
                     fontFamily: "Gelion Bold",
                     fontSize: 18,
-                    color: textColour,
+                    color: textColor,
                   ),
                 ),
               ],
@@ -343,7 +356,7 @@ class InfoBox extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(15),
         decoration: const BoxDecoration(
-          color: primaryBackgroundColour,
+          color: primaryBackgroundColor,
           borderRadius: BorderRadius.all(Radius.circular(20)),
         ),
         child: Column(
@@ -355,7 +368,8 @@ class InfoBox extends StatelessWidget {
                   CustomIcons.empty_calendar,
                   height: 24,
                   width: 24,
-                  color: iconColour,
+                  // ignore: deprecated_member_use
+                  color: iconColor,
                 ),
                 SizedBox(
                   width: screenwidth * 2 / 100,
@@ -366,7 +380,7 @@ class InfoBox extends StatelessWidget {
                   style: TextStyle(
                     fontFamily: "Gelion Bold",
                     fontSize: 18,
-                    color: textColour,
+                    color: textColor,
                   ),
                 ),
               ],
@@ -380,7 +394,8 @@ class InfoBox extends StatelessWidget {
                   CustomIcons.empty_calendar,
                   height: 24,
                   width: 24,
-                  color: iconColour,
+                  // ignore: deprecated_member_use
+                  color: iconColor,
                 ),
                 SizedBox(
                   width: screenwidth * 2 / 100,
@@ -391,7 +406,7 @@ class InfoBox extends StatelessWidget {
                   style: TextStyle(
                     fontFamily: "Gelion Bold",
                     fontSize: 18,
-                    color: textColour,
+                    color: textColor,
                   ),
                 ),
               ],
@@ -405,7 +420,8 @@ class InfoBox extends StatelessWidget {
                   CustomIcons.ticket,
                   height: 28,
                   width: 28,
-                  color: iconColour,
+                  // ignore: deprecated_member_use
+                  color: iconColor,
                 ),
                 SizedBox(
                   width: screenwidth * 2 / 100,
@@ -416,7 +432,7 @@ class InfoBox extends StatelessWidget {
                   style: TextStyle(
                     fontFamily: "Gelion Bold",
                     fontSize: 18,
-                    color: textColour,
+                    color: textColor,
                   ),
                 ),
               ],
@@ -440,7 +456,7 @@ class HostInfoBox extends StatelessWidget {
       child: Container(
           padding: const EdgeInsets.all(15),
           decoration: const BoxDecoration(
-            color: primaryObjColour,
+            color: primaryObjColor,
             borderRadius: BorderRadius.all(Radius.circular(20)),
           ),
           child: Row(
@@ -452,10 +468,11 @@ class HostInfoBox extends StatelessWidget {
                   const HostingEventProfileButton(),
                   SizedBox(height: screenheight * 2 / 100),
                   SvgPicture.asset(
-                    CustomIcons.ticket,
+                    CustomIcons.trattore,
                     height: 50,
                     width: 50,
-                    color: iconColour,
+                    // ignore: deprecated_member_use
+                    color: iconColor,
                   ),
                 ],
               ),
@@ -469,7 +486,7 @@ class HostInfoBox extends StatelessWidget {
                     style: TextStyle(
                       fontFamily: "Gelion Bold",
                       fontSize: 20,
-                      color: textColour,
+                      color: textColor,
                     ),
                   ),
                 ],
@@ -484,7 +501,7 @@ class MapBox extends StatelessWidget {
   const MapBox({super.key});
   @override
   Widget build(context) {
-    double screenheight = MediaQuery.of(context).size.height;
+    //double screenheight = MediaQuery.of(context).size.height;
     double screenwidth = MediaQuery.of(context).size.width;
     return SizedBox(
       height: screenwidth * 90 / 100 - 40,
@@ -492,24 +509,29 @@ class MapBox extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(15),
         decoration: const BoxDecoration(
-          color: primaryBackgroundColour,
+          color: primaryBackgroundColor,
           borderRadius: BorderRadius.all(Radius.circular(20)),
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SvgPicture.asset(
+            /*SvgPicture.asset(
               CustomIcons.ticket,
               height: 40,
               width: 40,
-              color: iconColour,
+              // ignore: deprecated_member_use
+              color: iconColor,
+            ),*/
+            const Icon(
+              LineAwesomeIcons.map_marked,
+              size: 40,
             ),
             SizedBox(width: screenwidth * 5 / 100),
             Expanded(
               child: Container(
                 padding: const EdgeInsets.all(15),
                 decoration: const BoxDecoration(
-                  color: primaryObjColour,
+                  color: primaryObjColor,
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                 ),
               ),

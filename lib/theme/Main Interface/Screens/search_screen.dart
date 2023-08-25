@@ -43,7 +43,7 @@ class SearchScreen extends StatelessWidget {
     ExampleItemPager pager = ExampleItemPager();
     return Scaffold(
       extendBodyBehindAppBar: true,
-      backgroundColor: primaryBackgroundColour,
+      backgroundColor: primaryBackgroundColor,
       //floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -55,13 +55,13 @@ class SearchScreen extends StatelessWidget {
               width: 600,
               child: PaginatedSearchBar(
                 containerDecoration: BoxDecoration(
-                  color: primaryObjColour,
+                  color: primaryObjColor,
                   borderRadius: BorderRadius.circular(20),
                 ),
                 inputStyle: const TextStyle(
                   fontFamily: "Gelion Medium",
                   fontSize: 25,
-                  color: textColour,
+                  color: textColor,
                 ),
                 hintText: 'Cerca',
                 /*emptyBuilder: (context) {

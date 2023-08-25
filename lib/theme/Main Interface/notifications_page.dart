@@ -28,7 +28,7 @@ class NotificationScreen extends StatelessWidget {
         ),
       ),
       extendBodyBehindAppBar: false,
-      backgroundColor: primaryBackgroundColour,
+      backgroundColor: primaryBackgroundColor,
       floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
       body: const NotificationItem(),
     );
@@ -54,7 +54,7 @@ class NotificationItem extends StatelessWidget {
           },
           child: Container(
             decoration: const BoxDecoration(
-              color: primaryObjColour,
+              color: primaryObjColor,
               borderRadius: BorderRadius.all(Radius.circular(20)),
             ),
           ),
