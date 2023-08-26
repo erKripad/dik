@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:dik/Theme/App/Screens/calendar_screen.dart';
 import 'package:dik/Theme/App/Screens/map_screen.dart';
 import 'package:dik/Theme/App/Screens/search_screen.dart';
-import 'package:dik/Theme/App/Screens/Home Page/home_screen.dart';
+import 'package:dik/Theme/App/Screens/HomePage/home_screen.dart';
 import 'package:dik/Theme/App/Screens/saved_screen.dart';
 import 'package:dik/Theme/colors.dart';
 import 'package:dik/theme/App/appbar.dart';

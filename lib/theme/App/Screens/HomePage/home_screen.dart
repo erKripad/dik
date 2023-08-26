@@ -55,6 +55,8 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: const EdgeInsets.all(8),
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
+            physics: const BouncingScrollPhysics(
+                decelerationRate: ScrollDecelerationRate.fast),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -116,21 +118,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
-            /*InfiniteScrollList(
-                physics: const BouncingScrollPhysics(),
-                shrinkWrap: true,
-                onLoadingStart: (page) async {
-                  List<String> newData = await getNextPageData(page);
-                  setState(() {
-                    data += newData;
-                    if (newData.isEmpty) {
-                      everyThingLoaded = true;
-                    }
-                  });
-                },
-                everythingLoaded: everyThingLoaded,
-                children: data.map((e) => const ListItem()).toList(),
-              ),*/
           ),
         ));
   }
@@ -198,8 +185,6 @@ class _CategoryListItemState extends State<CategoryListItem> {
 class ListItem extends StatefulWidget {
   const ListItem({
     Key? key,
-    //required this.height,
-    //required this.width,
     required this.title,
     required this.date,
     required this.place,
@@ -207,8 +192,6 @@ class ListItem extends StatefulWidget {
     required this.price,
   }) : super(key: key);
 
-  //final int height;
-  //final int width;
   final String title;
   final String date;
   final String time;
@@ -357,19 +340,6 @@ class _ListItemState extends State<ListItem> {
                       )
                     ],
                   )
-                  /*
-                  Row(
-                    children: [
-                      
-                    ],
-                  ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      
-                      
-                    ],
-                  )*/
                 ],
               ),
             ),
@@ -396,39 +366,47 @@ class _MyButtonHypeState extends State<MyButtonHype> {
 
   @override
   Widget build(BuildContext context) {
+    double screenheight = MediaQuery.of(context).size.height;
+    double screenwidth = MediaQuery.of(context).size.width;
     return SizedBox(
-      height: 44,
-      width: 44,
-      child: GestureDetector(
-        onTap: () {
-          hyped == true
-              ? setState(() {
-                  hyped = false;
-                })
-              : setState(() {
-                  hyped = true;
-                });
-        },
-        onLongPress: () {
-          hyped == true
-              ? setState(() {
-                  hyped = false;
-                })
-              : setState(() {
-                  hyped = true;
-                });
-        },
-        child: hyped == false
-            ? const Icon(
-                LineAwesomeIcons.heart,
-                size: 28,
-                color: iconColor,
-              )
-            : const Icon(
-                LineAwesomeIcons.heart_1,
-                size: 28,
-                color: primaryPurple,
-              ),
+      height: screenwidth * 10 / 100,
+      width: screenwidth * 15 / 100,
+      child: ClipRRect(
+        borderRadius: const BorderRadius.all(Radius.circular(20)),
+        child: ColoredBox(
+          color: primaryBackgroundColor,
+          child: GestureDetector(
+            onTap: () {
+              hyped == true
+                  ? setState(() {
+                      hyped = false;
+                    })
+                  : setState(() {
+                      hyped = true;
+                    });
+            },
+            onLongPress: () {
+              hyped == true
+                  ? setState(() {
+                      hyped = false;
+                    })
+                  : setState(() {
+                      hyped = true;
+                    });
+            },
+            child: hyped == false
+                ? const Icon(
+                    LineAwesomeIcons.heart,
+                    size: 28,
+                    color: iconColor,
+                  )
+                : const Icon(
+                    LineAwesomeIcons.heart_1,
+                    size: 28,
+                    color: primaryPurple,
+                  ),
+          ),
+        ),
       ),
     );
   }
