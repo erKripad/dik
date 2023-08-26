@@ -20,7 +20,7 @@ class ProfilePage extends StatelessWidget {
     double screenheight = MediaQuery.of(context).size.height;
     double screenwidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: primaryBackgroundColour,
+      backgroundColor: primaryBackgroundColor,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(screenheight / 16),
         child: const MyAppBar(
@@ -56,7 +56,7 @@ class ProfilePage extends StatelessWidget {
                 style: const TextStyle(
                   fontFamily: "Gelion Bold",
                   fontSize: 25,
-                  color: textColour,
+                  color: textColor,
                 ),
               ),
               const SizedBox(height: 8),
@@ -65,7 +65,7 @@ class ProfilePage extends StatelessWidget {
                 style: const TextStyle(
                   fontFamily: "Gelion Medium",
                   fontSize: 16,
-                  color: textColour,
+                  color: textColor,
                 ),
               ),
               const SizedBox(height: 20),
@@ -94,7 +94,7 @@ class ProfilePage extends StatelessWidget {
                 onPress: () {
                   Navigator.pushNamed(context, '/tickets');
                 },
-                textColor: textColour,
+                textColor: textColor,
               ),
               const SizedBox(height: 8),
               ProfileMenuWidget(
@@ -103,7 +103,7 @@ class ProfilePage extends StatelessWidget {
                 onPress: () {
                   Navigator.pushNamed(context, '/cart');
                 },
-                textColor: textColour,
+                textColor: textColor,
               ),
               const SizedBox(height: 8),
               ProfileMenuWidget(
@@ -112,7 +112,7 @@ class ProfilePage extends StatelessWidget {
                 onPress: () {
                   Navigator.pushNamed(context, '/settings');
                 },
-                textColor: textColour,
+                textColor: textColor,
               ),
               const SizedBox(height: 8),
               ProfileMenuWidget(
@@ -121,14 +121,14 @@ class ProfilePage extends StatelessWidget {
                 onPress: () {
                   Navigator.pushNamed(context, '/privacy');
                 },
-                textColor: textColour,
+                textColor: textColor,
               ),
               const SizedBox(height: 8),
               ProfileMenuWidget(
                 title: "Sicurezza",
                 icon: LineAwesomeIcons.check_circle,
                 onPress: () {},
-                textColor: textColour,
+                textColor: textColor,
               ),
               const SizedBox(height: 8),
               ProfileMenuWidget(
@@ -137,14 +137,14 @@ class ProfilePage extends StatelessWidget {
                 onPress: () {
                   Navigator.pushNamed(context, '/info');
                 },
-                textColor: textColour,
+                textColor: textColor,
               ),
               const SizedBox(height: 8),
               ProfileMenuWidget(
                 title: "Esci",
                 icon: LineAwesomeIcons.alternate_sign_out,
                 onPress: () {},
-                textColor: textColour,
+                textColor: textColor,
               ),
             ],
           ),
@@ -188,7 +188,7 @@ class ProfileMenuWidget extends StatelessWidget {
           height: 30,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(100),
-            color: primaryObjColour,
+            color: primaryObjColor,
           ),
           child: Icon(icon, color: textColor),
         ),
@@ -205,12 +205,12 @@ class ProfileMenuWidget extends StatelessWidget {
               height: 30,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(100),
-                color: primaryObjColour,
+                color: primaryObjColor,
               ),
               child: const Icon(
                 LineAwesomeIcons.angle_right,
                 size: 18,
-                color: iconColour,
+                color: iconColor,
               ),
             )
           : null,

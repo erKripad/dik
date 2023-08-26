@@ -1,7 +1,8 @@
 //----------------------------------------------------------------------------//
 
 import 'package:flutter/material.dart';
-import 'package:dik/Theme/colors.dart';
+import 'package:dik/theme/Main Interface/appbar.dart';
+import 'package:dik/theme/colors.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -9,21 +10,17 @@ class CartPage extends StatelessWidget {
   const CartPage({super.key});
   @override
   Widget build(BuildContext context) {
+    double screenheight = MediaQuery.of(context).size.height;
+    double screenwidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        title: const Text(
-          "Carrello",
-          style: TextStyle(
-            fontFamily: "Gelion Bold",
-            fontSize: 25,
-            color: textColour,
-          ),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(screenheight / 16),
+        child: const MyAppBar(
+          gobackbutton: true,
         ),
       ),
       extendBodyBehindAppBar: true,
-      backgroundColor: primaryBackgroundColour,
+      backgroundColor: primaryBackgroundColor,
       floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
     );
   }

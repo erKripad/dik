@@ -4,15 +4,17 @@
 
 import 'package:dik/Theme/Main%20Interface/Profile/profile_page.dart';
 import 'package:dik/theme/Main%20Interface/Screens/Home%20Page/selected_page.dart';
+import 'package:dik/theme/Main%20Interface/main_interface.dart';
+//import 'package:dik/theme/Main%20Interface/main_interface.dart';
 import 'package:flutter/material.dart';
 import 'package:dik/Theme/Main%20Interface/Profile/Profile%20Pages/settings_page.dart';
 import 'package:dik/Theme/Main%20Interface/Profile/profile_picture_editing_page.dart';
 import 'package:dik/Theme/Main%20Interface/notifications_page.dart';
-import 'package:dik/Theme/Main%20Interface/bottom_bar.dart';
 import 'package:dik/Theme/Main%20Interface/Profile/Profile%20Pages/cart_page.dart';
 import 'package:dik/Theme/Main%20Interface/Profile/Profile%20Pages/info_page.dart';
 import 'package:dik/Theme/Main%20Interface/Profile/Profile%20Pages/privacy_page.dart';
 import 'package:dik/Theme/Main%20Interface/Profile/Profile%20Pages/tickets_page.dart';
+//import 'package:dik/theme/Main Interface/bottom_bar.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -30,7 +32,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => const MyBottomNavigationBar(),
+        '/': (context) => const MainInterface(),
         '/settings': (context) => const SettingsPage(),
         '/notifications': (context) => const NotificationScreen(),
         '/profile': (context) => const ProfilePage(),
@@ -39,7 +41,7 @@ class MyApp extends StatelessWidget {
         '/info': (context) => const InfoPage(),
         '/tickets': (context) => const TicketsPage(),
         '/new_page': (context) => const SelectedPage(),
-        '/edit_profile_picture': (context) => ProfilePictureEditingPage(),
+        '/edit_profile_picture': (context) => const ProfilePictureEditingPage(),
       },
     );
   }

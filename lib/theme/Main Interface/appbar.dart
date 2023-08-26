@@ -1,3 +1,5 @@
+//----------------------------------------------------------------------------//
+
 // ignore: unused_import
 import 'dart:ffi';
 import 'package:flutter/material.dart';
@@ -7,8 +9,11 @@ import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:dik/theme/icons.dart';
 // ignore: unused_import
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:dik/theme/events_examples.dart';
 
-var _scrollController = ScrollController();
+//----------------------------------------------------------------------------//
+
+/*var _scrollController = ScrollController();
 
 void goUp() {
   _scrollController.animateTo(
@@ -16,7 +21,9 @@ void goUp() {
     duration: const Duration(milliseconds: 500),
     curve: Curves.easeInOutQuart,
   );
-}
+}*/
+
+//----------------------------------------------------------------------------//
 
 class MyAppBar extends StatefulWidget {
   const MyAppBar({
@@ -26,13 +33,17 @@ class MyAppBar extends StatefulWidget {
     this.profile,
     this.hype,
     this.gobackbutton,
+    this.hypeColor,
+    this.iconSize,
   }) : super(key: key);
 
+  final double? iconSize;
   final String? title;
   final bool? profile;
   final bool? notifications;
   final bool? hype;
   final bool? gobackbutton;
+  final Color? hypeColor;
 
   @override
   State<MyAppBar> createState() => _MyAppBarState();
@@ -66,16 +77,7 @@ class _MyAppBarState extends State<MyAppBar> {
                             SizedBox(
                               width: screenwidth * 3 / 100,
                             ),
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.pop(context);
-                              },
-                              child: const Icon(
-                                Icons.arrow_back,
-                                size: 25,
-                                color: iconColour,
-                              ),
-                            )
+                            GoBackButton(iconSize: widget.iconSize)
                           ],
                         )
                       : SizedBox(
@@ -83,7 +85,7 @@ class _MyAppBarState extends State<MyAppBar> {
                         ),
                   GestureDetector(
                     onTap: () {
-                      _scrollController;
+                      //_scrollController;
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(12),
@@ -92,8 +94,8 @@ class _MyAppBarState extends State<MyAppBar> {
                         textAlign: TextAlign.center,
                         style: const TextStyle(
                           fontFamily: "Gelion Bold",
-                          fontSize: 30,
-                          color: textColour,
+                          fontSize: 34,
+                          color: textColor,
                         ),
                       ),
                     ),
@@ -108,13 +110,15 @@ class _MyAppBarState extends State<MyAppBar> {
                     child: Row(
                       children: [
                         widget.notifications == true
-                            ? const MyAppbarButtonNotifications()
+                            ? const NotificationsButton(iconSize: 40)
                             : const SizedBox(),
                         widget.profile == true
-                            ? const MyAppbarButtonProfile()
+                            ? const ProfileButton(iconSize: 46)
                             : const SizedBox(),
                         widget.hype == true
-                            ? const MyAppbarButtonHype()
+                            ? MyAppbarButtonHype(
+                                color: widget.hypeColor,
+                              )
                             : const SizedBox(),
                       ],
                     ),
@@ -129,9 +133,14 @@ class _MyAppBarState extends State<MyAppBar> {
   }
 }
 
+//----------------------------------------------------------------------------//
+
 class MyAppbarButtonHype extends StatefulWidget {
+  final Color? color;
+
   const MyAppbarButtonHype({
     Key? key,
+    this.color,
   }) : super(key: key);
 
   @override
@@ -139,11 +148,10 @@ class MyAppbarButtonHype extends StatefulWidget {
 }
 
 class _MyAppbarButtonHypeState extends State<MyAppbarButtonHype> {
-  bool hyped = false;
-
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
+      heroTag: "appbarhypebtn",
       onPressed: () {
         hyped == true
             ? setState(() {
@@ -159,63 +167,120 @@ class _MyAppbarButtonHypeState extends State<MyAppbarButtonHype> {
           ? const Icon(
               LineAwesomeIcons.heart,
               size: 35,
-              color: iconColour,
+              color: iconColor,
             )
-          : const Icon(
+          : Icon(
               LineAwesomeIcons.heart_1,
               size: 35,
-              color: primaryPurple,
+              color: widget.color ?? primaryPurple,
             ),
     );
   }
 }
 
-class MyAppbarButtonProfile extends StatelessWidget {
-  const MyAppbarButtonProfile({
+//----------------------------------------------------------------------------//
+
+class ProfileButton extends StatelessWidget {
+  final double? iconSize;
+  final String? image;
+
+  const ProfileButton({
     Key? key,
+    this.iconSize,
+    this.image,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return FloatingActionButton(
-      onPressed: () {
-        Navigator.pushNamed(context, '/profile');
-      },
-      elevation: 0,
-      backgroundColor: Colors.transparent,
-      child: SizedBox(
-        width: 40,
-        height: 40,
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(100),
-          child: const Image(
-            image: AssetImage("assets/immagine di profilo.jpg"),
-            fit: BoxFit.fill,
+    double screenwidth = MediaQuery.of(context).size.width;
+    return Row(
+      children: [
+        //SizedBox(width: screenwidth * 3 / 100),
+        GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(context, '/profile');
+          },
+          onLongPress: () {
+            Navigator.pushNamed(context, '/profile');
+          },
+          child: SizedBox(
+            width: iconSize ?? 32,
+            height: iconSize ?? 32,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(100),
+              child: Image(
+                image: AssetImage(image ?? "assets/immagine di profilo.jpg"),
+                fit: BoxFit.fill,
+              ),
+            ),
           ),
         ),
-      ),
+        SizedBox(width: screenwidth * 5 / 100),
+      ],
     );
   }
 }
 
-class MyAppbarButtonNotifications extends StatelessWidget {
-  const MyAppbarButtonNotifications({
-    Key? key,
-  }) : super(key: key);
+//----------------------------------------------------------------------------//
+
+class NotificationsButton extends StatelessWidget {
+  final double? iconSize;
+  final Color? color;
+
+  const NotificationsButton({
+    super.key,
+    this.iconSize,
+    this.color,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return FloatingActionButton(
-      onPressed: () {
-        Navigator.pushNamed(context, '/notifications');
+    double screenwidth = MediaQuery.of(context).size.width;
+    return Row(
+      children: [
+        //SizedBox(width: screenwidth * 3 / 100),
+        GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(context, '/notifications');
+          },
+          onLongPress: () {
+            //color = iconColor.withOpacity(0.5);
+          },
+          child: Icon(
+            LineAwesomeIcons.bell,
+            size: iconSize ?? 32,
+            color: color ?? iconColor,
+          ),
+        ),
+        SizedBox(width: screenwidth * 5 / 100),
+      ],
+    );
+  }
+}
+
+//----------------------------------------------------------------------------//
+
+class GoBackButton extends StatelessWidget {
+  final double? iconSize;
+
+  const GoBackButton({
+    super.key,
+    this.iconSize,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.pop(context);
       },
-      elevation: 0,
-      backgroundColor: Colors.transparent,
-      child: const Icon(
-        LineAwesomeIcons.bell,
-        size: 35,
-        color: iconColour,
+      child: Icon(
+        Icons.arrow_back,
+        size: iconSize ?? 26,
+        color: iconColor,
       ),
     );
   }
 }
+
+//----------------------------------------------------------------------------//

@@ -55,7 +55,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
     double screenwidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      backgroundColor: primaryBackgroundColour,
+      backgroundColor: primaryBackgroundColor,
       extendBody: true,
       appBar: PreferredSize(
           preferredSize: Size.fromHeight(screenheight / 16),
@@ -72,13 +72,13 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
           child: BottomNavigationBar(
             iconSize: 35,
             selectedIconTheme: const IconThemeData(
-              color: iconColour,
+              color: iconColor,
               size: 40,
             ),
             selectedFontSize: 0,
             unselectedFontSize: 0,
             type: BottomNavigationBarType.fixed,
-            backgroundColor: primaryBackgroundColour,
+            backgroundColor: primaryBackgroundColor,
             items: [
               BottomNavigationBarItem(
                 label: 'Home',
@@ -86,7 +86,8 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
                   CustomIcons.home,
                   height: 36,
                   width: 36,
-                  color: iconColour,
+                  // ignore: deprecated_member_use
+                  color: iconColor,
                 ),
               ),
               const BottomNavigationBarItem(
@@ -94,6 +95,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
                 icon: Icon(
                   LineAwesomeIcons.search,
                   size: 38,
+                  color: iconColor,
                 ),
               ),
               const BottomNavigationBarItem(
@@ -101,6 +103,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
                 icon: Icon(
                   LineAwesomeIcons.heart,
                   size: 38,
+                  color: iconColor,
                 ),
               ),
               const BottomNavigationBarItem(
@@ -108,18 +111,22 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
                 icon: Icon(
                   LineAwesomeIcons.map_marked,
                   size: 38,
+                  color: iconColor,
                 ),
               ),
-              const BottomNavigationBarItem(
+              BottomNavigationBarItem(
                 label: 'Calendario',
-                icon: Icon(
-                  LineAwesomeIcons.calendar_with_week_focus,
-                  size: 38,
+                icon: SvgPicture.asset(
+                  CustomIcons.empty_calendar,
+                  height: 34,
+                  width: 34,
+                  // ignore: deprecated_member_use
+                  color: iconColor,
                 ),
               ),
             ],
             selectedLabelStyle: const TextStyle(
-              color: iconColour,
+              color: primaryBackgroundColor,
               fontWeight: FontWeight.bold,
             ),
             currentIndex: currentIndex,

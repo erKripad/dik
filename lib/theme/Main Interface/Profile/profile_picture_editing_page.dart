@@ -26,18 +26,18 @@ class _ProfilePictureEditingPageState extends State<ProfilePictureEditingPage> {
         automaticallyImplyLeading: true,
         toolbarHeight: 55,
         elevation: 0,
-        backgroundColor: primaryBackgroundColour,
+        backgroundColor: primaryBackgroundColor,
         title: const Text(
           "Immagine di profilo",
           style: TextStyle(
             fontFamily: "Gelion Bold",
             fontSize: 25,
-            color: textColour,
+            color: textColor,
           ),
         ),
       ),
       extendBodyBehindAppBar: false,
-      backgroundColor: primaryBackgroundColour,
+      backgroundColor: primaryBackgroundColor,
       //floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
 
       body: const Column(
