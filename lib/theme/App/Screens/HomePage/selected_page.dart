@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:dik/Theme/colors.dart';
-import 'package:dik/theme/Main Interface/appbar.dart';
+import 'package:dik/Theme/App/appbar.dart';
 import 'package:dik/theme/icons.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:palette_generator/palette_generator.dart';
@@ -65,6 +65,8 @@ class _SelectedPageState extends State<SelectedPage> {
         padding: const EdgeInsets.all(0),
         // inizio a creare la pagina mettendo in colonna i diversi elementi
         child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(
+              decelerationRate: ScrollDecelerationRate.fast),
           scrollDirection: Axis.vertical,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -269,7 +271,7 @@ class ServiceBox extends StatelessWidget {
             Row(
               children: [
                 SvgPicture.asset(
-                  CustomIcons.appendi_abiti,
+                  CustomIcons.appendiabiti,
                   height: 32,
                   width: 32,
                   // ignore: deprecated_member_use

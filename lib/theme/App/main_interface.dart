@@ -1,14 +1,16 @@
 //----------------------------------------------------------------------------//
 
 import 'package:flutter/material.dart';
-import 'package:dik/Theme/Main%20Interface/Screens/calendar_screen.dart';
-import 'package:dik/Theme/Main%20Interface/Screens/map_screen.dart';
-import 'package:dik/Theme/Main%20Interface/Screens/search_screen.dart';
-import 'package:dik/Theme/Main Interface/Screens/Home Page/home_screen.dart';
-import 'package:dik/Theme/Main Interface/Screens/saved_screen.dart';
+import 'package:dik/Theme/App/Screens/calendar_screen.dart';
+import 'package:dik/Theme/App/Screens/map_screen.dart';
+import 'package:dik/Theme/App/Screens/search_screen.dart';
+import 'package:dik/Theme/App/Screens/Home Page/home_screen.dart';
+import 'package:dik/Theme/App/Screens/saved_screen.dart';
 import 'package:dik/Theme/colors.dart';
-import 'package:dik/theme/Main Interface/appbar.dart';
-import 'package:dik/theme/Main Interface/bottombar.dart';
+import 'package:dik/theme/App/appbar.dart';
+import 'package:dik/theme/App/bottombar.dart';
+import 'package:dik/theme/icons.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -61,13 +63,38 @@ class _MainInterfaceState extends State<MainInterface> {
       ),
       body: _children[currentIndex],
       bottomNavigationBar: MyBottomBar(
-          currentIndex: currentIndex,
-          onTap: (index) {
-            currentIndex = index!;
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              setState(() {});
-            });
-          }),
+        iconColor: iconColor,
+        iconSize: screenheight * 5 / 100,
+        backgroundColor: primaryBackgroundColor,
+        selectedColor: primaryPurple,
+        items: [
+          BottomBarItem(
+            importedIconAVG: true,
+            customIcon: CustomIcons.home,
+          ),
+          BottomBarItem(
+            importedIconAVG: false,
+            iconData: LineAwesomeIcons.search,
+          ),
+          BottomBarItem(
+            importedIconAVG: false,
+            iconData: LineAwesomeIcons.heart,
+          ),
+          BottomBarItem(
+            importedIconAVG: false,
+            iconData: LineAwesomeIcons.map_marked,
+          ),
+          BottomBarItem(
+            importedIconAVG: true,
+            customIcon: CustomIcons.empty_calendar,
+          ),
+        ],
+        onTabSelected: (int index) {
+          setState(() {
+            currentIndex = index;
+          });
+        },
+      ),
     );
   }
 }

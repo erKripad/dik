@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:dik/Theme/colors.dart';
-import 'package:dik/theme/Main Interface/appbar.dart';
+import 'package:dik/theme/App/appbar.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -11,7 +11,7 @@ class TicketsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenheight = MediaQuery.of(context).size.height;
-    double screenwidth = MediaQuery.of(context).size.width;
+    //double screenwidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(screenheight / 16),

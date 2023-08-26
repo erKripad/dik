@@ -6,10 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:dik/Theme/colors.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 // ignore: unused_import
-import 'package:dik/theme/icons.dart';
+import 'package:dik/Theme/icons.dart';
 // ignore: unused_import
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:dik/theme/events_examples.dart';
+import 'package:dik/Theme/events_examples.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -56,80 +56,61 @@ class _MyAppBarState extends State<MyAppBar> {
     double screenheight = MediaQuery.of(context).size.height;
     double screenwidth = MediaQuery.of(context).size.width;
     return Container(
-      color: Colors.transparent,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    width: screenwidth * 1 / 100,
-                  ),
-                  widget.gobackbutton == true
-                      ? Row(
-                          children: [
-                            SizedBox(
-                              width: screenwidth * 3 / 100,
-                            ),
-                            GoBackButton(iconSize: widget.iconSize)
-                          ],
-                        )
-                      : SizedBox(
-                          width: screenwidth * 1 / 100,
-                        ),
-                  GestureDetector(
-                    onTap: () {
-                      //_scrollController;
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(12),
-                      child: Text(
-                        widget.title ?? "",
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontFamily: "Gelion Bold",
-                          fontSize: 34,
-                          color: textColor,
+        color: Colors.transparent,
+        child: Padding(
+          padding: EdgeInsets.all(screenheight * 0.5 / 100),
+          child: SizedBox(
+            height: screenheight * 10 / 100,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    widget.gobackbutton == true
+                        ? Row(
+                            children: [GoBackButton(iconSize: widget.iconSize)],
+                          )
+                        : SizedBox(width: screenwidth * 4 / 100),
+                    GestureDetector(
+                      onTap: () {
+                        //_scrollController;
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(0),
+                        child: Text(
+                          widget.title ?? "",
+                          style: TextStyle(
+                            fontFamily: "Gelion Bold",
+                            fontSize: screenheight * 4 / 100,
+                            color: textColor,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(0.0),
-                    child: Row(
-                      children: [
-                        widget.notifications == true
-                            ? const NotificationsButton(iconSize: 40)
-                            : const SizedBox(),
-                        widget.profile == true
-                            ? const ProfileButton(iconSize: 46)
-                            : const SizedBox(),
-                        widget.hype == true
-                            ? MyAppbarButtonHype(
-                                color: widget.hypeColor,
-                              )
-                            : const SizedBox(),
-                      ],
-                    ),
-                  ),
-                ],
-              )
-            ],
+                  ],
+                ),
+                Row(
+                  children: [
+                    widget.notifications == true
+                        ? NotificationsButton(iconSize: screenheight * 5 / 100)
+                        : const SizedBox(),
+                    widget.profile == true
+                        ? ProfileButton(iconSize: screenheight * 5 / 100)
+                        : const SizedBox(),
+                    widget.hype == true
+                        ? MyAppbarButtonHype(
+                            color: widget.hypeColor,
+                          )
+                        : const SizedBox(),
+                  ],
+                ),
+              ],
+            ),
           ),
-        ],
-      ),
-    );
+        ));
   }
 }
 
@@ -150,30 +131,34 @@ class MyAppbarButtonHype extends StatefulWidget {
 class _MyAppbarButtonHypeState extends State<MyAppbarButtonHype> {
   @override
   Widget build(BuildContext context) {
-    return FloatingActionButton(
-      heroTag: "appbarhypebtn",
-      onPressed: () {
-        hyped == true
-            ? setState(() {
-                hyped = false;
-              })
-            : setState(() {
-                hyped = true;
-              });
-      },
-      elevation: 0,
-      backgroundColor: Colors.transparent,
-      child: hyped == false
-          ? const Icon(
-              LineAwesomeIcons.heart,
-              size: 35,
-              color: iconColor,
-            )
-          : Icon(
-              LineAwesomeIcons.heart_1,
-              size: 35,
-              color: widget.color ?? primaryPurple,
-            ),
+    double screenwidth = MediaQuery.of(context).size.width;
+    double screenheight = MediaQuery.of(context).size.height;
+    return Row(
+      children: [
+        GestureDetector(
+          onTap: () {
+            hyped == true
+                ? setState(() {
+                    hyped = false;
+                  })
+                : setState(() {
+                    hyped = true;
+                  });
+          },
+          child: hyped == false
+              ? Icon(
+                  LineAwesomeIcons.heart,
+                  size: screenheight * 5 / 100,
+                  color: iconColor,
+                )
+              : Icon(
+                  LineAwesomeIcons.heart_1,
+                  size: screenheight * 5 / 100,
+                  color: widget.color ?? primaryPurple,
+                ),
+        ),
+        SizedBox(width: screenwidth * 4 / 100),
+      ],
     );
   }
 }
@@ -193,6 +178,7 @@ class ProfileButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenwidth = MediaQuery.of(context).size.width;
+    double screenheight = MediaQuery.of(context).size.height;
     return Row(
       children: [
         //SizedBox(width: screenwidth * 3 / 100),
@@ -204,8 +190,8 @@ class ProfileButton extends StatelessWidget {
             Navigator.pushNamed(context, '/profile');
           },
           child: SizedBox(
-            width: iconSize ?? 32,
-            height: iconSize ?? 32,
+            width: iconSize ?? screenheight * 5 / 100,
+            height: iconSize ?? screenheight * 5 / 100,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(100),
               child: Image(
@@ -215,7 +201,7 @@ class ProfileButton extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(width: screenwidth * 5 / 100),
+        SizedBox(width: screenwidth * 4 / 100),
       ],
     );
   }
@@ -252,7 +238,7 @@ class NotificationsButton extends StatelessWidget {
             color: color ?? iconColor,
           ),
         ),
-        SizedBox(width: screenwidth * 5 / 100),
+        SizedBox(width: screenwidth * 4 / 100),
       ],
     );
   }
@@ -260,7 +246,7 @@ class NotificationsButton extends StatelessWidget {
 
 //----------------------------------------------------------------------------//
 
-class GoBackButton extends StatelessWidget {
+class GoBackButton extends StatefulWidget {
   final double? iconSize;
 
   const GoBackButton({
@@ -269,16 +255,30 @@ class GoBackButton extends StatelessWidget {
   });
 
   @override
+  State<GoBackButton> createState() => _GoBackButtonState();
+}
+
+class _GoBackButtonState extends State<GoBackButton> {
+  @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.pop(context);
-      },
-      child: Icon(
-        Icons.arrow_back,
-        size: iconSize ?? 26,
-        color: iconColor,
-      ),
+    double screenwidth = MediaQuery.of(context).size.width;
+    return Row(
+      children: [
+        SizedBox(
+          width: screenwidth * 4 / 100,
+        ),
+        GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+            setState(() {});
+          },
+          child: Icon(
+            Icons.arrow_back,
+            size: widget.iconSize ?? 26,
+            color: iconColor,
+          ),
+        )
+      ],
     );
   }
 }
