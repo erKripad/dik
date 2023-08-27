@@ -64,7 +64,7 @@ class _MainInterfaceState extends State<MainInterface> {
       body: _children[currentIndex],
       bottomNavigationBar: MyBottomBar(
         iconColor: iconColor,
-        iconSize: screenheight * 5 / 100,
+        iconSize: screenheight * 4.5 / 100,
         backgroundColor: primaryBackgroundColor,
         selectedColor: primaryPurple,
         items: [

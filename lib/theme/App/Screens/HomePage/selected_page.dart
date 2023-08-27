@@ -65,7 +65,7 @@ class _SelectedPageState extends State<SelectedPage> {
         padding: const EdgeInsets.all(0),
         // inizio a creare la pagina mettendo in colonna i diversi elementi
         child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(
+          physics: const BouncingScrollPhysics(
               decelerationRate: ScrollDecelerationRate.fast),
           scrollDirection: Axis.vertical,
           child: Column(
@@ -89,6 +89,7 @@ class _SelectedPageState extends State<SelectedPage> {
                                         .withOpacity(1) ??
                                     defaultColor,
                         //paletteGenerator?.vibrantColor?.color ?? defaultColor,
+
                         primaryBackgroundColor,
                       ],
                     ),
@@ -99,7 +100,7 @@ class _SelectedPageState extends State<SelectedPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
-                          height: screenheight * 8 / 100,
+                          height: screenheight * 6 / 100,
                         ),
                         Center(
                           child: SizedBox(
@@ -120,13 +121,17 @@ class _SelectedPageState extends State<SelectedPage> {
                           child: Text(
                             title,
                             textAlign: TextAlign.start,
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontFamily: "Gelion Bold",
-                              fontSize: 30,
+                              fontSize: screenheight * 4.4 / 100,
                               color: textColor,
                             ),
                           ),
                         ),
+                        SizedBox(
+                          height: screenheight * 1 / 100,
+                        ),
+                        const Subbox(host: "host"),
                         SizedBox(
                           height: screenheight * 1 / 100,
                         ),
@@ -137,7 +142,10 @@ class _SelectedPageState extends State<SelectedPage> {
                   padding: const EdgeInsets.all(15),
                   child: Column(
                     children: [
-                      const DescriptionBox(),
+                      DescriptionBox(
+                        initialHeight: screenheight * 6 / 100,
+                        finallHeight: screenheight * 30 / 100,
+                      ),
                       SizedBox(
                         height: screenheight * 2 / 100,
                       ),
@@ -169,7 +177,15 @@ class _SelectedPageState extends State<SelectedPage> {
 //----------------------------------------------------------------------------//
 
 class HostingEventProfileButton extends StatefulWidget {
-  const HostingEventProfileButton({super.key});
+  const HostingEventProfileButton(
+      {super.key,
+      required this.size,
+      required this.hostImage,
+      required this.navigationTo});
+
+  final double size;
+  final String hostImage;
+  final String navigationTo;
 
   @override
   State<HostingEventProfileButton> createState() =>
@@ -179,19 +195,17 @@ class HostingEventProfileButton extends StatefulWidget {
 class _HostingEventProfileButtonState extends State<HostingEventProfileButton> {
   @override
   Widget build(BuildContext context) {
-    return FloatingActionButton(
-      onPressed: () {
-        Navigator.pushNamed(context, '/profile');
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, widget.navigationTo);
       },
-      elevation: 0,
-      backgroundColor: Colors.transparent,
       child: SizedBox(
-        width: 50,
-        height: 50,
+        width: widget.size,
+        height: widget.size,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(100),
-          child: const Image(
-            image: AssetImage("assets/immagine di profilo.jpg"),
+          child: Image(
+            image: AssetImage(widget.hostImage),
             fit: BoxFit.fill,
           ),
         ),
@@ -202,25 +216,106 @@ class _HostingEventProfileButtonState extends State<HostingEventProfileButton> {
 
 //----------------------------------------------------------------------------//
 
-// costruisco il box della Descrizione che si trova direttamente sotto il titolo
+class Subbox extends StatefulWidget {
+  const Subbox({
+    super.key,
+    required this.host,
+  });
 
-class DescriptionBox extends StatelessWidget {
-  const DescriptionBox({super.key});
+  final String host;
+  @override
+  State<StatefulWidget> createState() => SubboxState();
+}
+
+class SubboxState extends State<Subbox> {
   @override
   Widget build(BuildContext context) {
     double screenheight = MediaQuery.of(context).size.height;
     double screenwidth = MediaQuery.of(context).size.width;
     return SizedBox(
-      height: screenheight * 20 / 100,
+      height: screenheight * 5 / 100,
       width: screenwidth * 95 / 100,
-      child: Container(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          HostingEventProfileButton(
+            navigationTo: '/profile',
+            size: screenheight * 4 / 100,
+            hostImage: "assets/papera.jpg",
+          ),
+          SizedBox(width: screenwidth * 3 / 100),
+          Text(
+            widget.host,
+            textAlign: TextAlign.start,
+            style: TextStyle(
+              fontFamily: "Gelion Bold",
+              fontSize: screenheight * 2.2 / 100,
+              color: textColor,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+//----------------------------------------------------------------------------//
+
+// costruisco il box della Descrizione che si trova direttamente sotto il titolo
+
+class DescriptionBox extends StatefulWidget {
+  const DescriptionBox({
+    super.key,
+    required this.initialHeight,
+    required this.finallHeight,
+  });
+
+  final double initialHeight;
+  final double finallHeight;
+
+  @override
+  State<StatefulWidget> createState() => DescriptionBoxState();
+}
+
+class DescriptionBoxState extends State<DescriptionBox> {
+  _descriptionBoxAnimation(double newHeight) {
+    setState(() {
+      _descriptionBoxHeight = newHeight;
+      if (clicked == false) {
+        clicked = true;
+        //colorContainer = primaryBackgroundColor;
+      } else {
+        clicked = false;
+        //colorContainer = primaryObjColor.withOpacity(1);
+      }
+    });
+  }
+
+  double _descriptionBoxHeight = 50;
+
+  bool clicked = false;
+
+  Color colorContainer = primaryObjColor.withOpacity(0.5);
+
+  @override
+  Widget build(BuildContext context) {
+    double screenheight = MediaQuery.of(context).size.height;
+    double screenwidth = MediaQuery.of(context).size.width;
+    return GestureDetector(
+      onTap: () => clicked == true
+          ? _descriptionBoxAnimation(50)
+          : _descriptionBoxAnimation(widget.finallHeight),
+      child: AnimatedContainer(
+        height: _descriptionBoxHeight,
+        width: screenwidth * 95 / 100,
+        duration: const Duration(milliseconds: 500),
         padding: const EdgeInsets.all(15),
-        decoration: const BoxDecoration(
-          color: primaryObjColor,
+        decoration: BoxDecoration(
+          color: colorContainer,
           borderRadius: BorderRadius.all(Radius.circular(20)),
         ),
         child: const Text(
-          "descrizione",
+          "Descrizione",
           textAlign: TextAlign.start,
           style: TextStyle(
             fontFamily: "Gelion Medium",
@@ -272,8 +367,8 @@ class ServiceBox extends StatelessWidget {
               children: [
                 SvgPicture.asset(
                   CustomIcons.appendiabiti,
-                  height: 32,
-                  width: 32,
+                  height: screenheight * 3 / 100,
+                  width: screenheight * 3 / 100,
                   // ignore: deprecated_member_use
                   color: iconColor,
                 ),
@@ -294,8 +389,8 @@ class ServiceBox extends StatelessWidget {
               children: [
                 SvgPicture.asset(
                   CustomIcons.ticket,
-                  height: 36,
-                  width: 36,
+                  height: screenheight * 4 / 100,
+                  width: screenheight * 4 / 100,
                   // ignore: deprecated_member_use
                   color: iconColor,
                 ),
@@ -318,8 +413,8 @@ class ServiceBox extends StatelessWidget {
               children: [
                 SvgPicture.asset(
                   CustomIcons.ticket,
-                  height: 28,
-                  width: 28,
+                  height: screenheight * 4 / 100,
+                  width: screenheight * 4 / 100,
                   // ignore: deprecated_member_use
                   color: iconColor,
                 ),
@@ -368,20 +463,20 @@ class InfoBox extends StatelessWidget {
               children: [
                 SvgPicture.asset(
                   CustomIcons.empty_calendar,
-                  height: 24,
-                  width: 24,
+                  height: screenheight * 3 / 100,
+                  width: screenheight * 3 / 100,
                   // ignore: deprecated_member_use
                   color: iconColor,
                 ),
                 SizedBox(
                   width: screenwidth * 2 / 100,
                 ),
-                const Text(
+                Text(
                   "Data e Ora",
                   textAlign: TextAlign.right,
                   style: TextStyle(
                     fontFamily: "Gelion Bold",
-                    fontSize: 18,
+                    fontSize: screenheight * 2.5 / 100,
                     color: textColor,
                   ),
                 ),
@@ -394,20 +489,20 @@ class InfoBox extends StatelessWidget {
               children: [
                 SvgPicture.asset(
                   CustomIcons.empty_calendar,
-                  height: 24,
-                  width: 24,
+                  height: screenheight * 3 / 100,
+                  width: screenheight * 3 / 100,
                   // ignore: deprecated_member_use
                   color: iconColor,
                 ),
                 SizedBox(
                   width: screenwidth * 2 / 100,
                 ),
-                const Text(
+                Text(
                   "Luogo",
                   textAlign: TextAlign.right,
                   style: TextStyle(
                     fontFamily: "Gelion Bold",
-                    fontSize: 18,
+                    fontSize: screenheight * 2.5 / 100,
                     color: textColor,
                   ),
                 ),
@@ -420,20 +515,20 @@ class InfoBox extends StatelessWidget {
               children: [
                 SvgPicture.asset(
                   CustomIcons.ticket,
-                  height: 28,
-                  width: 28,
+                  height: screenheight * 3 / 100,
+                  width: screenheight * 3 / 100,
                   // ignore: deprecated_member_use
                   color: iconColor,
                 ),
                 SizedBox(
                   width: screenwidth * 2 / 100,
                 ),
-                const Text(
+                Text(
                   "Costo",
                   textAlign: TextAlign.right,
                   style: TextStyle(
                     fontFamily: "Gelion Bold",
-                    fontSize: 18,
+                    fontSize: screenheight * 2.5 / 100,
                     color: textColor,
                   ),
                 ),
@@ -467,12 +562,16 @@ class HostInfoBox extends StatelessWidget {
               Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const HostingEventProfileButton(),
+                  HostingEventProfileButton(
+                    navigationTo: '/profile',
+                    size: screenheight * 6 / 100,
+                    hostImage: "assets/papera.jpg",
+                  ),
                   SizedBox(height: screenheight * 2 / 100),
                   SvgPicture.asset(
                     CustomIcons.trattore,
-                    height: 50,
-                    width: 50,
+                    height: screenheight * 3 / 100,
+                    width: screenheight * 3 / 100,
                     // ignore: deprecated_member_use
                     color: iconColor,
                   ),

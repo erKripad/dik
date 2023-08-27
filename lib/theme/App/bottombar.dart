@@ -1,6 +1,6 @@
 //----------------------------------------------------------------------------//
 
-import 'package:dik/Theme/colors.dart';
+//import 'package:dik/Theme/colors.dart';
 import 'package:flutter/material.dart';
 // ignore: unused_import
 import 'package:dik/Theme/icons.dart';
@@ -40,9 +40,13 @@ class MyBottomBar extends StatefulWidget {
 }
 
 class MyBottomBarState extends State<MyBottomBar> {
+  int _currentindex = 0;
+
   _changeIndex(int index) {
     widget.onTabSelected(index);
-    setState(() {});
+    setState(() {
+      _currentindex = index;
+    });
   }
 
   @override
@@ -84,22 +88,27 @@ class MyBottomBarState extends State<MyBottomBar> {
   }) {
     //double screenheight = MediaQuery.of(context).size.height;
     //double screenwidth = MediaQuery.of(context).size.width;
-
+    double screenheight = MediaQuery.of(context).size.height;
+    //double screenwidth = MediaQuery.of(context).size.width;
     return Expanded(
       child: GestureDetector(
         onTap: () => onPressed(index),
         child: item.importedIconAVG == false
             ? Icon(
                 item.iconData ?? Icons.question_mark,
-                size: widget.iconSize ?? 32,
-                color: widget.iconColor ?? Colors.white,
+                size: widget.iconSize ?? screenheight * 4 / 100,
+                color: index == _currentindex
+                    ? widget.selectedColor
+                    : widget.iconColor,
               )
             : SvgPicture.asset(
                 item.customIcon ?? CustomIcons.home,
-                height: 36,
-                width: 36,
+                height: widget.iconSize ?? screenheight * 4 / 100,
+                width: widget.iconSize ?? screenheight * 4 / 100,
                 // ignore: deprecated_member_use
-                color: iconColor,
+                color: index == _currentindex
+                    ? widget.selectedColor
+                    : widget.iconColor,
               ),
       ),
     );
