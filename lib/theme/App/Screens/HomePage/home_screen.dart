@@ -148,7 +148,7 @@ class _CategoryListItemState extends State<CategoryListItem> {
         child: Container(
             height: screenheight * 5 / 100,
             width: screenwidth * 30 / 100,
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               color: primaryObjColor,
               borderRadius: BorderRadius.all(Radius.circular(20)),
             ),
@@ -166,7 +166,7 @@ class _CategoryListItemState extends State<CategoryListItem> {
                   ),
                   SizedBox(width: 6),
                   Text(
-                    "Teatro",
+                    "Sagra di Paese",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontFamily: "Gelion Medium",
@@ -203,27 +203,7 @@ class ListItem extends StatefulWidget {
 }
 
 class _ListItemState extends State<ListItem> {
-  /*double imageHeight = 300;
-  double imageWidth = 300;
-
-  void _moveBox() {
-    imageHeight == 300
-        ? setState(() {
-            imageHeight = 100;
-            imageWidth = 100;
-          })
-        : setState(() {
-            imageHeight = 300;
-            imageWidth = 300;
-          });
-  }*/
-
-  void timer() {
-    Timer(const Duration(milliseconds: 0), () {
-      Navigator.pushNamed(context, '/new_page');
-    });
-  }
-
+  _getRequests() async {}
   @override
   Widget build(BuildContext context) {
     double screenheight = MediaQuery.of(context).size.height;
@@ -236,9 +216,12 @@ class _ListItemState extends State<ListItem> {
         children: [
           GestureDetector(
             onTap: () {
-              //_moveBox();
-
-              timer();
+              //Navigator.pushNamed(context, '/new_page');
+              Navigator.of(context)
+                  .push(
+                    new MaterialPageRoute(builder: (_) => new SelectedPage()),
+                  )
+                  .then((val) => val ? _getRequests() : null);
             },
             onDoubleTap: () {
               hyped == true
@@ -252,7 +235,7 @@ class _ListItemState extends State<ListItem> {
             child: AnimatedContainer(
               duration: const Duration(milliseconds: 500),
               height: screenwidth * 120 / 100,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 color: primaryObjColor,
                 borderRadius: BorderRadius.all(Radius.circular(20)),
               ),

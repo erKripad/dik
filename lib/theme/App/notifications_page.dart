@@ -53,7 +53,7 @@ class NotificationItem extends StatelessWidget {
             //Navigator.pushNamed();
           },
           child: Container(
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               color: primaryObjColor,
               borderRadius: BorderRadius.all(Radius.circular(20)),
             ),

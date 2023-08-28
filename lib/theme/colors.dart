@@ -17,7 +17,7 @@ import 'package:flutter/material.dart';
 // fare l'app bar con lo stesso container della bottombar
 
 const Color primaryBackgroundColor = Color.fromARGB(255, 24, 23, 28);
-const Color primaryObjColor = Color.fromARGB(255, 45, 44, 48);
+Color primaryObjColor = Color.fromARGB(255, 45, 44, 48).withOpacity(0.8);
 const Color primaryPurple = Color.fromARGB(255, 165, 126, 255);
 const Color textColor = Color.fromARGB(255, 255, 255, 255);
 const Color iconColor = Color.fromARGB(255, 255, 255, 255);

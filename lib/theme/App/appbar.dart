@@ -270,7 +270,6 @@ class _GoBackButtonState extends State<GoBackButton> {
         GestureDetector(
           onTap: () {
             Navigator.pop(context);
-            setState(() {});
           },
           child: Icon(
             Icons.arrow_back,

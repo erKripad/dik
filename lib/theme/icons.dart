@@ -6,5 +6,7 @@ class CustomIcons {
   static const String empty_calendar = "assets/icons/calendario_0.svg";
   static const String ticket = "assets/icons/ticket.svg";
   static const String appendiabiti = "assets/icons/appendiabiti.svg";
+  static const String appendiabiti1 = "assets/icons/appendiabiti1.svg";
   static const String trattore = "assets/icons/trattore.svg";
+  static const String disco = "assets/icons/disco.svg";
 }

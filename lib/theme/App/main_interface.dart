@@ -59,6 +59,7 @@ class _MainInterfaceState extends State<MainInterface> {
           title: title[currentIndex],
           notifications: true,
           profile: true,
+          gobackbutton: false,
         ),
       ),
       body: _children[currentIndex],

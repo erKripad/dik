@@ -1,5 +1,6 @@
 //----------------------------------------------------------------------------//
 
+import 'package:dik/Theme/App/main_interface.dart';
 import 'package:flutter/material.dart';
 import 'package:dik/Theme/colors.dart';
 import 'package:dik/Theme/App/appbar.dart';
@@ -132,9 +133,6 @@ class _SelectedPageState extends State<SelectedPage> {
                           height: screenheight * 1 / 100,
                         ),
                         const Subbox(host: "host"),
-                        SizedBox(
-                          height: screenheight * 1 / 100,
-                        ),
                       ],
                     ),
                   )),
@@ -150,16 +148,16 @@ class _SelectedPageState extends State<SelectedPage> {
                         height: screenheight * 2 / 100,
                       ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           const InfoBox(),
-                          SizedBox(width: screenwidth * 4 / 100),
                           const ServiceBox(),
                         ],
                       ),
                       SizedBox(
                         height: screenheight * 2 / 100,
                       ),
-                      const HostInfoBox(),
+                      //const HostInfoBox(),
                       SizedBox(
                         height: screenheight * 2 / 100,
                       ),
@@ -308,14 +306,14 @@ class DescriptionBoxState extends State<DescriptionBox> {
       child: AnimatedContainer(
         height: _descriptionBoxHeight,
         width: screenwidth * 95 / 100,
-        duration: const Duration(milliseconds: 500),
+        duration: const Duration(milliseconds: 250),
         padding: const EdgeInsets.all(15),
         decoration: BoxDecoration(
           color: colorContainer,
           borderRadius: BorderRadius.all(Radius.circular(20)),
         ),
         child: const Text(
-          "Descrizione",
+          "descrizione",
           textAlign: TextAlign.start,
           style: TextStyle(
             fontFamily: "Gelion Medium",
@@ -335,103 +333,100 @@ class DescriptionBoxState extends State<DescriptionBox> {
 class ServiceBox extends StatelessWidget {
   const ServiceBox({super.key});
   @override
-  Widget build(context) {
+  Widget build(BuildContext context) {
     double screenheight = MediaQuery.of(context).size.height;
     double screenwidth = MediaQuery.of(context).size.width;
-    return SizedBox(
+    return Container(
       height: screenheight * 25 / 100,
-      width: screenwidth * 44 / 100,
-      child: Container(
-        padding: const EdgeInsets.all(15),
-        decoration: const BoxDecoration(
-          color: primaryObjColor,
-          borderRadius: BorderRadius.all(Radius.circular(20)),
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          //crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            /*const Center(
-              child: Text(
-                "Info Servizi",
-                textAlign: TextAlign.start,
+      width: screenwidth * 45 / 100,
+      padding: const EdgeInsets.all(15),
+      decoration: BoxDecoration(
+        color: primaryObjColor.withOpacity(0.5),
+        borderRadius: BorderRadius.all(Radius.circular(20)),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(width: screenwidth * 1 / 100),
+              SvgPicture.asset(
+                CustomIcons.appendiabiti,
+                height: screenheight * 3 / 100,
+                width: screenheight * 3 / 100,
+                // ignore: deprecated_member_use
+                color: iconColor,
+              ),
+              SizedBox(width: screenheight * 0.5 / 100),
+              /*SvgPicture.asset(
+                CustomIcons.empty_calendar,
+                height: screenheight * 3 / 100,
+                width: screenheight * 3 / 100,
+                // ignore: deprecated_member_use
+                color: iconColor,
+              ),*/
+              SizedBox(
+                height: screenheight * 3 / 100,
+                width: screenheight * 3 / 100,
+              ),
+              SizedBox(width: screenheight * 0.5 / 100),
+              /*SvgPicture.asset(
+                CustomIcons.ticket,
+                height: screenheight * 3 / 100,
+                width: screenheight * 3 / 100,
+                // ignore: deprecated_member_use
+                color: iconColor,
+              ),*/
+              SizedBox(
+                height: screenheight * 3 / 100,
+                width: screenheight * 3 / 100,
+              ),
+              SizedBox(width: screenheight * 0.5 / 100),
+            ],
+          ),
+          SizedBox(width: screenwidth * 1 / 100),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(width: screenheight * 0.5 / 100),
+              Text(
+                "Wardrobe",
+                textAlign: TextAlign.right,
                 style: TextStyle(
                   fontFamily: "Gelion Bold",
-                  fontSize: 20,
-                  color: primaryPurple,
+                  fontSize: screenheight * 2.5 / 100,
+                  color: textColor,
                 ),
               ),
-            ),*/
-            SizedBox(height: screenheight * 2 / 100),
-            Row(
-              children: [
-                SvgPicture.asset(
-                  CustomIcons.appendiabiti,
-                  height: screenheight * 3 / 100,
-                  width: screenheight * 3 / 100,
-                  // ignore: deprecated_member_use
-                  color: iconColor,
+              SizedBox(width: screenheight * 0.5 / 100),
+              Text(
+                "WC",
+                textAlign: TextAlign.right,
+                style: TextStyle(
+                  fontFamily: "Gelion Bold",
+                  fontSize: screenheight * 2.5 / 100,
+                  color: textColor,
                 ),
-                SizedBox(width: screenwidth * 2 / 100),
-                const Text(
-                  "Guardaroba",
-                  textAlign: TextAlign.right,
-                  style: TextStyle(
-                    fontFamily: "Gelion Bold",
-                    fontSize: 18,
-                    color: textColor,
-                  ),
+              ),
+              SizedBox(width: screenheight * 0.5 / 100),
+              Text(
+                "Bar",
+                textAlign: TextAlign.right,
+                style: TextStyle(
+                  fontFamily: "Gelion Bold",
+                  fontSize: screenheight * 2.5 / 100,
+                  color: textColor,
                 ),
-              ],
-            ),
-            SizedBox(height: screenheight * 2 / 100),
-            Row(
-              children: [
-                SvgPicture.asset(
-                  CustomIcons.ticket,
-                  height: screenheight * 4 / 100,
-                  width: screenheight * 4 / 100,
-                  // ignore: deprecated_member_use
-                  color: iconColor,
-                ),
-                SizedBox(
-                  width: screenwidth * 2 / 100,
-                ),
-                const Text(
-                  "WC",
-                  textAlign: TextAlign.right,
-                  style: TextStyle(
-                    fontFamily: "Gelion Bold",
-                    fontSize: 18,
-                    color: textColor,
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: screenheight * 2 / 100),
-            Row(
-              children: [
-                SvgPicture.asset(
-                  CustomIcons.ticket,
-                  height: screenheight * 4 / 100,
-                  width: screenheight * 4 / 100,
-                  // ignore: deprecated_member_use
-                  color: iconColor,
-                ),
-                SizedBox(width: screenwidth * 2 / 100),
-                const Text(
-                  "Ristoro",
-                  textAlign: TextAlign.right,
-                  style: TextStyle(
-                    fontFamily: "Gelion Bold",
-                    fontSize: 18,
-                    color: textColor,
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
+              ),
+              SizedBox(width: screenheight * 0.5 / 100),
+            ],
+          ),
+          SizedBox(width: screenwidth * 1 / 100),
+        ],
       ),
     );
   }
@@ -444,98 +439,110 @@ class ServiceBox extends StatelessWidget {
 class InfoBox extends StatelessWidget {
   const InfoBox({super.key});
   @override
-  Widget build(context) {
+  Widget build(BuildContext context) {
     double screenheight = MediaQuery.of(context).size.height;
     double screenwidth = MediaQuery.of(context).size.width;
-    return SizedBox(
-      height: screenheight * 25 / 100,
-      width: screenwidth * 44 / 100,
-      child: Container(
-        padding: const EdgeInsets.all(15),
-        decoration: const BoxDecoration(
-          color: primaryBackgroundColor,
-          borderRadius: BorderRadius.all(Radius.circular(20)),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                SvgPicture.asset(
-                  CustomIcons.empty_calendar,
-                  height: screenheight * 3 / 100,
-                  width: screenheight * 3 / 100,
-                  // ignore: deprecated_member_use
-                  color: iconColor,
+    return Container(
+      height: screenheight * 30 / 100,
+      width: screenwidth * 45 / 100,
+      padding: const EdgeInsets.all(15),
+      decoration: BoxDecoration(
+        color: primaryObjColor.withOpacity(0.5),
+        borderRadius: BorderRadius.all(Radius.circular(20)),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SvgPicture.asset(
+                CustomIcons.disco,
+                height: screenheight * 4 / 100,
+                width: screenheight * 4 / 100,
+                // ignore: deprecated_member_use
+                color: iconColor,
+              ),
+              SvgPicture.asset(
+                CustomIcons.empty_calendar,
+                height: screenheight * 3 / 100,
+                width: screenheight * 3 / 100,
+                // ignore: deprecated_member_use
+                color: iconColor,
+              ),
+
+              /*SvgPicture.asset(
+                CustomIcons.empty_calendar,
+                height: screenheight * 3 / 100,
+                width: screenheight * 3 / 100,
+                // ignore: deprecated_member_use
+                color: iconColor,
+              ),*/
+              SizedBox(
+                height: screenheight * 3 / 100,
+                width: screenheight * 3 / 100,
+              ),
+
+              /*SvgPicture.asset(
+                CustomIcons.ticket,
+                height: screenheight * 3 / 100,
+                width: screenheight * 3 / 100,
+                // ignore: deprecated_member_use
+                color: iconColor,
+              ),*/
+              SizedBox(
+                height: screenheight * 3 / 100,
+                width: screenheight * 3 / 100,
+              ),
+            ],
+          ),
+          SizedBox(width: screenwidth * 1 / 100),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Disco",
+                textAlign: TextAlign.right,
+                style: TextStyle(
+                  fontFamily: "Gelion Bold",
+                  fontSize: screenheight * 2.5 / 100,
+                  color: textColor,
                 ),
-                SizedBox(
-                  width: screenwidth * 2 / 100,
+              ),
+              Text(
+                "Data e Ora",
+                textAlign: TextAlign.right,
+                style: TextStyle(
+                  fontFamily: "Gelion Bold",
+                  fontSize: screenheight * 2.5 / 100,
+                  color: textColor,
                 ),
-                Text(
-                  "Data e Ora",
-                  textAlign: TextAlign.right,
-                  style: TextStyle(
-                    fontFamily: "Gelion Bold",
-                    fontSize: screenheight * 2.5 / 100,
-                    color: textColor,
-                  ),
+              ),
+              Text(
+                "Luogo",
+                textAlign: TextAlign.right,
+                style: TextStyle(
+                  fontFamily: "Gelion Bold",
+                  fontSize: screenheight * 2.5 / 100,
+                  color: textColor,
                 ),
-              ],
-            ),
-            SizedBox(
-              height: screenheight * 5 / 100,
-            ),
-            Row(
-              children: [
-                SvgPicture.asset(
-                  CustomIcons.empty_calendar,
-                  height: screenheight * 3 / 100,
-                  width: screenheight * 3 / 100,
-                  // ignore: deprecated_member_use
-                  color: iconColor,
+              ),
+              Text(
+                "Costo",
+                textAlign: TextAlign.right,
+                style: TextStyle(
+                  fontFamily: "Gelion Bold",
+                  fontSize: screenheight * 2.5 / 100,
+                  color: textColor,
                 ),
-                SizedBox(
-                  width: screenwidth * 2 / 100,
-                ),
-                Text(
-                  "Luogo",
-                  textAlign: TextAlign.right,
-                  style: TextStyle(
-                    fontFamily: "Gelion Bold",
-                    fontSize: screenheight * 2.5 / 100,
-                    color: textColor,
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: screenheight * 5 / 100,
-            ),
-            Row(
-              children: [
-                SvgPicture.asset(
-                  CustomIcons.ticket,
-                  height: screenheight * 3 / 100,
-                  width: screenheight * 3 / 100,
-                  // ignore: deprecated_member_use
-                  color: iconColor,
-                ),
-                SizedBox(
-                  width: screenwidth * 2 / 100,
-                ),
-                Text(
-                  "Costo",
-                  textAlign: TextAlign.right,
-                  style: TextStyle(
-                    fontFamily: "Gelion Bold",
-                    fontSize: screenheight * 2.5 / 100,
-                    color: textColor,
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
+              ),
+            ],
+          ),
+          SizedBox(width: screenwidth * 1 / 100),
+        ],
       ),
     );
   }
@@ -552,7 +559,7 @@ class HostInfoBox extends StatelessWidget {
       width: screenwidth * 95 / 100,
       child: Container(
           padding: const EdgeInsets.all(15),
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             color: primaryObjColor,
             borderRadius: BorderRadius.all(Radius.circular(20)),
           ),
@@ -604,10 +611,14 @@ class MapBox extends StatelessWidget {
   Widget build(context) {
     //double screenheight = MediaQuery.of(context).size.height;
     double screenwidth = MediaQuery.of(context).size.width;
-    return SizedBox(
-      height: screenwidth * 90 / 100 - 40,
-      width: screenwidth * 95 / 100,
+    return GestureDetector(
+      onTap: () {
+        Navigator.pop(context);
+        Navigator.pushNamed(context, '/');
+      },
       child: Container(
+        height: screenwidth * 90 / 100 - 40,
+        width: screenwidth * 95 / 100,
         padding: const EdgeInsets.all(15),
         decoration: const BoxDecoration(
           color: primaryBackgroundColor,
@@ -616,13 +627,6 @@ class MapBox extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            /*SvgPicture.asset(
-              CustomIcons.ticket,
-              height: 40,
-              width: 40,
-              // ignore: deprecated_member_use
-              color: iconColor,
-            ),*/
             const Icon(
               LineAwesomeIcons.map_marked,
               size: 40,
@@ -631,8 +635,8 @@ class MapBox extends StatelessWidget {
             Expanded(
               child: Container(
                 padding: const EdgeInsets.all(15),
-                decoration: const BoxDecoration(
-                  color: primaryObjColor,
+                decoration: BoxDecoration(
+                  color: primaryObjColor.withOpacity(0.5),
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                 ),
               ),
