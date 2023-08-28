@@ -12,6 +12,6 @@ import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 //----------------------------------------------------------------------------//
 
-class CategoryPage extends StatelessWidget {}
+
 
 //----------------------------------------------------------------------------//
