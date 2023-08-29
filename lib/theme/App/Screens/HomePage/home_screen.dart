@@ -11,7 +11,10 @@ import 'package:flutter/material.dart';
 import 'package:dik/Theme/colors.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:dik/Theme/events_examples.dart';
-import 'package:dik/Theme/App/Screens/HomePage/selected_page.dart';
+import 'package:dik/Theme/App/selected_page.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:dik/Theme/icons.dart';
+import 'package:dik/Theme/App/list_item.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -110,6 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       date: date,
                       time: time,
                       price: price,
+                      category: CustomIcons.disco,
                     ),
                   ],
                 ),
@@ -139,258 +143,51 @@ class _CategoryListItemState extends State<CategoryListItem> {
   Widget build(BuildContext context) {
     double screenwidth = MediaQuery.of(context).size.width;
     double screenheight = MediaQuery.of(context).size.height;
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
+    return Container(
+      height: screenheight * 8 / 100,
+      decoration: BoxDecoration(
+        color: primaryObjColor,
+        borderRadius: BorderRadius.all(Radius.circular(20)),
+      ),
+      padding: EdgeInsets.all(
+        screenheight * 1 / 100,
+      ),
       child: GestureDetector(
         onTap: () {
-          Navigator.pushNamed(context, '/new_page');
+          Navigator.pushNamed(context, '/new_category_page');
         },
-        child: Container(
-            height: screenheight * 5 / 100,
-            width: screenwidth * 30 / 100,
-            decoration: BoxDecoration(
-              color: primaryObjColor,
-              borderRadius: BorderRadius.all(Radius.circular(20)),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SvgPicture.asset(
+              CustomIcons.disco,
+              height: screenheight * 5 / 100,
+              width: screenheight * 5 / 100,
+              // ignore: deprecated_member_use
+              color: primaryPurple,
             ),
-            padding: const EdgeInsets.all(15.0),
-            child: const FittedBox(
-              fit: BoxFit.fitWidth,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Icon(
-                    LineAwesomeIcons.theater_masks,
-                    size: 24,
-                    color: primaryPurple,
-                  ),
-                  SizedBox(width: 6),
-                  Text(
-                    "Sagra di Paese",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontFamily: "Gelion Medium",
-                      fontSize: 15,
-                      color: primaryPurple,
-                    ),
-                  ),
-                ],
-              ),
-            )),
-      ),
-    );
-  }
-}
-
-class ListItem extends StatefulWidget {
-  const ListItem({
-    Key? key,
-    required this.title,
-    required this.date,
-    required this.place,
-    required this.time,
-    required this.price,
-  }) : super(key: key);
-
-  final String title;
-  final String date;
-  final String time;
-  final String place;
-  final int price;
-
-  @override
-  State<ListItem> createState() => _ListItemState();
-}
-
-class _ListItemState extends State<ListItem> {
-  _getRequests() async {}
-  @override
-  Widget build(BuildContext context) {
-    double screenheight = MediaQuery.of(context).size.height;
-    double screenwidth = MediaQuery.of(context).size.width;
-
-    int price = widget.price;
-    return Padding(
-      padding: const EdgeInsets.all(5.0),
-      child: Column(
-        children: [
-          GestureDetector(
-            onTap: () {
-              //Navigator.pushNamed(context, '/new_page');
-              Navigator.of(context)
-                  .push(
-                    new MaterialPageRoute(builder: (_) => new SelectedPage()),
-                  )
-                  .then((val) => val ? _getRequests() : null);
-            },
-            onDoubleTap: () {
-              hyped == true
-                  ? setState(() {
-                      hyped = false;
-                    })
-                  : setState(() {
-                      hyped = true;
-                    });
-            },
-            child: AnimatedContainer(
-              duration: const Duration(milliseconds: 500),
-              height: screenwidth * 120 / 100,
-              decoration: BoxDecoration(
-                color: primaryObjColor,
-                borderRadius: BorderRadius.all(Radius.circular(20)),
-              ),
-              padding: const EdgeInsets.all(15.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Center(
-                    child: AnimatedContainer(
-                      duration: const Duration(milliseconds: 200),
-                      height: screenwidth * 85 / 100,
-                      width: screenwidth * 85 / 100,
-                      child: ClipRRect(
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(20)),
-                        child:
-                            Image(image: AssetImage(image), fit: BoxFit.fill),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: screenheight * 1 / 100,
-                  ),
-                  Row(
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            widget.title,
-                            textAlign: TextAlign.start,
-                            style: const TextStyle(
-                              fontFamily: "Gelion Bold",
-                              fontSize: 24,
-                              color: primaryPurple,
-                            ),
-                          ),
-                          SizedBox(height: screenheight * 1 / 100),
-                          Text(
-                            widget.place,
-                            style: const TextStyle(
-                              fontFamily: "Gelion Medium",
-                              fontSize: 18,
-                              color: textColor,
-                            ),
-                          ),
-                          SizedBox(height: screenheight * 1 / 100),
-                          Text(
-                            widget.date,
-                            style: const TextStyle(
-                              fontFamily: "Gelion Medium",
-                              fontSize: 18,
-                              color: textColor,
-                            ),
-                          ),
-                        ],
-                      ),
-                      const Expanded(child: SizedBox()),
-                      Column(
-                        children: [
-                          SizedBox(height: screenheight * 1 / 100),
-                          SizedBox(
-                            height: screenwidth * 10 / 100,
-                            width: screenwidth * 15 / 100,
-                            child: ClipRRect(
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(20)),
-                              child: ColoredBox(
-                                  color: primaryBackgroundColor,
-                                  child: Center(
-                                    child: Text(
-                                      "$price\$",
-                                      style: const TextStyle(
-                                        fontFamily: "Gelion Medium",
-                                        fontSize: 18,
-                                        color: primaryPurple,
-                                      ),
-                                    ),
-                                  )),
-                            ),
-                          ),
-                          SizedBox(height: screenheight * 1 / 100),
-                          const MyButtonHype(),
-                        ],
-                      )
-                    ],
-                  )
-                ],
+            SizedBox(
+              width: screenwidth * 1 / 100,
+            ),
+            Text(
+              "Disco",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontFamily: "Gelion Medium",
+                fontSize: screenheight * 2.2 / 100,
+                color: primaryPurple,
               ),
             ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-//----------------------------------------------------------------------------//
-
-class MyButtonHype extends StatefulWidget {
-  const MyButtonHype({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  State<MyButtonHype> createState() => _MyButtonHypeState();
-}
-
-class _MyButtonHypeState extends State<MyButtonHype> {
-  //bool hyped = false;
-
-  @override
-  Widget build(BuildContext context) {
-    //double screenheight = MediaQuery.of(context).size.height;
-    double screenwidth = MediaQuery.of(context).size.width;
-    return SizedBox(
-      height: screenwidth * 10 / 100,
-      width: screenwidth * 15 / 100,
-      child: ClipRRect(
-        borderRadius: const BorderRadius.all(Radius.circular(20)),
-        child: ColoredBox(
-          color: primaryBackgroundColor,
-          child: GestureDetector(
-            onTap: () {
-              hyped == true
-                  ? setState(() {
-                      hyped = false;
-                    })
-                  : setState(() {
-                      hyped = true;
-                    });
-            },
-            onLongPress: () {
-              hyped == true
-                  ? setState(() {
-                      hyped = false;
-                    })
-                  : setState(() {
-                      hyped = true;
-                    });
-            },
-            child: hyped == false
-                ? const Icon(
-                    LineAwesomeIcons.heart,
-                    size: 28,
-                    color: iconColor,
-                  )
-                : const Icon(
-                    LineAwesomeIcons.heart_1,
-                    size: 28,
-                    color: primaryPurple,
-                  ),
-          ),
+          ],
         ),
       ),
     );
   }
 }
+
+
+
+//----------------------------------------------------------------------------//
+
+

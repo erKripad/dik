@@ -10,18 +10,7 @@ import 'package:dik/Theme/icons.dart';
 // ignore: unused_import
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:dik/Theme/events_examples.dart';
-
-//----------------------------------------------------------------------------//
-
-/*var _scrollController = ScrollController();
-
-void goUp() {
-  _scrollController.animateTo(
-    0.0,
-    duration: const Duration(milliseconds: 500),
-    curve: Curves.easeInOutQuart,
-  );
-}*/
+import 'package:dik/Theme/App/buttons.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -101,8 +90,11 @@ class _MyAppBarState extends State<MyAppBar> {
                         ? ProfileButton(iconSize: screenheight * 5 / 100)
                         : const SizedBox(),
                     widget.hype == true
-                        ? MyAppbarButtonHype(
-                            color: widget.hypeColor,
+                        ? ButtonHype(
+                            size: screenheight * 4.5 / 100,
+                            hyped: hyped,
+                            selectedColor: widget.hypeColor,
+                            unselectedColor: iconColor,
                           )
                         : const SizedBox(),
                   ],
@@ -111,55 +103,6 @@ class _MyAppBarState extends State<MyAppBar> {
             ),
           ),
         ));
-  }
-}
-
-//----------------------------------------------------------------------------//
-
-class MyAppbarButtonHype extends StatefulWidget {
-  final Color? color;
-
-  const MyAppbarButtonHype({
-    Key? key,
-    this.color,
-  }) : super(key: key);
-
-  @override
-  State<MyAppbarButtonHype> createState() => _MyAppbarButtonHypeState();
-}
-
-class _MyAppbarButtonHypeState extends State<MyAppbarButtonHype> {
-  @override
-  Widget build(BuildContext context) {
-    double screenwidth = MediaQuery.of(context).size.width;
-    double screenheight = MediaQuery.of(context).size.height;
-    return Row(
-      children: [
-        GestureDetector(
-          onTap: () {
-            hyped == true
-                ? setState(() {
-                    hyped = false;
-                  })
-                : setState(() {
-                    hyped = true;
-                  });
-          },
-          child: hyped == false
-              ? Icon(
-                  LineAwesomeIcons.heart,
-                  size: screenheight * 5 / 100,
-                  color: iconColor,
-                )
-              : Icon(
-                  LineAwesomeIcons.heart_1,
-                  size: screenheight * 5 / 100,
-                  color: widget.color ?? primaryPurple,
-                ),
-        ),
-        SizedBox(width: screenwidth * 4 / 100),
-      ],
-    );
   }
 }
 
