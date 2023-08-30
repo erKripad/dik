@@ -82,12 +82,12 @@ class _MainInterfaceState extends State<MainInterface> {
             iconData: LineAwesomeIcons.heart,
           ),
           BottomBarItem(
-            importedIconAVG: false,
-            iconData: LineAwesomeIcons.map_marked,
+            importedIconAVG: true,
+            customIcon: CustomIcons.maps,
           ),
           BottomBarItem(
             importedIconAVG: true,
-            customIcon: CustomIcons.empty_calendar,
+            customIcon: CustomIcons.calendar,
           ),
         ],
         onTabSelected: (int index) {
@@ -99,26 +99,3 @@ class _MainInterfaceState extends State<MainInterface> {
     );
   }
 }
-
-/*(index) {
-            if (mounted) {
-              setState(() {
-                currentIndex = index!;
-              });
-            }
-          }
-          
-          
-          
-          
-          
-            @override
-  void initState() {
-    changeIndex(currentIndex);
-    super.initState();
-  }
-
-  void changeIndex(int index) {
-    currentIndex = index;
-    setState(() {});
-  }*/

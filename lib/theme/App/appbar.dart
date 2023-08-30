@@ -133,8 +133,8 @@ class ProfileButton extends StatelessWidget {
             Navigator.pushNamed(context, '/profile');
           },
           child: SizedBox(
-            width: iconSize ?? screenheight * 5 / 100,
-            height: iconSize ?? screenheight * 5 / 100,
+            width: iconSize ?? screenheight * 4 / 100,
+            height: iconSize ?? screenheight * 4 / 100,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(100),
               child: Image(
@@ -165,6 +165,7 @@ class NotificationsButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenwidth = MediaQuery.of(context).size.width;
+    double screenheight = MediaQuery.of(context).size.height;
     return Row(
       children: [
         //SizedBox(width: screenwidth * 3 / 100),
@@ -177,7 +178,7 @@ class NotificationsButton extends StatelessWidget {
           },
           child: Icon(
             LineAwesomeIcons.bell,
-            size: iconSize ?? 32,
+            size: iconSize ?? screenheight * 4 / 100,
             color: color ?? iconColor,
           ),
         ),
@@ -205,6 +206,7 @@ class _GoBackButtonState extends State<GoBackButton> {
   @override
   Widget build(BuildContext context) {
     double screenwidth = MediaQuery.of(context).size.width;
+    double screenheight = MediaQuery.of(context).size.height;
     return Row(
       children: [
         SizedBox(
@@ -216,7 +218,7 @@ class _GoBackButtonState extends State<GoBackButton> {
           },
           child: Icon(
             Icons.arrow_back,
-            size: widget.iconSize ?? 26,
+            size: widget.iconSize ?? screenheight * 4 / 100,
             color: iconColor,
           ),
         )

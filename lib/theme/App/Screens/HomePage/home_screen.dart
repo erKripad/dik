@@ -15,6 +15,7 @@ import 'package:dik/Theme/App/selected_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:dik/Theme/icons.dart';
 import 'package:dik/Theme/App/list_item.dart';
+import 'package:dik/Theme/App/category_list_item.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -51,11 +52,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    double screenwidth = MediaQuery.of(context).size.width;
+    double screenheight = MediaQuery.of(context).size.height;
     return Scaffold(
         backgroundColor: primaryBackgroundColor,
         //
         body: Padding(
-          padding: const EdgeInsets.all(8),
+          padding: EdgeInsets.all(screenheight * 1.5 / 100),
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
             physics: const BouncingScrollPhysics(
@@ -66,13 +69,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(
                   height: 15,
                 ),
-                const Padding(
-                  padding: EdgeInsets.all(12),
+                Padding(
+                  padding: EdgeInsets.all(screenheight * 0.5 / 100),
                   child: Text(
                     "Scopri le categorie",
                     style: TextStyle(
                       fontFamily: "Gelion Bold",
-                      fontSize: 32,
+                      fontSize: screenheight * 3.5 / 100,
                       color: textColor,
                     ),
                   ),
@@ -80,24 +83,27 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(
                   height: 10,
                 ),
-                const SingleChildScrollView(
+                SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    children: <Widget>[
-                      CategoryListItem(),
+                    children: [
+                      CategoryListItem(
+                          text: "Discoteca",
+                          icon: CustomIcons.disco,
+                          onTapDestination: "/new_category_page"),
                     ],
                   ),
                 ),
                 const SizedBox(
                   height: 45,
                 ),
-                const Padding(
+                Padding(
                   padding: EdgeInsets.all(12),
                   child: Text(
                     "Eventi",
                     style: TextStyle(
                       fontFamily: "Gelion Bold",
-                      fontSize: 32,
+                      fontSize: screenheight * 3.5 / 100,
                       color: textColor,
                     ),
                   ),
@@ -126,68 +132,3 @@ class _HomeScreenState extends State<HomeScreen> {
         ));
   }
 }
-
-//----------------------------------------------------------------------------//
-
-class CategoryListItem extends StatefulWidget {
-  const CategoryListItem({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  State<CategoryListItem> createState() => _CategoryListItemState();
-}
-
-class _CategoryListItemState extends State<CategoryListItem> {
-  @override
-  Widget build(BuildContext context) {
-    double screenwidth = MediaQuery.of(context).size.width;
-    double screenheight = MediaQuery.of(context).size.height;
-    return Container(
-      height: screenheight * 8 / 100,
-      decoration: BoxDecoration(
-        color: primaryObjColor,
-        borderRadius: BorderRadius.all(Radius.circular(20)),
-      ),
-      padding: EdgeInsets.all(
-        screenheight * 1 / 100,
-      ),
-      child: GestureDetector(
-        onTap: () {
-          Navigator.pushNamed(context, '/new_category_page');
-        },
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SvgPicture.asset(
-              CustomIcons.disco,
-              height: screenheight * 5 / 100,
-              width: screenheight * 5 / 100,
-              // ignore: deprecated_member_use
-              color: primaryPurple,
-            ),
-            SizedBox(
-              width: screenwidth * 1 / 100,
-            ),
-            Text(
-              "Disco",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontFamily: "Gelion Medium",
-                fontSize: screenheight * 2.2 / 100,
-                color: primaryPurple,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-
-
-//----------------------------------------------------------------------------//
-
-

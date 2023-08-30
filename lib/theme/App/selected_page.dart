@@ -443,14 +443,74 @@ class InfoBox extends StatelessWidget {
     double screenheight = MediaQuery.of(context).size.height;
     double screenwidth = MediaQuery.of(context).size.width;
     return Container(
-      height: screenheight * 30 / 100,
-      width: screenwidth * 45 / 100,
-      padding: const EdgeInsets.all(15),
-      decoration: BoxDecoration(
-        color: primaryObjColor.withOpacity(0.5),
-        borderRadius: BorderRadius.all(Radius.circular(20)),
-      ),
-      child: Row(
+        height: screenheight * 30 / 100,
+        width: screenwidth * 45 / 100,
+        padding: const EdgeInsets.all(15),
+        decoration: BoxDecoration(
+          color: primaryObjColor.withOpacity(0.5),
+          borderRadius: BorderRadius.all(Radius.circular(20)),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            RowItem(icon: CustomIcons.disco, title: "Event"),
+            RowItem(icon: CustomIcons.empty_calendar, title: "Date"),
+            RowItem(icon: CustomIcons.empty_calendar, title: "Time"),
+            RowItem(icon: CustomIcons.map_pin_2, title: "Place"),
+            RowItem(icon: CustomIcons.ticket, title: "Price"),
+          ],
+        ));
+  }
+}
+
+class RowItem extends StatelessWidget {
+  RowItem({
+    super.key,
+    required this.icon,
+    required this.title,
+    this.color,
+    this.iconSize,
+    this.textSize,
+  });
+
+  final String icon;
+  final String title;
+  final double? iconSize;
+  final double? textSize;
+  final Color? color;
+
+  Widget build(BuildContext context) {
+    double screenheight = MediaQuery.of(context).size.height;
+    double screenwidth = MediaQuery.of(context).size.width;
+
+    return Row(
+      children: [
+        SizedBox(
+          height: iconSize ?? screenheight * 3.5 / 100,
+          width: iconSize ?? screenheight * 3.5 / 100,
+          child: SvgPicture.asset(
+            icon,
+
+            // ignore: deprecated_member_use
+            color: color ?? iconColor,
+          ),
+        ),
+        SizedBox(width: screenwidth * 4 / 100),
+        Text(
+          title,
+          textAlign: TextAlign.right,
+          style: TextStyle(
+            fontFamily: "Gelion Bold",
+            fontSize: textSize ?? screenheight * 2.5 / 100,
+            color: color ?? textColor,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+/*Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -458,13 +518,7 @@ class InfoBox extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SvgPicture.asset(
-                CustomIcons.disco,
-                height: screenheight * 4 / 100,
-                width: screenheight * 4 / 100,
-                // ignore: deprecated_member_use
-                color: iconColor,
-              ),
+              
               SvgPicture.asset(
                 CustomIcons.empty_calendar,
                 height: screenheight * 3 / 100,
@@ -484,14 +538,13 @@ class InfoBox extends StatelessWidget {
                 height: screenheight * 3 / 100,
                 width: screenheight * 3 / 100,
               ),
-
-              /*SvgPicture.asset(
+              SvgPicture.asset(
                 CustomIcons.ticket,
                 height: screenheight * 3 / 100,
                 width: screenheight * 3 / 100,
                 // ignore: deprecated_member_use
                 color: iconColor,
-              ),*/
+              ),
               SizedBox(
                 height: screenheight * 3 / 100,
                 width: screenheight * 3 / 100,
@@ -503,15 +556,7 @@ class InfoBox extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "Disco",
-                textAlign: TextAlign.right,
-                style: TextStyle(
-                  fontFamily: "Gelion Bold",
-                  fontSize: screenheight * 2.5 / 100,
-                  color: textColor,
-                ),
-              ),
+              
               Text(
                 "Data e Ora",
                 textAlign: TextAlign.right,
@@ -540,13 +585,7 @@ class InfoBox extends StatelessWidget {
                 ),
               ),
             ],
-          ),
-          SizedBox(width: screenwidth * 1 / 100),
-        ],
-      ),
-    );
-  }
-}
+          ),*/
 
 class HostInfoBox extends StatelessWidget {
   const HostInfoBox({super.key});
