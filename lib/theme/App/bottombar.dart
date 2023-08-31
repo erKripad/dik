@@ -1,6 +1,7 @@
 //----------------------------------------------------------------------------//
 
 //import 'package:dik/Theme/colors.dart';
+
 import 'package:flutter/material.dart';
 // ignore: unused_import
 import 'package:dik/Theme/icons.dart';
@@ -51,6 +52,7 @@ class MyBottomBarState extends State<MyBottomBar> {
 
   @override
   Widget build(BuildContext context) {
+    double screenheight = MediaQuery.of(context).size.height;
     List<Widget> items = List.generate(widget.items.length, (int index) {
       return _buildTabItem(
         item: widget.items[index],
@@ -58,25 +60,12 @@ class MyBottomBarState extends State<MyBottomBar> {
         onPressed: _changeIndex,
       );
     });
-    items.insert(items.length >> 1, _buildMiddleTabItem());
 
     return Container(
+      height: screenheight * 10 / 100,
       color: widget.backgroundColor ?? Colors.transparent,
       child: Row(
         children: items,
-      ),
-    );
-  }
-
-  Widget _buildMiddleTabItem() {
-    double screenheight = MediaQuery.of(context).size.height;
-    //double screenwidth = MediaQuery.of(context).size.width;
-    return SizedBox(
-      height: screenheight * 9 / 100,
-      child: Column(
-        children: <Widget>[
-          SizedBox(height: widget.iconSize ?? screenheight * 4 / 100),
-        ],
       ),
     );
   }
@@ -91,26 +80,30 @@ class MyBottomBarState extends State<MyBottomBar> {
     double screenheight = MediaQuery.of(context).size.height;
     //double screenwidth = MediaQuery.of(context).size.width;
     return Expanded(
-      child: GestureDetector(
-        onTap: () => onPressed(index),
-        child: item.importedIconAVG == false
-            ? Icon(
-                item.iconData ?? Icons.question_mark,
-                size: widget.iconSize ?? screenheight * 4 / 100,
-                color: index == _currentindex
-                    ? widget.selectedColor
-                    : widget.iconColor,
-              )
-            : SvgPicture.asset(
-                item.customIcon ?? CustomIcons.home,
-                height: widget.iconSize ?? screenheight * 4 / 100,
-                width: widget.iconSize ?? screenheight * 4 / 100,
-                // ignore: deprecated_member_use
-                color: index == _currentindex
-                    ? widget.selectedColor
-                    : widget.iconColor,
-              ),
-      ),
-    );
+        child: Column(
+      children: [
+        SizedBox(height: screenheight * 2 / 100),
+        GestureDetector(
+          onTap: () => onPressed(index),
+          child: item.importedIconAVG == false
+              ? Icon(
+                  item.iconData ?? Icons.question_mark,
+                  size: widget.iconSize ?? screenheight * 4 / 100,
+                  color: index == _currentindex
+                      ? widget.selectedColor
+                      : widget.iconColor,
+                )
+              : SvgPicture.asset(
+                  item.customIcon ?? CustomIcons.home,
+                  height: widget.iconSize ?? screenheight * 4 / 100,
+                  width: widget.iconSize ?? screenheight * 4 / 100,
+                  // ignore: deprecated_member_use
+                  color: index == _currentindex
+                      ? widget.selectedColor
+                      : widget.iconColor,
+                ),
+        ),
+      ],
+    ));
   }
 }

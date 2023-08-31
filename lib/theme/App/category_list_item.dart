@@ -19,7 +19,7 @@ import 'package:dik/Theme/App/buttons.dart';
 //----------------------------------------------------------------------------//
 
 class CategoryListItem extends StatefulWidget {
-  CategoryListItem({
+  const CategoryListItem({
     super.key,
     this.backgroundColor,
     this.textColor,
@@ -60,6 +60,9 @@ class _CategoryListItemState extends State<CategoryListItem> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            SizedBox(
+              width: screenwidth * 1 / 100,
+            ),
             SvgPicture.asset(
               widget.icon,
               height: screenheight * 3.5 / 100,
@@ -78,6 +81,9 @@ class _CategoryListItemState extends State<CategoryListItem> {
                 fontSize: screenheight * 2.5 / 100,
                 color: widget.textColor ?? primaryPurple,
               ),
+            ),
+            SizedBox(
+              width: screenwidth * 1 / 100,
             ),
           ],
         ),
