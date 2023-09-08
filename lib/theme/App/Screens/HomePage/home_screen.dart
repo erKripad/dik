@@ -1,21 +1,26 @@
 //----------------------------------------------------------------------------//
 
-// ignore_for_file: unused_import
-
-import 'dart:async';
-
+// framework
 import 'package:flutter/material.dart';
+
+// widgets
+import 'package:dik/Theme/App/Widgets/list_item.dart';
+import 'package:dik/Theme/App/Widgets/category_list_item.dart';
+
+// colors
+import 'package:dik/Theme/colors.dart';
+
+// icons
+import 'package:dik/Theme/icons.dart';
+
+// simil-database
+import 'package:dik/Theme/events_examples.dart';
+
+// unused extentions
+
 //import 'package:flutter/scheduler.dart';
 //import 'package:animations/animations.dart';
 //import 'package:infinite_scroll/infinite_scroll.dart';
-import 'package:dik/Theme/colors.dart';
-import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import 'package:dik/Theme/events_examples.dart';
-import 'package:dik/Theme/App/selected_page.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:dik/Theme/icons.dart';
-import 'package:dik/Theme/App/list_item.dart';
-import 'package:dik/Theme/App/category_list_item.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -52,13 +57,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    double screenwidth = MediaQuery.of(context).size.width;
     double screenheight = MediaQuery.of(context).size.height;
+    double screenwidth = MediaQuery.of(context).size.width;
     return Scaffold(
         backgroundColor: primaryBackgroundColor,
         //
         body: Padding(
-          padding: EdgeInsets.all(screenheight * 1.5 / 100),
+          padding: EdgeInsets.all(screenwidth * 3 / 100),
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
             physics: const BouncingScrollPhysics(
@@ -83,13 +88,51 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(
                   height: 10,
                 ),
-                SingleChildScrollView(
+                const SingleChildScrollView(
+                  physics: BouncingScrollPhysics(
+                      decelerationRate: ScrollDecelerationRate.fast),
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
                       CategoryListItem(
-                          text: "Discoteca",
+                          text: "Disco",
                           icon: CustomIcons.disco,
+                          onTapDestination: "/new_category_page"),
+                      CategoryListItem(
+                          text: "Karaoke",
+                          icon: CustomIcons.mic,
+                          onTapDestination: "/new_category_page"),
+                      CategoryListItem(
+                          text: "Pet Friendly",
+                          icon: CustomIcons.pet,
+                          onTapDestination: "/new_category_page"),
+                      CategoryListItem(
+                          text: "Concert",
+                          icon: CustomIcons.mic_2,
+                          onTapDestination: "/new_category_page"),
+                      CategoryListItem(
+                          text: "Agriculture Festival",
+                          icon: CustomIcons.trattore,
+                          onTapDestination: "/new_category_page"),
+                      CategoryListItem(
+                          text: "Pub",
+                          icon: CustomIcons.beer,
+                          onTapDestination: "/new_category_page"),
+                      CategoryListItem(
+                          text: "Rides",
+                          icon: CustomIcons.chairoplane,
+                          onTapDestination: "/new_category_page"),
+                      CategoryListItem(
+                          text: "Rides",
+                          icon: CustomIcons.big_wheel,
+                          onTapDestination: "/new_category_page"),
+                      CategoryListItem(
+                          text: "Cat Friendly",
+                          icon: CustomIcons.cat,
+                          onTapDestination: "/new_category_page"),
+                      CategoryListItem(
+                          text: "Dog Friendly",
+                          icon: CustomIcons.dog,
                           onTapDestination: "/new_category_page"),
                     ],
                   ),
@@ -98,7 +141,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 45,
                 ),
                 Padding(
-                  padding: EdgeInsets.all(12),
+                  padding: EdgeInsets.all(screenheight * 0.5 / 100),
                   child: Text(
                     "Eventi",
                     style: TextStyle(
@@ -119,7 +162,39 @@ class _HomeScreenState extends State<HomeScreen> {
                       date: date,
                       time: time,
                       price: price,
+                      image: image,
                       category: CustomIcons.disco,
+                      //onTapDestination: ,
+                    ),
+                    ListItem(
+                      title: title,
+                      place: place,
+                      date: date,
+                      time: time,
+                      price: price,
+                      image: "assets/prova2.jpg",
+                      category: CustomIcons.disco,
+                      //onTapDestination: ,
+                    ),
+                    ListItem(
+                      title: title,
+                      place: place,
+                      date: date,
+                      time: time,
+                      price: price,
+                      category: CustomIcons.disco,
+                      image: "assets/prova3.jpg",
+                      //onTapDestination: ,
+                    ),
+                    ListItem(
+                      title: title,
+                      place: place,
+                      date: date,
+                      time: time,
+                      price: price,
+                      category: CustomIcons.disco,
+                      image: "assets/prova4.png",
+                      //onTapDestination: ,
                     ),
                   ],
                 ),

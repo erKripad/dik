@@ -1,19 +1,23 @@
-// ignore_for_file: unused_import
+//----------------------------------------------------------------------------//
 
-import 'dart:async';
-
+// framework
 import 'package:flutter/material.dart';
+
+// simil-database
+import 'package:dik/Theme/events_examples.dart';
+
+// external extentions
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
+
+// unused extentions
+
 //import 'package:flutter/scheduler.dart';
 //import 'package:animations/animations.dart';
 //import 'package:infinite_scroll/infinite_scroll.dart';
-import 'package:dik/Theme/colors.dart';
-import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import 'package:dik/Theme/events_examples.dart';
-import 'package:dik/Theme/App/selected_page.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:dik/Theme/icons.dart';
-import 'package:dik/Theme/App/buttons.dart';
 
+//----------------------------------------------------------------------------//
+
+// ignore: must_be_immutable
 class ButtonHype extends StatefulWidget {
   ButtonHype({
     super.key,
@@ -33,12 +37,8 @@ class ButtonHype extends StatefulWidget {
 }
 
 class ButtonHypeState extends State<ButtonHype> {
-  //bool hyped = false;
-
   @override
   Widget build(BuildContext context) {
-    //double screenheight = MediaQuery.of(context).size.height;
-    double screenwidth = MediaQuery.of(context).size.width;
     return GestureDetector(
       onTap: () {
         widget.hyped == true
@@ -76,3 +76,5 @@ class ButtonHypeState extends State<ButtonHype> {
     );
   }
 }
+
+//----------------------------------------------------------------------------//

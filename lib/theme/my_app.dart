@@ -14,7 +14,6 @@ import 'package:dik/Theme/App/Profile/Profile%20Pages/cart_page.dart';
 import 'package:dik/Theme/App/Profile/Profile%20Pages/info_page.dart';
 import 'package:dik/Theme/App/Profile/Profile%20Pages/privacy_page.dart';
 import 'package:dik/Theme/App/Profile/Profile%20Pages/tickets_page.dart';
-import 'dart:ui';
 import 'package:dik/Theme/icons.dart';
 
 //----------------------------------------------------------------------------//
@@ -22,12 +21,10 @@ import 'package:dik/Theme/icons.dart';
 // in questa sezione viene creata e gestita l'applicazione appena lanciata
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    double screenheight = MediaQuery.of(context).size.height;
-    double screenwidth = MediaQuery.of(context).size.width;
     return MaterialApp(
       theme: ThemeData(
         brightness: Brightness.dark,
@@ -45,7 +42,7 @@ class MyApp extends StatelessWidget {
         '/tickets': (context) => const TicketsPage(),
         '/new_page': (context) => const SelectedPage(),
         '/edit_profile_picture': (context) => const ProfilePictureEditingPage(),
-        '/new_category_page': (context) => CategoryPage(
+        '/new_category_page': (context) => const CategoryPage(
               category: "disco",
               categoryIcon: CustomIcons.disco,
             ),

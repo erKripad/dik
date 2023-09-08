@@ -1,15 +1,19 @@
 //----------------------------------------------------------------------------//
 
-import 'package:dik/Theme/App/main_interface.dart';
+// framework
 import 'package:flutter/material.dart';
+
+// colors
 import 'package:dik/Theme/colors.dart';
-import 'package:dik/Theme/App/appbar.dart';
+
+// widgets
+import 'package:dik/Theme/App/Widgets/appbar.dart';
+
+// icons
 import 'package:dik/theme/icons.dart';
+
+// external extentions
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:palette_generator/palette_generator.dart';
-import 'package:dik/theme/events_examples.dart';
-import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import 'package:dik/Theme/App/appbar.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -29,7 +33,7 @@ class CategoryPage extends StatelessWidget {
       backgroundColor: primaryBackgroundColor,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(screenheight / 16),
-        child: MyAppBar(
+        child: const MyAppBar(
           gobackbutton: true,
         ),
       ),

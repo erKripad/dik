@@ -1,8 +1,9 @@
 //----------------------------------------------------------------------------//
 
-// ignore_for_file: library_private_types_in_public_api
-
+// framework
 import 'package:flutter/material.dart';
+
+// colors
 import 'package:dik/Theme/colors.dart';
 
 //----------------------------------------------------------------------------//
@@ -11,7 +12,7 @@ class ProfilePictureEditingPage extends StatefulWidget {
   const ProfilePictureEditingPage({super.key});
 
   @override
-  _ProfilePictureEditingPageState createState() =>
+  State<ProfilePictureEditingPage> createState() =>
       _ProfilePictureEditingPageState();
 }
 

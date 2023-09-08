@@ -1,7 +1,12 @@
 //----------------------------------------------------------------------------//
 
+// framework
 import 'package:flutter/material.dart';
-import 'package:dik/theme/App/appbar.dart';
+
+// widgets
+import 'package:dik/theme/App/Widgets/appbar.dart';
+
+// colors
 import 'package:dik/theme/colors.dart';
 
 //----------------------------------------------------------------------------//

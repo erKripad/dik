@@ -28,7 +28,7 @@ dependencies:
   line_awesome_flutter: ^2.0.0
   infinite_scroll: ^1.1.1
   paginated_search_bar: ^1.1.2
-  animations: ^2.0.7
+  animations: ^2.0.8
   image_picker: ^0.8.9
   image_cropper: ^5.0.0
   flutter_bloc: ^8.1.3
@@ -81,6 +81,9 @@ flutter:
     - assets/immagine di profilo.jpg
     - assets/prova1.jpg
     - assets/prova2.jpg
+    - assets/prova3.jpg
+    - assets/prova4.png
+    - assets/black.jpg
     - assets/icons/
 
   fonts:

@@ -1,8 +1,15 @@
 //----------------------------------------------------------------------------//
 
-import 'package:dik/theme/App/appbar.dart';
+// framework
 import 'package:flutter/material.dart';
+
+// widgets
+import 'package:dik/theme/App/Widgets/appbar.dart';
+
+// colors
 import 'package:dik/Theme/colors.dart';
+
+// external extentions
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 //----------------------------------------------------------------------------//

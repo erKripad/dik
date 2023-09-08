@@ -1,15 +1,26 @@
 //----------------------------------------------------------------------------//
 
+// framework
 import 'package:flutter/material.dart';
+
+// widgets
+import 'package:dik/theme/App/Widgets/appbar.dart';
+import 'package:dik/theme/App/Widgets/bottombar.dart';
+
+// pages
 import 'package:dik/Theme/App/Screens/calendar_screen.dart';
 import 'package:dik/Theme/App/Screens/map_screen.dart';
 import 'package:dik/Theme/App/Screens/search_screen.dart';
 import 'package:dik/Theme/App/Screens/HomePage/home_screen.dart';
 import 'package:dik/Theme/App/Screens/saved_screen.dart';
+
+// colors
 import 'package:dik/Theme/colors.dart';
-import 'package:dik/theme/App/appbar.dart';
-import 'package:dik/theme/App/bottombar.dart';
+
+// icons
 import 'package:dik/theme/icons.dart';
+
+// external extentions
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 //----------------------------------------------------------------------------//

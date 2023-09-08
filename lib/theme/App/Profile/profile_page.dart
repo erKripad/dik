@@ -1,14 +1,24 @@
 //----------------------------------------------------------------------------//
 
-// ignore_for_file: unused_import, unused_local_variable
-
-import 'package:dik/theme/App/appbar.dart';
-import 'package:dik/theme/user_info.dart';
+//framework
 import 'package:flutter/material.dart';
-import 'package:line_awesome_flutter/line_awesome_flutter.dart';
+
+// widgets
+import 'package:dik/theme/App/Widgets/appbar.dart';
+
+// simulating-database
+import 'package:dik/theme/user_info.dart';
+
+// colors
 import 'package:dik/Theme/colors.dart';
-import 'package:dik/theme/icons.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
+// external extentions
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
+
+// unused extentions
+
+//import 'package:dik/theme/icons.dart';
+//import 'package:flutter_svg/flutter_svg.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -18,7 +28,7 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenheight = MediaQuery.of(context).size.height;
-    double screenwidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: primaryBackgroundColor,
       appBar: PreferredSize(

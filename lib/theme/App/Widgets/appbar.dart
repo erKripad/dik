@@ -1,16 +1,19 @@
 //----------------------------------------------------------------------------//
 
-// ignore: unused_import
-import 'dart:ffi';
+// framework
 import 'package:flutter/material.dart';
+
+// colors
 import 'package:dik/Theme/colors.dart';
+
+// external extentions
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-// ignore: unused_import
-import 'package:dik/Theme/icons.dart';
-// ignore: unused_import
-import 'package:flutter_svg/flutter_svg.dart';
+
+// simil-database
 import 'package:dik/Theme/events_examples.dart';
-import 'package:dik/Theme/App/buttons.dart';
+
+// widgets
+import 'package:dik/Theme/App/Widgets/buttons.dart';
 
 //----------------------------------------------------------------------------//
 

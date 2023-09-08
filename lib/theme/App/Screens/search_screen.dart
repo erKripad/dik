@@ -1,8 +1,12 @@
 //----------------------------------------------------------------------------//
 
-//import 'package:dik/Theme/Main%20Interface/home_screen.dart';
+// framework
 import 'package:flutter/material.dart';
+
+// colors
 import 'package:dik/Theme/colors.dart';
+
+// external extentions
 import 'package:paginated_search_bar/paginated_search_bar.dart';
 
 //----------------------------------------------------------------------------//

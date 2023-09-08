@@ -1,11 +1,18 @@
 //----------------------------------------------------------------------------//
 
-//import 'package:dik/Theme/colors.dart';
+// import 'package:dik/Theme/colors.dart';
 
+// dart
+import 'dart:io' show Platform;
+
+// framework
 import 'package:flutter/material.dart';
-// ignore: unused_import
+
+// icons
 import 'package:dik/Theme/icons.dart';
-// ignore: unused_import
+
+// external extentions
+
 import 'package:flutter_svg/flutter_svg.dart';
 
 //----------------------------------------------------------------------------//
@@ -75,14 +82,13 @@ class MyBottomBarState extends State<MyBottomBar> {
     required int index,
     required ValueChanged<int> onPressed,
   }) {
-    //double screenheight = MediaQuery.of(context).size.height;
-    //double screenwidth = MediaQuery.of(context).size.width;
     double screenheight = MediaQuery.of(context).size.height;
-    //double screenwidth = MediaQuery.of(context).size.width;
+
     return Expanded(
         child: Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        SizedBox(height: screenheight * 2 / 100),
+        const SizedBox(),
         GestureDetector(
           onTap: () => onPressed(index),
           child: item.importedIconAVG == false
@@ -103,6 +109,9 @@ class MyBottomBarState extends State<MyBottomBar> {
                       : widget.iconColor,
                 ),
         ),
+        Platform.isIOS
+            ? SizedBox(height: screenheight * 2 / 100)
+            : const SizedBox(),
       ],
     ));
   }

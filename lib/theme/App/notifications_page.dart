@@ -6,11 +6,14 @@
 
 //----------------------------------------------------------------------------//
 
-// ignore_for_file: unused_local_variable
-
+// framework
 import 'package:flutter/material.dart';
+
+// widgets
+import 'package:dik/theme/App/Widgets/appbar.dart';
+
+// colors
 import 'package:dik/Theme/colors.dart';
-import 'package:dik/theme/App/appbar.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -19,7 +22,7 @@ class NotificationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenheight = MediaQuery.of(context).size.height;
-    double screenwidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(screenheight / 16),
@@ -55,7 +58,7 @@ class NotificationItem extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               color: primaryObjColor,
-              borderRadius: BorderRadius.all(Radius.circular(20)),
+              borderRadius: const BorderRadius.all(Radius.circular(20)),
             ),
           ),
         ),
