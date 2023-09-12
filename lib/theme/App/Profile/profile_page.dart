@@ -99,6 +99,15 @@ class ProfilePage extends StatelessWidget {
 
               //Menu
               ProfileMenuWidget(
+                title: "Add Event",
+                icon: LineAwesomeIcons.plus,
+                onPress: () {
+                  Navigator.pushNamed(context, '/add_event');
+                },
+                textColor: textColor,
+              ),
+              const SizedBox(height: 8),
+              ProfileMenuWidget(
                 title: "Tickets",
                 icon: LineAwesomeIcons.alternate_ticket,
                 onPress: () {

@@ -15,6 +15,7 @@ import 'package:dik/Theme/App/Profile/Profile%20Pages/info_page.dart';
 import 'package:dik/Theme/App/Profile/Profile%20Pages/privacy_page.dart';
 import 'package:dik/Theme/App/Profile/Profile%20Pages/tickets_page.dart';
 import 'package:dik/Theme/icons.dart';
+import 'package:dik/Theme/App/Profile/Profile Pages/add_event_page.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
               category: "disco",
               categoryIcon: CustomIcons.disco,
             ),
+        '/add_event': (context) => const AddEventPage(),
       },
     );
   }
