@@ -15,6 +15,9 @@ import 'package:dik/theme/colors.dart';
 // firebase
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+// external extentions
+import 'package:flutter/cupertino.dart';
+
 //----------------------------------------------------------------------------//
 
 class AddEventPage extends StatelessWidget {
@@ -43,7 +46,7 @@ class AddEventPage extends StatelessWidget {
             SizedBox(
               height: screenheight * 5 / 100,
             ),
-            const Text2(title: "Nome"),
+            const Title2(title: "Event Info"),
             SizedBox(
               height: screenheight * 2 / 100,
             ),
@@ -66,7 +69,11 @@ class AddContainer extends StatefulWidget {
 }
 
 class AddContainerState extends State<AddContainer> {
-  final controller = TextEditingController();
+  final titleController = TextEditingController();
+  final dateController = TextEditingController();
+  final timeController = TextEditingController();
+  final placeController = TextEditingController();
+  final photoController = TextEditingController();
 
   @override
   Widget build(context) {
@@ -74,38 +81,184 @@ class AddContainerState extends State<AddContainer> {
     double screenwidth = MediaQuery.of(context).size.width;
     return Container(
       decoration: BoxDecoration(
-        color: primaryObjColor,
+        color: Colors.transparent,
         borderRadius: const BorderRadius.all(Radius.circular(20)),
       ),
       padding: EdgeInsets.all(screenwidth * 1 / 100),
-      height: screenheight * 10 / 100,
-      child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+      height: screenheight * 50 / 100,
+      child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
         Expanded(
-          child: TextField(
-            controller: controller,
+          child: TextFormField(
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: screenheight * 2 / 100,
+            ),
+            showCursor: false,
+            cursorColor: Colors.white,
+            decoration: InputDecoration(
+              labelText: "Title",
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: primaryPurple.withOpacity(0.8),
+                ),
+              ),
+              labelStyle: TextStyle(
+                fontFamily: "Gelion Medium",
+                color: primaryPurple.withOpacity(0.8),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: primaryPurple.withOpacity(0.8),
+                ),
+              ),
+            ),
+            controller: titleController,
           ),
         ),
         SizedBox(height: screenheight * 4 / 100),
-        IconButton(
-            onPressed: () {
-              final name = controller.text;
-              createUser(name: name);
-            },
-            icon: const Icon(Icons.add)),
+        Expanded(
+          child: TextFormField(
+            showCursor: false,
+            cursorColor: Colors.white,
+            decoration: InputDecoration(
+              labelText: "Date",
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: primaryPurple.withOpacity(0.8),
+                ),
+              ),
+              labelStyle: TextStyle(
+                fontFamily: "Gelion Medium",
+                color: primaryPurple.withOpacity(0.8),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: primaryPurple.withOpacity(0.8),
+                ),
+              ),
+            ),
+            controller: dateController,
+          ),
+        ),
+        SizedBox(height: screenheight * 4 / 100),
+        Expanded(
+          child: TextFormField(
+            showCursor: false,
+            cursorColor: Colors.white,
+            decoration: InputDecoration(
+              labelText: "Time",
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: primaryPurple.withOpacity(0.8),
+                ),
+              ),
+              labelStyle: TextStyle(
+                fontFamily: "Gelion Medium",
+                color: primaryPurple.withOpacity(0.8),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: primaryPurple.withOpacity(0.8),
+                ),
+              ),
+            ),
+            controller: timeController,
+          ),
+        ),
+        SizedBox(height: screenheight * 4 / 100),
+        Expanded(
+          child: TextFormField(
+            showCursor: false,
+            cursorColor: Colors.white,
+            decoration: InputDecoration(
+              labelText: "Place",
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: primaryPurple.withOpacity(0.8),
+                ),
+              ),
+              labelStyle: TextStyle(
+                fontFamily: "Gelion Medium",
+                color: primaryPurple.withOpacity(0.8),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: primaryPurple.withOpacity(0.8),
+                ),
+              ),
+            ),
+            controller: placeController,
+          ),
+        ),
+        SizedBox(height: screenheight * 4 / 100),
+        GestureDetector(
+          onTap: () {
+            final title = titleController.text;
+            final place = placeController.text;
+            final date = dateController.text;
+            final time = timeController.text;
+            createEvent(title: title, place: place, date: date, time: time);
+            Navigator.pop(context);
+          },
+          child: Container(
+              height: screenheight * 6 / 100,
+              width: screenwidth * 35 / 100,
+              decoration: BoxDecoration(
+                color: primaryPurple.withOpacity(0.8),
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+              ),
+              child: const Center(
+                child: Text2(title: "Add Event"),
+              )),
+        ),
       ]),
     );
   }
 
-  Future createUser({required String name}) async {
-    final docUser = FirebaseFirestore.instance.collection('users').doc();
-    final json = {
-      'name': name,
-      'age': 21,
-      'birthday': DateTime(2001, 7, 28),
-    };
+  Future createEvent({
+    required String title,
+    required String place,
+    required String time,
+    required String date,
+  }) async {
+    final docEvent = FirebaseFirestore.instance.collection('events').doc();
 
-    await docUser.set(json);
+    final event = Event(
+      title: title,
+      id: docEvent.id,
+      place: place,
+      date: date,
+      time: time,
+    );
+
+    final json = event.toJson();
+
+    await docEvent.set(json);
   }
+}
+
+class Event {
+  String id;
+  final String title;
+  final String place;
+  final String time;
+  final String date;
+
+  Event({
+    this.id = '',
+    required this.title,
+    required this.place,
+    required this.date,
+    required this.time,
+  });
+
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'title': title,
+        'date': date,
+        'time': time,
+        'place': place,
+      };
 }
 
 //----------------------------------------------------------------------------//

@@ -16,6 +16,8 @@ import 'package:dik/Theme/App/Profile/Profile%20Pages/privacy_page.dart';
 import 'package:dik/Theme/App/Profile/Profile%20Pages/tickets_page.dart';
 import 'package:dik/Theme/icons.dart';
 import 'package:dik/Theme/App/Profile/Profile Pages/add_event_page.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -26,11 +28,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return MaterialApp(
-      theme: ThemeData(
-        brightness: Brightness.dark,
-        fontFamily: "Gelion Bold",
-      ),
       initialRoute: '/',
       routes: {
         '/': (context) => const MainInterface(),

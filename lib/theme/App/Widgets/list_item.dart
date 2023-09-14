@@ -62,10 +62,8 @@ class _ListItemState extends State<ListItem> {
         child: Column(
           children: [
             GestureDetector(
-              onTap: () => Navigator.of(context)
-                  .push(
-                    MaterialPageRoute(builder: (_) => const SelectedPage()),
-                  )
+              onTap: () => Future.microtask(() => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => SelectedPage())))
                   .then((val) => {_getRequests()}),
               onDoubleTap: () {
                 hyped == true
