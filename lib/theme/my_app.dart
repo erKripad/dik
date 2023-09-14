@@ -28,12 +28,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // consente di utilizzare l'app solo con lo schermo verticale
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
+
+    // creazione della material app
     return MaterialApp(
+      // percorso iniziale dove si aprirà l'app
       initialRoute: '/',
+
+      // percorsi standardizzati che possono essere utilizzati con Navigator.pushNamed()
       routes: {
         '/': (context) => const MainInterface(),
         '/settings': (context) => const SettingsPage(),
