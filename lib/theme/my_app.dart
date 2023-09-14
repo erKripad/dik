@@ -21,10 +21,10 @@ import 'package:flutter/services.dart';
 
 //----------------------------------------------------------------------------//
 
-// in questa sezione viene creata e gestita l'applicazione appena lanciata
+// * in questa sezione viene creata e gestita l'applicazione appena lanciata
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Tonight extends StatelessWidget {
+  const Tonight({super.key});
 
   @override
   Widget build(BuildContext context) {

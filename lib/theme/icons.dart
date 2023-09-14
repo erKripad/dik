@@ -1,3 +1,9 @@
+//----------------------------------------------------------------------------//
+
+//* in questa pagina vengono inizializzate le variabili delle icone // nota bene che i file devono essere in formato SVG
+
+//----------------------------------------------------------------------------//
+
 class CustomIcons {
   static const String home = "assets/icons/home.svg";
   static const String calendar = "assets/icons/calendar_2.svg";
@@ -23,3 +29,5 @@ class CustomIcons {
   static const String big_wheel = "assets/icons/giostre-2.svg";
   static const String beer = "assets/icons/birra.svg";
 }
+
+//----------------------------------------------------------------------------//

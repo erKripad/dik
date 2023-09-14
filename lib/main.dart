@@ -8,15 +8,15 @@ import 'package:firebase_core/firebase_core.dart';
 
 //----------------------------------------------------------------------------//
 
-// * these lines initialize and configurate the app
+// * queste linee inizializzano l'applicazione
 
 Future main() async {
-  // configuration of firestore // if the app is stucked and didn't run or crash make sure if firestore is working correctly
+  // configurazione di firestore // if the app is stucked and didn't run or crash make sure if firestore is working correctly
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
-  // initialize tonight
-  runApp(const MyApp());
+  // inizializza tonight
+  runApp(const Tonight());
 }
 
 //----------------------------------------------------------------------------//
@@ -42,6 +42,8 @@ Future main() async {
 ▒▒▓▓██      ████  ██▓▓▓▓▓▓██  ██▓▓██    ██▓▓▒▒▒▒▒▒
 ▒▒▓▓██    ██▓▓▓▓██▓▓▒▒▒▒▓▓▓▓██▓▓▓▓██  ██▓▓▒▒▒▒▒▒▒▒
 ▒▒▓▓▓▓████▓▓▒▒▓▓▓▓▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒▒▓▓██▓▓▒▒▒▒▒▒▒▒▒▒
+
+WUF
 
 */
 
