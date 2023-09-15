@@ -4,16 +4,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:dik/Theme/my_app.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 //----------------------------------------------------------------------------//
 
 // * these lines initialize and configurate the app
 
-Future main() async {
+main() {
   // configuration of firestore // if the app is stucked and didn't run or crash make sure if firestore is working correctly
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
 
   // initialize tonight
   runApp(const MyApp());
