@@ -4,6 +4,8 @@
 
 //----------------------------------------------------------------------------//
 
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:dik/Theme/Main%20Interface/Screens/calendar_screen.dart';
@@ -19,7 +21,7 @@ import 'package:dik/theme/Main Interface/appbar.dart';
 //----------------------------------------------------------------------------//
 
 class MyBottomNavigationBar extends StatefulWidget {
-  const MyBottomNavigationBar({super.key});
+  MyBottomNavigationBar({super.key});
 
   @override
   State<MyBottomNavigationBar> createState() => _MyBottomNavigationBarState();
