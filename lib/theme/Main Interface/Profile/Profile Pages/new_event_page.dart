@@ -5,7 +5,7 @@ import 'package:dik/Theme/colors.dart';
 
 //----------------------------------------------------------------------------//
 /*
-class NewEventPage extends StatelessWidget {
+class NewEventPage extends StatelessWidget {    // da vedere se implementare
   const NewEventPage({super.key});
   @override
   Widget build(BuildContext context) {
