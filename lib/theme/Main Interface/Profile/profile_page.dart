@@ -137,6 +137,15 @@ class ProfilePage extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               ProfileMenuWidget(
+                title: "Crea Evento",
+                icon: LineAwesomeIcons.info,
+                onPress: () {
+                  Navigator.pushNamed(context, '/new_event');
+                },
+                textColor: textColour,
+              ),
+              const SizedBox(height: 8),
+              ProfileMenuWidget(
                 title: "Esci",
                 icon: LineAwesomeIcons.alternate_sign_out,
                 onPress: () {},
