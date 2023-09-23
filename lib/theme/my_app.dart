@@ -15,6 +15,7 @@ import 'package:dik/Theme/Main%20Interface/Profile/Profile%20Pages/privacy_page.
 import 'package:dik/Theme/Main%20Interface/Profile/Profile%20Pages/tickets_page.dart';
 import 'package:dik/Theme/Main%20Interface/Profile/profile_picture_editing_page.dart';
 import 'package:dik/Theme/Main%20Interface/Profile/Profile%20Pages/new_event_page.dart';
+import 'package:dik/Theme/Main%20Interface/Profile/Profile%20Pages/new_event_page2.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -42,6 +43,7 @@ class MyApp extends StatelessWidget {
         '/info': (context) => const InfoPage(),
         '/tickets': (context) => const TicketsPage(),
         '/new_event': (context) => const NewEventPage(),
+        '/new_event2': (context) => const NewEventPage2(),
         '/new_page': (context) => const SelectedPage(),
         '/edit_profile_picture': (context) => ProfilePictureEditingPage(),
       },
