@@ -4,21 +4,21 @@
 import 'package:flutter/material.dart';
 
 // widgets
-import 'package:dik/theme/App/Widgets/appbar.dart';
-import 'package:dik/theme/App/Widgets/bottombar.dart';
+import 'package:dik/theme/Widgets/appbar.dart';
+import 'package:dik/theme/Widgets/bottombar.dart';
 
 // pages
-import 'package:dik/Theme/App/Screens/calendar_screen.dart';
-import 'package:dik/Theme/App/Screens/map_screen.dart';
-import 'package:dik/Theme/App/Screens/search_screen.dart';
-import 'package:dik/Theme/App/Screens/HomePage/home_screen.dart';
-import 'package:dik/Theme/App/Screens/saved_screen.dart';
+import 'package:dik/Theme/App/Screens/CalendarScreen/calendar_screen.dart';
+import 'package:dik/Theme/App/Screens/MapScreen/map_screen.dart';
+import 'package:dik/Theme/App/Screens/SearchScreen/search_screen.dart';
+import 'package:dik/Theme/App/Screens/HomeScreen/home_screen.dart';
+import 'package:dik/Theme/App/Screens/SavedScreen/saved_screen.dart';
 
 // colors
-import 'package:dik/Theme/colors.dart';
+import 'package:dik/Theme/MaterialsUI/colors.dart';
 
 // icons
-import 'package:dik/theme/icons.dart';
+import 'package:dik/theme/MaterialsUI/icons.dart';
 
 // external extentions
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';

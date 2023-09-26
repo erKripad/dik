@@ -4,13 +4,13 @@
 import 'package:flutter/material.dart';
 
 // colors
-import 'package:dik/Theme/colors.dart';
+import 'package:dik/Theme/MaterialsUI/colors.dart';
 
 // widgets
-import 'package:dik/Theme/App/Widgets/appbar.dart';
+import 'package:dik/Theme/Widgets/appbar.dart';
 
 // icons
-import 'package:dik/theme/icons.dart';
+import 'package:dik/theme/MaterialsUI/icons.dart';
 
 // external extentions
 import 'package:flutter_svg/flutter_svg.dart';

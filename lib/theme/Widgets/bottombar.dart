@@ -9,7 +9,7 @@ import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
 
 // icons
-import 'package:dik/Theme/icons.dart';
+import 'package:dik/Theme/MaterialsUI/icons.dart';
 
 // external extentions
 

@@ -4,7 +4,7 @@
 import 'package:flutter/material.dart';
 
 // simil-database
-import 'package:dik/Theme/events_examples.dart';
+import 'package:dik/Theme/DatabaseSamples/events_examples.dart';
 
 // external extentions
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';

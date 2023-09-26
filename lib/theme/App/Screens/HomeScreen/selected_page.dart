@@ -4,22 +4,22 @@
 import 'package:flutter/material.dart';
 
 // colors
-import 'package:dik/Theme/colors.dart';
+import 'package:dik/Theme/MaterialsUI/colors.dart';
 
 // widgets
-import 'package:dik/Theme/App/Widgets/appbar.dart';
-import 'package:dik/Theme/App/Widgets/title2.dart';
-import 'package:dik/Theme/App/Widgets/text2.dart';
+import 'package:dik/Theme/Widgets/appbar.dart';
+import 'package:dik/Theme/Widgets/title2.dart';
+import 'package:dik/Theme/Widgets/text2.dart';
 
 // icons
-import 'package:dik/theme/icons.dart';
+import 'package:dik/theme/MaterialsUI/icons.dart';
 
 // external extentions
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:palette_generator/palette_generator.dart';
 
 // simil-database
-import 'package:dik/theme/events_examples.dart';
+import 'package:dik/theme/DatabaseSamples/events_examples.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -52,11 +52,9 @@ class _SelectedPageState extends State<SelectedPage> {
     double screenheight = MediaQuery.of(context).size.height;
     double screenwidth = MediaQuery.of(context).size.width;
 
-    Color itemColor = paletteGenerator == null
+    Color itemColor = paletteGenerator?.lightVibrantColor == null
         ? defaultColor
-        : paletteGenerator?.vibrantColor == null
-            ? defaultColor
-            : paletteGenerator?.vibrantColor?.color ?? defaultColor;
+        : paletteGenerator?.lightVibrantColor?.color ?? defaultColor;
 
     return Scaffold(
       appBar: PreferredSize(
@@ -64,7 +62,7 @@ class _SelectedPageState extends State<SelectedPage> {
         child: MyAppBar(
           hype: true,
           hypeColor:
-              itemColor != primaryBackgroundColor ? itemColor : primaryPurple,
+              itemColor != primaryBackgroundColor ? iconColor : primaryPurple,
           gobackbutton: true,
         ),
       ),

@@ -4,7 +4,7 @@
 import 'package:flutter/material.dart';
 
 // colors
-import 'package:dik/Theme/colors.dart';
+import 'package:dik/Theme/MaterialsUI/colors.dart';
 
 //----------------------------------------------------------------------------//
 

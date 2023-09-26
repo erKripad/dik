@@ -4,17 +4,17 @@
 import 'package:flutter/material.dart';
 
 // widgets
-import 'package:dik/Theme/App/Widgets/list_item.dart';
-import 'package:dik/Theme/App/Widgets/category_list_item.dart';
+import 'package:dik/Theme/Widgets/list_item.dart';
+import 'package:dik/Theme/Widgets/category_list_item.dart';
 
 // colors
-import 'package:dik/Theme/colors.dart';
+import 'package:dik/Theme/MaterialsUI/colors.dart';
 
 // icons
-import 'package:dik/Theme/icons.dart';
+import 'package:dik/Theme/MaterialsUI/icons.dart';
 
 // simil-database
-import 'package:dik/Theme/events_examples.dart';
+import 'package:dik/Theme/DatabaseSamples/events_examples.dart';
 
 // unused extentions
 

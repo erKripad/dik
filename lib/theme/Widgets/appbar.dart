@@ -2,20 +2,20 @@
 
 // framework
 import 'package:dik/Theme/App/Profile/profile_page.dart';
-import 'package:dik/Theme/App/notifications_page.dart';
+import 'package:dik/Theme/App/Notifications/notifications_page.dart';
 import 'package:flutter/material.dart';
 
 // colors
-import 'package:dik/Theme/colors.dart';
+import 'package:dik/Theme/MaterialsUI/colors.dart';
 
 // external extentions
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 // simil-database
-import 'package:dik/Theme/events_examples.dart';
+import 'package:dik/Theme/DatabaseSamples/events_examples.dart';
 
 // widgets
-import 'package:dik/Theme/App/Widgets/buttons.dart';
+import 'package:dik/Theme/Widgets/buttons.dart';
 
 //----------------------------------------------------------------------------//
 

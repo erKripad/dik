@@ -4,14 +4,14 @@
 import 'package:flutter/material.dart';
 
 // widgets
-import 'package:dik/Theme/App/Widgets/buttons.dart';
-import 'package:dik/Theme/App/selected_page.dart';
+import 'package:dik/Theme/Widgets/buttons.dart';
+import 'package:dik/Theme/App/Screens/HomeScreen/selected_page.dart';
 
 // colors
-import 'package:dik/Theme/colors.dart';
+import 'package:dik/Theme/MaterialsUI/colors.dart';
 
 // simil-database
-import 'package:dik/Theme/events_examples.dart';
+import 'package:dik/Theme/DatabaseSamples/events_examples.dart';
 
 // external extentions
 import 'package:flutter_svg/flutter_svg.dart';
@@ -51,7 +51,6 @@ class _ListItemState extends State<ListItem> {
     double screenheight = MediaQuery.of(context).size.height;
     double screenwidth = MediaQuery.of(context).size.width;
 
-    int price = widget.price;
     return Column(children: [
       Padding(
         padding: const EdgeInsets.all(5.0),
@@ -212,13 +211,13 @@ class EventButtons extends StatelessWidget {
 
   @override
   Widget build(context) {
-    double screenheight = MediaQuery.of(context).size.height;
+    //double screenheight = MediaQuery.of(context).size.height;
     double screenwidth = MediaQuery.of(context).size.width;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        Spacer(
+        const Spacer(
           flex: 2,
         ),
         Container(
@@ -239,7 +238,7 @@ class EventButtons extends StatelessWidget {
             ),
           ),
         ),
-        Spacer(),
+        const Spacer(),
         Container(
           height: screenwidth * 10 / 100,
           width: screenwidth * 14 / 100,

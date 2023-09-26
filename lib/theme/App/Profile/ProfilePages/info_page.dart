@@ -3,26 +3,25 @@
 // framework
 import 'package:flutter/material.dart';
 
+// widgets
+import 'package:dik/theme/Widgets/appbar.dart';
+
 // colors
-import 'package:dik/Theme/colors.dart';
+import 'package:dik/Theme/MaterialsUI/colors.dart';
 
 //----------------------------------------------------------------------------//
 
-class SavedScreen extends StatelessWidget {
-  const SavedScreen({super.key});
+class InfoPage extends StatelessWidget {
+  const InfoPage({super.key});
   @override
   Widget build(BuildContext context) {
+    double screenheight = MediaQuery.of(context).size.height;
+    //double screenwidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        title: const Text(
-          "3",
-          style: TextStyle(
-            fontFamily: "Gelion Bold",
-            fontSize: 25,
-            color: textColor,
-          ),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(screenheight / 16),
+        child: const MyAppBar(
+          gobackbutton: true,
         ),
       ),
       extendBodyBehindAppBar: true,
