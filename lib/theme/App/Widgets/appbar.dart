@@ -1,6 +1,8 @@
 //----------------------------------------------------------------------------//
 
 // framework
+import 'package:dik/Theme/App/Profile/profile_page.dart';
+import 'package:dik/Theme/App/notifications_page.dart';
 import 'package:flutter/material.dart';
 
 // colors
@@ -129,12 +131,12 @@ class ProfileButton extends StatelessWidget {
       children: [
         //SizedBox(width: screenwidth * 3 / 100),
         GestureDetector(
-          onTap: () {
-            Navigator.pushNamed(context, '/profile');
-          },
-          onLongPress: () {
-            Navigator.pushNamed(context, '/profile');
-          },
+          onTap: () => Navigator.of(context).push(
+            MaterialPageRoute(builder: (_) => const ProfilePage()),
+          ),
+          onLongPress: () => Navigator.of(context).push(
+            MaterialPageRoute(builder: (_) => const ProfilePage()),
+          ),
           child: SizedBox(
             width: iconSize ?? screenheight * 4 / 100,
             height: iconSize ?? screenheight * 4 / 100,
@@ -173,9 +175,9 @@ class NotificationsButton extends StatelessWidget {
       children: [
         //SizedBox(width: screenwidth * 3 / 100),
         GestureDetector(
-          onTap: () {
-            Navigator.pushNamed(context, '/notifications');
-          },
+          onTap: () => Navigator.of(context).push(
+            MaterialPageRoute(builder: (_) => const NotificationScreen()),
+          ),
           onLongPress: () {
             //color = iconColor.withOpacity(0.5);
           },

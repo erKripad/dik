@@ -46,10 +46,6 @@ class ListItem extends StatefulWidget {
 }
 
 class _ListItemState extends State<ListItem> {
-  _getRequests() async {
-    setState(() {});
-  }
-
   @override
   Widget build(BuildContext context) {
     double screenheight = MediaQuery.of(context).size.height;
@@ -66,7 +62,7 @@ class _ListItemState extends State<ListItem> {
                   .push(
                     MaterialPageRoute(builder: (_) => const SelectedPage()),
                   )
-                  .then((val) => {_getRequests()}),
+                  .then((val) => {setState(() {})}),
               onDoubleTap: () {
                 hyped == true
                     ? setState(() {
@@ -82,7 +78,7 @@ class _ListItemState extends State<ListItem> {
                   color: primaryObjColor,
                   borderRadius: const BorderRadius.all(Radius.circular(20)),
                 ),
-                padding: EdgeInsets.all(screenwidth * 3 / 100),
+                padding: EdgeInsets.all(screenwidth * 5 / 100),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -96,7 +92,62 @@ class _ListItemState extends State<ListItem> {
                             image: AssetImage(widget.image), fit: BoxFit.fill),
                       ),
                     ),
-                    Row(
+                    Expanded(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Spacer(
+                                flex: 2,
+                              ),
+                              Text(
+                                widget.title,
+                                textAlign: TextAlign.start,
+                                style: TextStyle(
+                                  fontFamily: "Gelion Bold",
+                                  fontSize: screenheight * 3 / 100,
+                                  color: primaryPurple,
+                                ),
+                              ),
+                              const Spacer(),
+                              EventInfo(
+                                  category: widget.category,
+                                  date: widget.date,
+                                  time: widget.time),
+                              const Spacer(),
+                              Text(
+                                widget.place,
+                                textAlign: TextAlign.start,
+                                style: const TextStyle(
+                                  fontFamily: "Gelion Medium",
+                                  fontSize: 18,
+                                  color: textColor,
+                                ),
+                              ),
+                            ],
+                          ),
+                          const EventButtons(),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+      SizedBox(
+        height: screenheight * 2 / 100,
+      )
+    ]);
+  }
+}
+
+/*Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
@@ -150,22 +201,61 @@ class _ListItemState extends State<ListItem> {
                           ),
                         ),
                       ],
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-      SizedBox(
-        height: screenheight * 2 / 100,
-      )
-    ]);
-  }
-}
+                    ), */
 
 //----------------------------------------------------------------------------//
+
+class EventButtons extends StatelessWidget {
+  const EventButtons({
+    super.key,
+  });
+
+  @override
+  Widget build(context) {
+    double screenheight = MediaQuery.of(context).size.height;
+    double screenwidth = MediaQuery.of(context).size.width;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        Spacer(
+          flex: 2,
+        ),
+        Container(
+          height: screenwidth * 10 / 100,
+          width: screenwidth * 14 / 100,
+          decoration: const BoxDecoration(
+            color: primaryBackgroundColor,
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+          ),
+          child: Center(
+            child: Text(
+              "$price\$",
+              style: const TextStyle(
+                fontFamily: "Gelion Medium",
+                fontSize: 18,
+                color: primaryPurple,
+              ),
+            ),
+          ),
+        ),
+        Spacer(),
+        Container(
+          height: screenwidth * 10 / 100,
+          width: screenwidth * 14 / 100,
+          decoration: const BoxDecoration(
+            color: primaryBackgroundColor,
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+          ),
+          child: ButtonHype(
+            hyped: hyped,
+            selectedColor: primaryPurple,
+          ),
+        ),
+      ],
+    );
+  }
+}
 
 class EventInfo extends StatelessWidget {
   const EventInfo({
