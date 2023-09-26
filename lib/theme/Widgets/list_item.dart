@@ -46,6 +46,10 @@ class ListItem extends StatefulWidget {
 }
 
 class _ListItemState extends State<ListItem> {
+  _getRequests() async {
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     double screenheight = MediaQuery.of(context).size.height;
@@ -57,11 +61,9 @@ class _ListItemState extends State<ListItem> {
         child: Column(
           children: [
             GestureDetector(
-              onTap: () => Navigator.of(context)
-                  .push(
-                    MaterialPageRoute(builder: (_) => const SelectedPage()),
-                  )
-                  .then((val) => {setState(() {})}),
+              onTap: () => Future.microtask(() => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => SelectedPage())))
+                  .then((val) => {_getRequests()}),
               onDoubleTap: () {
                 hyped == true
                     ? setState(() {
