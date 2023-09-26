@@ -1,6 +1,7 @@
 //----------------------------------------------------------------------------//
 
 // ignore_for_file: prefer_const_constructors, must_be_immutable
+import 'dart:io';
 import 'package:dik/theme/Main%20Interface/appbar.dart';
 import 'package:dik/theme/user_info.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,7 @@ import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:dik/Theme/colors.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:typed_data';
+import 'package:image_cropper/image_cropper.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -234,17 +236,28 @@ class _ProfilePage extends State<ProfilePage> {
     );
   }  
 
+  Future<XFile?> _cropImage({required XFile? imageFile}) async {
+    CroppedFile? croppedImage =
+      await ImageCropper().cropImage(sourcePath: imageFile!.path);
+    if(croppedImage == null) return null;
+    return XFile(croppedImage.path);
+  }
+
+
   void takePhoto(ImageSource source) async {
 
     final ImagePicker _imagePicker = ImagePicker();
     XFile? _file  = await _imagePicker.pickImage(source: source);
-    Uint8List img = await _file!.readAsBytes();
 
+    if(source == ImageSource.gallery) {
+      _file = await _cropImage(imageFile: _file);
+    }    
+
+    Uint8List img = await _file!.readAsBytes();
     setState(() {
       _imageFile = img;
     }); 
   }
-  
 }
 
 
