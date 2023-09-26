@@ -54,9 +54,9 @@ class _SelectedPageState extends State<SelectedPage> {
 
     Color itemColor = paletteGenerator == null
         ? defaultColor
-        : paletteGenerator?.vibrantColor == null
+        : paletteGenerator?.lightVibrantColor == null
             ? defaultColor
-            : paletteGenerator?.vibrantColor?.color ?? defaultColor;
+            : paletteGenerator?.lightVibrantColor?.color ?? defaultColor;
 
     return Scaffold(
       appBar: PreferredSize(

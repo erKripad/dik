@@ -1,6 +1,9 @@
 //----------------------------------------------------------------------------//
 
 // framework
+import 'dart:async';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 // widgets
@@ -62,9 +65,15 @@ class _ListItemState extends State<ListItem> {
         child: Column(
           children: [
             GestureDetector(
-              onTap: () => Future.microtask(() => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => SelectedPage())))
-                  .then((val) => {_getRequests()}),
+              onTap: () => Future.microtask(
+                () => Timer(Duration(milliseconds: 400), () {
+                  Navigator.push(
+                      context,
+                      CupertinoPageRoute(
+                          fullscreenDialog: false,
+                          builder: (context) => SelectedPage()));
+                }),
+              ).then((val) => {_getRequests()}),
               onDoubleTap: () {
                 hyped == true
                     ? setState(() {
