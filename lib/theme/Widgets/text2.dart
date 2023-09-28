@@ -11,11 +11,13 @@ class Text2 extends StatelessWidget {
     required this.title,
     this.color,
     this.size,
+    this.bold = false,
   });
 
   final String title;
   final Color? color;
   final double? size;
+  final bool? bold;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,7 @@ class Text2 extends StatelessWidget {
       title,
       textAlign: TextAlign.left,
       style: TextStyle(
-        fontFamily: "Gelion Medium",
+        fontFamily: bold == true ? "Gelion Bold" : "Gelion Medium",
         fontSize: size ?? screenheight * 2.2 / 100,
         color: color ?? Colors.white,
       ),

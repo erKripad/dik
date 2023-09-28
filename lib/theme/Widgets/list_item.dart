@@ -148,62 +148,6 @@ class _ListItemState extends State<ListItem> {
   }
 }
 
-/*Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          widget.title,
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                            fontFamily: "Gelion Bold",
-                            fontSize: screenheight * 3 / 100,
-                            color: primaryPurple,
-                          ),
-                        ),
-                        SizedBox(
-                          height: screenwidth * 10 / 100,
-                          width: screenwidth * 14 / 100,
-                          child: ClipRRect(
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(20)),
-                            child: ColoredBox(
-                                color: primaryBackgroundColor,
-                                child: Center(
-                                  child: Text(
-                                    "$price\$",
-                                    style: const TextStyle(
-                                      fontFamily: "Gelion Medium",
-                                      fontSize: 18,
-                                      color: primaryPurple,
-                                    ),
-                                  ),
-                                )),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        EventInfo(
-                            category: widget.category,
-                            date: widget.date,
-                            time: widget.time),
-                        Container(
-                          height: screenwidth * 10 / 100,
-                          width: screenwidth * 14 / 100,
-                          decoration: const BoxDecoration(
-                            color: primaryBackgroundColor,
-                            borderRadius: BorderRadius.all(Radius.circular(20)),
-                          ),
-                          child: ButtonHype(
-                            hyped: hyped,
-                            selectedColor: primaryPurple,
-                          ),
-                        ),
-                      ],
-                    ), */
-
 //----------------------------------------------------------------------------//
 
 class EventButtons extends StatelessWidget {

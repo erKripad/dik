@@ -132,10 +132,10 @@ class ProfileButton extends StatelessWidget {
         //SizedBox(width: screenwidth * 3 / 100),
         GestureDetector(
           onTap: () => Navigator.of(context).push(
-            MaterialPageRoute(builder: (_) => const ProfilePage()),
+            MaterialPageRoute(builder: (_) => ProfilePage()),
           ),
           onLongPress: () => Navigator.of(context).push(
-            MaterialPageRoute(builder: (_) => const ProfilePage()),
+            MaterialPageRoute(builder: (_) => ProfilePage()),
           ),
           child: SizedBox(
             width: iconSize ?? screenheight * 4 / 100,
