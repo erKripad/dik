@@ -8,6 +8,9 @@ import 'package:flutter/material.dart';
 // colors
 import 'package:dik/Theme/MaterialsUI/colors.dart';
 
+// icons
+import 'package:dik/theme/MaterialsUI/icons.dart';
+
 // widgets
 import 'package:dik/Theme/Widgets/appbar.dart';
 
@@ -15,6 +18,7 @@ import 'package:dik/Theme/Widgets/appbar.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:typed_data';
 import 'package:image_cropper/image_cropper.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -119,7 +123,16 @@ class _ProfilePictureEditingPageState extends State<ProfilePictureEditingPage>
                 },
                 child: Row(
                   children: [
-                    const Icon(Icons.camera),
+                    SizedBox(
+                      height: screenheight * 4.5 / 100,
+                      width: screenheight * 4.5 / 100,
+                      child: SvgPicture.asset(
+                        CustomIcons.camera,
+
+                        // ignore: deprecated_member_use
+                        color: iconColor,
+                      ),
+                    ),
                     SizedBox(width: screenwidth * 2 / 100),
                     const Text2(title: "camera"),
                   ],

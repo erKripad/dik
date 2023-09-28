@@ -4,7 +4,7 @@
 import 'package:flutter/material.dart';
 
 // widgets
-import 'package:dik/Theme/Widgets/list_item.dart';
+import 'package:dik/Theme/Widgets/event_frame.dart';
 import 'package:dik/Theme/Widgets/category_list_item.dart';
 
 // colors

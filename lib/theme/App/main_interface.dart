@@ -94,7 +94,7 @@ class _MainInterfaceState extends State<MainInterface> {
           ),
           BottomBarItem(
             importedIconAVG: true,
-            customIcon: CustomIcons.maps,
+            customIcon: CustomIcons.map_pin_2,
           ),
           BottomBarItem(
             importedIconAVG: true,

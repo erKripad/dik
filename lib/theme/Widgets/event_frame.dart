@@ -130,7 +130,7 @@ class _ListItemState extends State<ListItem> {
                               ),
                             ],
                           ),
-                          const EventButtons(),
+                          eventButtons(context),
                         ],
                       ),
                     ),
@@ -146,17 +146,8 @@ class _ListItemState extends State<ListItem> {
       )
     ]);
   }
-}
 
-//----------------------------------------------------------------------------//
-
-class EventButtons extends StatelessWidget {
-  const EventButtons({
-    super.key,
-  });
-
-  @override
-  Widget build(context) {
+  Widget eventButtons(BuildContext context) {
     //double screenheight = MediaQuery.of(context).size.height;
     double screenwidth = MediaQuery.of(context).size.width;
 
@@ -201,6 +192,8 @@ class EventButtons extends StatelessWidget {
     );
   }
 }
+
+//----------------------------------------------------------------------------//
 
 class EventInfo extends StatelessWidget {
   const EventInfo({

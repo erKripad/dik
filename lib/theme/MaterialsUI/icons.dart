@@ -3,6 +3,7 @@ class CustomIcons {
   static const String calendar = "assets/icons/calendar_2.svg";
   // ignore: constant_identifier_names
   static const String empty_calendar = "assets/icons/calendar.svg";
+  static const String calendar_2 = "assets/icons/calendar_3.svg";
   static const String ticket = "assets/icons/ticket.svg";
   static const String appendiabiti = "assets/icons/appendiabiti.svg";
   static const String appendiabiti1 = "assets/icons/appendiabiti1.svg";
@@ -22,4 +23,5 @@ class CustomIcons {
   // ignore: constant_identifier_names
   static const String big_wheel = "assets/icons/giostre-2.svg";
   static const String beer = "assets/icons/birra.svg";
+  static const String camera = "assets/icons/macchina_fotografica.svg";
 }
