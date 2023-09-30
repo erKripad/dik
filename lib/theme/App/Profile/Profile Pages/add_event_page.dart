@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 // widgets
 import 'package:dik/theme/App/Widgets/appbar.dart';
 import 'package:dik/Theme/App/Widgets/title2.dart';
+import 'package:interval_time_picker/interval_time_picker.dart' as interval;
 
 // colors
 import 'package:dik/theme/colors.dart';
@@ -36,8 +37,7 @@ class AddEventPage extends StatelessWidget {
       body: SingleChildScrollView(
         padding: EdgeInsets.all(screenwidth * 4 / 100),
         scrollDirection: Axis.vertical,
-        physics: const BouncingScrollPhysics(
-            decelerationRate: ScrollDecelerationRate.fast),
+        physics: const BouncingScrollPhysics(decelerationRate: ScrollDecelerationRate.fast),
         child: Column(
           children: [
             const Title2(
@@ -69,6 +69,8 @@ class AddContainer extends StatefulWidget {
 }
 
 class AddContainerState extends State<AddContainer> {
+  DateTime selectedDate = DateTime.now();
+  TimeOfDay selectedTime = TimeOfDay.now();
   final titleController = TextEditingController();
   final dateController = TextEditingController();
   final timeController = TextEditingController();
@@ -118,7 +120,12 @@ class AddContainerState extends State<AddContainer> {
         SizedBox(height: screenheight * 4 / 100),
         Expanded(
           child: TextFormField(
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: screenheight * 2 / 100,
+            ),
             showCursor: false,
+            readOnly: true,
             cursorColor: Colors.white,
             decoration: InputDecoration(
               labelText: "Date",
@@ -138,36 +145,83 @@ class AddContainerState extends State<AddContainer> {
               ),
             ),
             controller: dateController,
+            onTap: () async {
+              final DateTime? dateTime = await showDatePicker(
+                context: context,
+                initialDate: selectedDate,
+                firstDate: DateTime.now(),
+                lastDate: DateTime(
+                  DateTime.now().year + 10,
+                  DateTime.now().month,
+                  DateTime.now().day,
+                ),
+              );
+              if (dateTime != null) {
+                setState(() {
+                  selectedDate = dateTime;
+                  dateController.text = "${selectedDate.day} - ${selectedDate.month} - ${selectedDate.year}";
+                });
+              }
+            },
           ),
         ),
         SizedBox(height: screenheight * 4 / 100),
         Expanded(
           child: TextFormField(
-            showCursor: false,
-            cursorColor: Colors.white,
-            decoration: InputDecoration(
-              labelText: "Time",
-              enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: screenheight * 2 / 100,
+              ),
+              readOnly: true,
+              showCursor: false,
+              cursorColor: Colors.white,
+              decoration: InputDecoration(
+                labelText: "Time",
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: primaryPurple.withOpacity(0.8),
+                  ),
+                ),
+                labelStyle: TextStyle(
+                  fontFamily: "Gelion Medium",
                   color: primaryPurple.withOpacity(0.8),
                 ),
-              ),
-              labelStyle: TextStyle(
-                fontFamily: "Gelion Medium",
-                color: primaryPurple.withOpacity(0.8),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: primaryPurple.withOpacity(0.8),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: primaryPurple.withOpacity(0.8),
+                  ),
                 ),
               ),
+              controller: timeController,
+              onTap: () async {
+                final TimeOfDay? timeOfDay = await interval.showIntervalTimePicker(
+                  context: context,
+                  initialTime: TimeOfDay(hour: TimeOfDay.now().hour, minute: TimeOfDay.now().minute - TimeOfDay.now().minute % 15),
+                  interval: 15,
+                  visibleStep: interval.VisibleStep.fifteenths,
+                  initialEntryMode: interval.TimePickerEntryMode.inputOnly,
+                  builder: (BuildContext context, Widget? child) {
+                    return MediaQuery(
+                      data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: true),
+                      child: child!,
+                    );
+                  },
+                );
+                if (timeOfDay != null) {
+                  setState(() {
+                    selectedTime = timeOfDay;
+                    timeController.text = "${selectedTime.hour}:${selectedTime.minute}";
+                  });
+                }
+              }),
+        ),
+        SizedBox(height: screenheight * 4 / 100),
+        Expanded(
+          child: TextFormField(
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: screenheight * 2 / 100,
             ),
-            controller: timeController,
-          ),
-        ),
-        SizedBox(height: screenheight * 4 / 100),
-        Expanded(
-          child: TextFormField(
             showCursor: false,
             cursorColor: Colors.white,
             decoration: InputDecoration(
