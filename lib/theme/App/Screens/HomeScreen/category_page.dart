@@ -50,7 +50,7 @@ class CategoryPage extends StatelessWidget {
               children: [
                 SizedBox(height: screenheight * 3 / 100),
                 SvgPicture.asset(
-                  CustomIcons.disco,
+                  categoryIcon,
                   height: screenwidth * 50 / 100,
                   width: screenwidth * 50 / 100,
                   // ignore: deprecated_member_use
@@ -58,7 +58,7 @@ class CategoryPage extends StatelessWidget {
                 ),
                 SizedBox(height: screenheight * 0.5 / 100),
                 Text(
-                  "Disco",
+                  category,
                   textAlign: TextAlign.right,
                   style: TextStyle(
                     fontFamily: "Gelion Bold",

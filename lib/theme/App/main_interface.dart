@@ -98,7 +98,7 @@ class _MainInterfaceState extends State<MainInterface> {
           ),
           BottomBarItem(
             importedIconAVG: true,
-            customIcon: CustomIcons.calendar,
+            customIcon: CustomIcons.calendar_2,
           ),
         ],
         onTabSelected: (int index) {

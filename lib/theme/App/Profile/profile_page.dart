@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 
 // widgets
 import 'package:dik/theme/Widgets/appbar.dart';
-import 'package:dik/Theme/Widgets/profile_menu_label_element.dart';
+import 'package:dik/Theme/Widgets/profile_menu_item.dart';
 
 // simulating-database
 import 'package:dik/theme/DatabaseSamples/user_info.dart';

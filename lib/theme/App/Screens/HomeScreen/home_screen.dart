@@ -1,11 +1,12 @@
 //----------------------------------------------------------------------------//
 
 // framework
+import 'package:dik/Theme/App/Screens/HomeScreen/category_page.dart';
 import 'package:flutter/material.dart';
 
 // widgets
 import 'package:dik/Theme/Widgets/event_frame.dart';
-import 'package:dik/Theme/Widgets/category_list_item.dart';
+import 'package:dik/Theme/Widgets/category_frame_item.dart';
 
 // colors
 import 'package:dik/Theme/MaterialsUI/colors.dart';
@@ -88,52 +89,38 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(
                   height: 10,
                 ),
-                const SingleChildScrollView(
+                SingleChildScrollView(
                   physics: BouncingScrollPhysics(
                       decelerationRate: ScrollDecelerationRate.fast),
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
                       CategoryListItem(
-                          text: "Disco",
-                          icon: CustomIcons.disco,
-                          onTapDestination: "/new_category_page"),
+                        text: "Disco",
+                        icon: CustomIcons.disco,
+                        onPress: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const CategoryPage(
+                              category: "Disco",
+                              categoryIcon: CustomIcons.disco,
+                            ),
+                          ),
+                        ),
+                      ),
                       CategoryListItem(
-                          text: "Karaoke",
-                          icon: CustomIcons.mic,
-                          onTapDestination: "/new_category_page"),
-                      CategoryListItem(
-                          text: "Pet Friendly",
-                          icon: CustomIcons.pet,
-                          onTapDestination: "/new_category_page"),
-                      CategoryListItem(
-                          text: "Concert",
-                          icon: CustomIcons.mic_2,
-                          onTapDestination: "/new_category_page"),
-                      CategoryListItem(
-                          text: "Agriculture Festival",
-                          icon: CustomIcons.trattore,
-                          onTapDestination: "/new_category_page"),
-                      CategoryListItem(
-                          text: "Pub",
-                          icon: CustomIcons.beer,
-                          onTapDestination: "/new_category_page"),
-                      CategoryListItem(
-                          text: "Rides",
-                          icon: CustomIcons.chairoplane,
-                          onTapDestination: "/new_category_page"),
-                      CategoryListItem(
-                          text: "Rides",
-                          icon: CustomIcons.big_wheel,
-                          onTapDestination: "/new_category_page"),
-                      CategoryListItem(
-                          text: "Cat Friendly",
-                          icon: CustomIcons.cat,
-                          onTapDestination: "/new_category_page"),
-                      CategoryListItem(
-                          text: "Dog Friendly",
-                          icon: CustomIcons.dog,
-                          onTapDestination: "/new_category_page"),
+                        text: "Karaoke",
+                        icon: CustomIcons.mic,
+                        onPress: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const CategoryPage(
+                              category: "Karaoke",
+                              categoryIcon: CustomIcons.mic,
+                            ),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
