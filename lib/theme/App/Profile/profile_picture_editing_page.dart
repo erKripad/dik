@@ -104,10 +104,7 @@ class _ProfilePictureEditingPageState extends State<ProfilePictureEditingPage>
     double screenwidth = MediaQuery.of(context).size.width;
     return Container(
       height: screenheight * 20 / 100,
-      decoration: BoxDecoration(
-        color: primaryObjColor,
-        borderRadius: const BorderRadius.all(Radius.circular(50)),
-      ),
+      color: primaryObjColor,
       child: Column(
         children: [
           const Spacer(),

@@ -12,6 +12,8 @@ import 'package:dik/Theme/my_app.dart';
 main() {
   // configuration of firestore // if the app is stucked and didn't run or crash make sure if firestore is working correctly
 
+  Paint.enableDithering = true;
+
   // initialize tonight
   runApp(const MyApp());
 }

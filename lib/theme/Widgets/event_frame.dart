@@ -88,7 +88,7 @@ class _ListItemState extends State<ListItem> {
                       width: screenwidth * 88 / 100,
                       child: ClipRRect(
                         borderRadius:
-                            const BorderRadius.all(Radius.circular(20)),
+                            const BorderRadius.all(Radius.circular(15)),
                         child: Image(
                             image: AssetImage(widget.image), fit: BoxFit.fill),
                       ),

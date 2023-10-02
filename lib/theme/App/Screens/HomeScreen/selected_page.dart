@@ -52,9 +52,9 @@ class _SelectedPageState extends State<SelectedPage> {
     double screenheight = MediaQuery.of(context).size.height;
     double screenwidth = MediaQuery.of(context).size.width;
 
-    Color itemColor = paletteGenerator?.lightVibrantColor == null
+    Color itemColor = paletteGenerator?.dominantColor == null
         ? defaultColor
-        : paletteGenerator?.lightVibrantColor?.color ?? defaultColor;
+        : paletteGenerator?.dominantColor?.color ?? defaultColor;
 
     return Scaffold(
       appBar: PreferredSize(
@@ -78,13 +78,11 @@ class _SelectedPageState extends State<SelectedPage> {
             Container(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomLeft,
-                    colors: [
-                      itemColor,
-                      primaryBackgroundColor,
-                    ],
-                  ),
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [itemColor, primaryBackgroundColor],
+                      stops: [0.4, 1],
+                      tileMode: TileMode.clamp),
                 ),
                 child: Padding(
                   padding: EdgeInsets.all(screenheight * 2.5 / 100),
@@ -370,7 +368,7 @@ class ServiceBox extends StatelessWidget {
         screenheight * 1 / 100,
       ),
       decoration: BoxDecoration(
-        color: primaryObjColor.withOpacity(0.5),
+        color: primaryObjColor,
         borderRadius: const BorderRadius.all(Radius.circular(20)),
       ),
       child: const Column(
@@ -404,7 +402,7 @@ class InfoBox extends StatelessWidget {
         screenheight * 1 / 100,
       ),
       decoration: BoxDecoration(
-        color: primaryObjColor.withOpacity(0.5),
+        color: primaryObjColor,
         borderRadius: const BorderRadius.all(Radius.circular(20)),
       ),
       child: const Column(
@@ -461,7 +459,7 @@ class HostInfoBox extends StatelessWidget {
             screenheight * 1 / 100,
           ),
           decoration: BoxDecoration(
-            color: primaryObjColor.withOpacity(0.5),
+            color: primaryObjColor,
             borderRadius: const BorderRadius.all(Radius.circular(15)),
           ),
           child:
@@ -535,7 +533,7 @@ class MapBox extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.all(15),
                 decoration: BoxDecoration(
-                  color: primaryObjColor.withOpacity(0.5),
+                  color: primaryObjColor,
                   borderRadius: const BorderRadius.all(Radius.circular(20)),
                 ),
               ),

@@ -63,7 +63,7 @@ class _CategoryListItemState extends State<CategoryListItem> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(width: screenwidth * 1 / 100),
+                SizedBox(width: screenwidth * 2 / 100),
                 SvgPicture.asset(
                   widget.icon,
                   height: screenheight * 4.5 / 100,
@@ -77,7 +77,7 @@ class _CategoryListItemState extends State<CategoryListItem> {
                   color: primaryPurple,
                   bold: true,
                 ),
-                SizedBox(width: screenwidth * 1 / 100),
+                SizedBox(width: screenwidth * 2 / 100),
               ],
             ),
           ),
