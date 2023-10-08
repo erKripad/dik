@@ -4,9 +4,8 @@
 import 'package:dik/Theme/Widgets/text2.dart';
 import 'package:dik/Theme/Widgets/title2.dart';
 import 'package:flutter/material.dart';
-import 'package:dik/theme/App/Profile/permission_handler.dart';
-import 'package:dik/theme/App/Profile/image_crop.dart';
-import 'package:dik/theme/App/Profile/image_picker.dart';
+import 'package:dik/theme/ModuleHandlers/image_picker.dart';
+import 'package:dik/theme/ModuleHandlers/permission_handler.dart';
 
 // colors
 import 'package:dik/Theme/MaterialsUI/colors.dart';
@@ -20,7 +19,6 @@ import 'package:dik/Theme/Widgets/appbar.dart';
 // external extentions
 import 'package:image_picker/image_picker.dart';
 import 'dart:typed_data';
-import 'package:image_cropper/image_cropper.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 //----------------------------------------------------------------------------//
@@ -34,7 +32,8 @@ class ProfilePictureEditingPage extends StatefulWidget {
 }
 
 class _ProfilePictureEditingPageState extends State<ProfilePictureEditingPage>
-    with TickerProviderStateMixin {
+  with TickerProviderStateMixin {
+  
   Uint8List? _imageFile;
 
   late AnimationController controller;
@@ -161,7 +160,6 @@ class _ProfilePictureEditingPageState extends State<ProfilePictureEditingPage>
     );
   }
 
-
   void takePhoto(ImageSource source) async {
 
     bool valid = await permissionHandler(source);
@@ -171,11 +169,12 @@ class _ProfilePictureEditingPageState extends State<ProfilePictureEditingPage>
       return;
     }
 
-    Uint8List img = imagePicker(source) as Uint8List;
+    Uint8List img = await imagePicker(source);
 
     setState(() {
       _imageFile = img;
     });
+  
   }
 
 }

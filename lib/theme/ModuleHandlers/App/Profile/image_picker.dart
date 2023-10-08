@@ -1,5 +1,6 @@
+
 // framework
-import 'package:dik/theme/App/Profile/image_crop.dart';
+import 'package:dik/theme/ModuleHandlers/image_crop.dart';
 
 // external extentions
 import 'package:image_picker/image_picker.dart';
