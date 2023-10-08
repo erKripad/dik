@@ -39,7 +39,7 @@ dependencies:
   flutter_swipe_detector: ^2.0.0
   cloud_firestore: ^4.9.1
   firebase_core: ^2.15.1
-  
+  permission_handler: ^11.0.1
 
 #---------------------------------------------------------#
 

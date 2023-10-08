@@ -4,6 +4,9 @@
 import 'package:dik/Theme/Widgets/text2.dart';
 import 'package:dik/Theme/Widgets/title2.dart';
 import 'package:flutter/material.dart';
+import 'package:dik/theme/App/Profile/permission_handler.dart';
+import 'package:dik/theme/App/Profile/image_crop.dart';
+import 'package:dik/theme/App/Profile/image_picker.dart';
 
 // colors
 import 'package:dik/Theme/MaterialsUI/colors.dart';
@@ -158,26 +161,23 @@ class _ProfilePictureEditingPageState extends State<ProfilePictureEditingPage>
     );
   }
 
-  Future<XFile?> _cropImage({required XFile? imageFile}) async {
-    CroppedFile? croppedImage =
-        await ImageCropper().cropImage(sourcePath: imageFile!.path);
-    if (croppedImage == null) return null;
-    return XFile(croppedImage.path);
-  }
 
   void takePhoto(ImageSource source) async {
-    final ImagePicker imagePicker = ImagePicker();
-    XFile? file = await imagePicker.pickImage(source: source);
 
-    if (source == ImageSource.gallery) {
-      file = await _cropImage(imageFile: file);
+    bool valid = await permissionHandler(source);
+
+    if(valid == false) {
+      // ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("This permission is recommended")));
+      return;
     }
 
-    Uint8List img = await file!.readAsBytes();
+    Uint8List img = imagePicker(source) as Uint8List;
+
     setState(() {
       _imageFile = img;
     });
   }
+
 }
 
 //----------------------------------------------------------------------------//
