@@ -3,21 +3,21 @@
 // in questa sezione vengono importati tutti i pacchetti di Dart cioè le estensioni per rendere magico Flutter
 
 import 'package:dik/Theme/App/Profile/profile_page.dart';
-import 'package:dik/Theme/App/Screens/HomePage/category_page.dart';
-import 'package:dik/theme/App/selected_page.dart';
+import 'package:dik/Theme/App/Screens/HomeScreen/category_page.dart';
+import 'package:dik/theme/App/Screens/HomeScreen/selected_page.dart';
 import 'package:dik/theme/App/main_interface.dart';
 import 'package:flutter/material.dart';
-import 'package:dik/Theme/App/Profile/Profile%20Pages/settings_page.dart';
+import 'package:dik/Theme/App/Profile/ProfilePages/settings_page.dart';
 import 'package:dik/Theme/App/Profile/profile_picture_editing_page.dart';
-import 'package:dik/Theme/App/notifications_page.dart';
-import 'package:dik/Theme/App/Profile/Profile%20Pages/cart_page.dart';
-import 'package:dik/Theme/App/Profile/Profile%20Pages/info_page.dart';
-import 'package:dik/Theme/App/Profile/Profile%20Pages/privacy_page.dart';
-import 'package:dik/Theme/App/Profile/Profile%20Pages/tickets_page.dart';
-import 'package:dik/Theme/icons.dart';
-import 'package:dik/Theme/App/Profile/Profile Pages/add_event_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
+import 'package:dik/Theme/App/Notifications/notifications_page.dart';
+import 'package:dik/Theme/App/Profile/ProfilePages/cart_page.dart';
+import 'package:dik/Theme/App/Profile/ProfilePages/info_page.dart';
+import 'package:dik/Theme/App/Profile/ProfilePages/privacy_page.dart';
+import 'package:dik/Theme/App/Profile/ProfilePages/tickets_page.dart';
+import 'package:dik/Theme/MaterialsUI/icons.dart';
+import 'package:dik/Theme/App/Profile/ProfilePages/add_event_page.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -44,17 +44,13 @@ class Tonight extends StatelessWidget {
         '/': (context) => const MainInterface(),
         '/settings': (context) => const SettingsPage(),
         '/notifications': (context) => const NotificationScreen(),
-        '/profile': (context) => const ProfilePage(),
+        '/profile': (context) => ProfilePage(),
         '/cart': (context) => const CartPage(),
         '/privacy': (context) => const PrivacyPage(),
         '/info': (context) => const InfoPage(),
         '/tickets': (context) => const TicketsPage(),
         '/new_page': (context) => const SelectedPage(),
         '/edit_profile_picture': (context) => const ProfilePictureEditingPage(),
-        '/new_category_page': (context) => const CategoryPage(
-              category: "disco",
-              categoryIcon: CustomIcons.disco,
-            ),
         '/add_event': (context) => const AddEventPage(),
       },
     );

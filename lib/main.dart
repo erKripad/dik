@@ -4,6 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:dik/Theme/my_app.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 //----------------------------------------------------------------------------//
@@ -14,9 +15,14 @@ Future main() async {
   // configurazione di firestore // if the app is stucked and didn't run or crash make sure if firestore is working correctly
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  main() {
+    // configuration of firestore // if the app is stucked and didn't run or crash make sure if firestore is working correctly
 
-  // inizializza tonight
-  runApp(const Tonight());
+    Paint.enableDithering = true;
+
+    // inizializza tonight
+    runApp(const Tonight());
+  }
 }
 
 //----------------------------------------------------------------------------//

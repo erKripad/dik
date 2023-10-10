@@ -1,33 +1,62 @@
 //----------------------------------------------------------------------------//
 
+// * qui viene creato il menu della pagina del profilo utente
+
+//----------------------------------------------------------------------------//
+
 //framework
+import 'package:dik/Theme/Widgets/text2.dart';
+import 'package:dik/Theme/Widgets/title2.dart';
 import 'package:flutter/material.dart';
 
 // widgets
-import 'package:dik/theme/App/Widgets/appbar.dart';
+import 'package:dik/theme/Widgets/appbar.dart';
+import 'package:dik/Theme/Widgets/profile_menu_item.dart';
 
 // simulating-database
-import 'package:dik/theme/user_info.dart';
+import 'package:dik/theme/DatabaseSamples/user_info.dart';
 
 // colors
-import 'package:dik/Theme/colors.dart';
+import 'package:dik/Theme/MaterialsUI/colors.dart';
+
+// other pages
+import 'package:dik/Theme/App/Profile/profile_picture_editing_page.dart';
 
 // external extentions
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
-// unused extentions
+//----------------------------------------------------------------------------//
 
-//import 'package:dik/theme/icons.dart';
-//import 'package:flutter_svg/flutter_svg.dart';
+class ProfilePage extends StatefulWidget {
+  const ProfilePage({
+    super.key,
+  });
+
+  @override
+  State<ProfilePage> createState() => ProfilePageState();
+}
 
 //----------------------------------------------------------------------------//
 
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+class ProfilePageState extends State<ProfilePage> {
+  Widget imageProfile() {
+    double screenheight = MediaQuery.of(context).size.height;
+    double screenwidth = MediaQuery.of(context).size.width;
+    return GestureDetector(
+      onTap: () => Navigator.of(context).push(
+        MaterialPageRoute(builder: (_) => const ProfilePictureEditingPage()),
+      ),
+      child: CircleAvatar(
+        radius: screenheight * 7 / 100,
+        backgroundImage: const AssetImage("assets/immagine di profilo.jpg"),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     double screenheight = MediaQuery.of(context).size.height;
+    double screenwidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
       backgroundColor: primaryBackgroundColor,
@@ -39,200 +68,93 @@ class ProfilePage extends StatelessWidget {
           notifications: false,
         ),
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(
-                width: 120,
-                height: 120,
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, '/edit_profile_picture');
-                  },
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(100),
-                    child: const Image(
-                        image: AssetImage("assets/immagine di profilo.jpg")),
-                  ),
-                ),
-              ),
-
-              const SizedBox(height: 10),
-              Text(
-                username,
-                style: const TextStyle(
-                  fontFamily: "Gelion Bold",
-                  fontSize: 25,
-                  color: textColor,
-                ),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                email,
-                style: const TextStyle(
-                  fontFamily: "Gelion Medium",
-                  fontSize: 16,
-                  color: textColor,
-                ),
-              ),
-              const SizedBox(height: 20),
-              /*SizedBox(
-                width: 200,
-                child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/edit_profile');
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: primaryPurple,
-                      side: BorderSide.none,
-                      shape: const StadiumBorder(),
-                    ),
-                    child: Text(
-                      "Modifica Profilo",
-                      style: TextStyle(color: primaryBackgroundColour),
-                    )),
-              ),*/
-              const SizedBox(height: 20),
-
-              //Menu
-              ProfileMenuWidget(
-                title: "Add Event",
-                icon: LineAwesomeIcons.plus,
-                onPress: () {
-                  Navigator.pushNamed(context, '/add_event');
-                },
-                textColor: textColor,
-              ),
-              const SizedBox(height: 8),
-              ProfileMenuWidget(
-                title: "Tickets",
-                icon: LineAwesomeIcons.alternate_ticket,
-                onPress: () {
-                  Navigator.pushNamed(context, '/tickets');
-                },
-                textColor: textColor,
-              ),
-              const SizedBox(height: 8),
-              ProfileMenuWidget(
-                title: "Carrello",
-                icon: Icons.shopping_cart_outlined,
-                onPress: () {
-                  Navigator.pushNamed(context, '/cart');
-                },
-                textColor: textColor,
-              ),
-              const SizedBox(height: 8),
-              ProfileMenuWidget(
-                title: "Impostazioni",
-                icon: LineAwesomeIcons.cog,
-                onPress: () {
-                  Navigator.pushNamed(context, '/settings');
-                },
-                textColor: textColor,
-              ),
-              const SizedBox(height: 8),
-              ProfileMenuWidget(
-                title: "Privacy",
-                icon: LineAwesomeIcons.lock,
-                onPress: () {
-                  Navigator.pushNamed(context, '/privacy');
-                },
-                textColor: textColor,
-              ),
-              const SizedBox(height: 8),
-              ProfileMenuWidget(
-                title: "Sicurezza",
-                icon: LineAwesomeIcons.check_circle,
-                onPress: () {},
-                textColor: textColor,
-              ),
-              const SizedBox(height: 8),
-              ProfileMenuWidget(
-                title: "Informazioni",
-                icon: LineAwesomeIcons.info,
-                onPress: () {
-                  Navigator.pushNamed(context, '/info');
-                },
-                textColor: textColor,
-              ),
-              const SizedBox(height: 8),
-              ProfileMenuWidget(
-                title: "Esci",
-                icon: LineAwesomeIcons.alternate_sign_out,
-                onPress: () {},
-                textColor: textColor,
-              ),
-            ],
-          ),
+      body: Container(
+        padding: EdgeInsets.all(screenwidth * 4 / 100),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            imageProfile(),
+            SizedBox(height: screenheight * 1 / 100),
+            Title2(title: username),
+            SizedBox(height: screenheight * 1 / 100),
+            Text2(title: email),
+            const Spacer(
+              flex: 4,
+            ),
+            //Menu
+            ProfileMenuWidget(
+              title: "Tickets",
+              icon: LineAwesomeIcons.alternate_ticket,
+              onPress: () {
+                Navigator.pushNamed(context, '/tickets');
+              },
+              textColor: textColor,
+            ),
+            const Spacer(),
+            ProfileMenuWidget(
+              title: "Carrello",
+              icon: Icons.shopping_cart_outlined,
+              onPress: () {
+                Navigator.pushNamed(context, '/cart');
+              },
+              textColor: textColor,
+            ),
+            const Spacer(),
+            ProfileMenuWidget(
+              title: "Impostazioni",
+              icon: LineAwesomeIcons.cog,
+              onPress: () {
+                Navigator.pushNamed(context, '/settings');
+              },
+              textColor: textColor,
+            ),
+            const Spacer(),
+            ProfileMenuWidget(
+              title: "Privacy",
+              icon: LineAwesomeIcons.lock,
+              onPress: () {
+                Navigator.pushNamed(context, '/privacy');
+              },
+              textColor: textColor,
+            ),
+            const Spacer(),
+            ProfileMenuWidget(
+              title: "Sicurezza",
+              icon: LineAwesomeIcons.check_circle,
+              onPress: () {},
+              textColor: textColor,
+            ),
+            const Spacer(),
+            ProfileMenuWidget(
+              title: "Informazioni",
+              icon: LineAwesomeIcons.info,
+              onPress: () {
+                Navigator.pushNamed(context, '/info');
+              },
+              textColor: textColor,
+            ),
+            const Spacer(),
+            ProfileMenuWidget(
+              title: "Crea Evento",
+              icon: LineAwesomeIcons.info,
+              onPress: () {
+                Navigator.pushNamed(context, '/new_event');
+              },
+              textColor: textColor,
+            ),
+            const Spacer(),
+            ProfileMenuWidget(
+              title: "Esci",
+              icon: LineAwesomeIcons.alternate_sign_out,
+              onPress: () {},
+              textColor: textColor,
+            ),
+            const Spacer(
+              flex: 3,
+            ),
+          ],
         ),
       ),
-    );
-  }
-}
-
-//----------------------------------------------------------------------------//
-
-class ProfileMenuWidget extends StatelessWidget {
-  const ProfileMenuWidget({
-    Key? key,
-    required this.title,
-    required this.icon,
-    required this.onPress,
-    this.endIcon = true,
-    this.textColor,
-  }) : super(key: key);
-
-  final String title;
-  final IconData icon;
-  final VoidCallback onPress;
-  final bool endIcon;
-  final Color? textColor;
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      onTap: onPress,
-      leading: Container(
-        width: 40,
-        height: 40,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(100),
-          color: const Color.fromARGB(255, 25, 24, 28),
-        ),
-        child: Container(
-          width: 30,
-          height: 30,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(100),
-            color: primaryObjColor,
-          ),
-          child: Icon(icon, color: textColor),
-        ),
-      ),
-      title: Text(title,
-          style: TextStyle(
-            fontFamily: "Gelion Medium",
-            fontSize: 18,
-            color: textColor,
-          )),
-      trailing: endIcon
-          ? Container(
-              width: 30,
-              height: 30,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(100),
-                color: primaryObjColor,
-              ),
-              child: const Icon(
-                LineAwesomeIcons.angle_right,
-                size: 18,
-                color: iconColor,
-              ),
-            )
-          : null,
     );
   }
 }

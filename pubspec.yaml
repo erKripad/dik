@@ -58,22 +58,11 @@ dev_dependencies:
 # Flutter packages
 
 flutter_launcher_icons:
-  android: "launcher_icon"
+  android: true
   ios: true
-  image_path: "assets/icona v2.png"
-  min_sdk_android: 21 # android min sdk min:16, default 21
-  web:
-    generate: true
-    image_path: "assets/icona v2.png"
-    background_color: "#hexcode"
-    theme_color: "#hexcode"
-  windows:
-    generate: true
-    image_path: "assets/icona v2.png"
-    icon_size: 48 # min:48, max:256, default: 48
-  macos:
-    generate: true
-    image_path: "assets/icona v2.png"
+  image_path: "assets/logo.png"
+  adaptive_icon_foreground: "assets/logo_forefround.png"
+  #adaptive_icon_background: "#090c15"
 
 #---------------------------------------------------------#
 
