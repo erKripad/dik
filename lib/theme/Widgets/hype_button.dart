@@ -9,15 +9,8 @@ import 'package:dik/Theme/DatabaseSamples/events_examples.dart';
 // external extentions
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
-// unused extentions
-
-//import 'package:flutter/scheduler.dart';
-//import 'package:animations/animations.dart';
-//import 'package:infinite_scroll/infinite_scroll.dart';
-
 //----------------------------------------------------------------------------//
 
-// ignore: must_be_immutable
 class ButtonHype extends StatefulWidget {
   ButtonHype({
     super.key,
@@ -39,6 +32,8 @@ class ButtonHype extends StatefulWidget {
 class ButtonHypeState extends State<ButtonHype> {
   @override
   Widget build(BuildContext context) {
+    double screenheight = MediaQuery.of(context).size.height;
+    double screenwidth = MediaQuery.of(context).size.width;
     return GestureDetector(
       onTap: () {
         widget.hyped == true
@@ -65,12 +60,12 @@ class ButtonHypeState extends State<ButtonHype> {
       child: widget.hyped == false
           ? Icon(
               LineAwesomeIcons.heart,
-              size: widget.size ?? 28,
+              size: widget.size ?? screenheight * 3.5 / 100,
               color: widget.unselectedColor ?? Colors.white,
             )
           : Icon(
               LineAwesomeIcons.heart_1,
-              size: widget.size ?? 28,
+              size: widget.size ?? screenheight * 3.5 / 100,
               color: widget.selectedColor ?? Colors.white,
             ),
     );

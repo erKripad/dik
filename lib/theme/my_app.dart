@@ -42,10 +42,6 @@ class MyApp extends StatelessWidget {
         '/tickets': (context) => const TicketsPage(),
         '/new_page': (context) => const SelectedPage(),
         '/edit_profile_picture': (context) => const ProfilePictureEditingPage(),
-        '/new_category_page': (context) => const CategoryPage(
-              category: "disco",
-              categoryIcon: CustomIcons.disco,
-            ),
       },
     );
   }

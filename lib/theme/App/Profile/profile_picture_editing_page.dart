@@ -75,9 +75,13 @@ class _ProfilePictureEditingPageState extends State<ProfilePictureEditingPage>
                   child: Image(
                       image: MemoryImage(_imageFile!), fit: BoxFit.fitWidth),
                 )
-              : const Image(
-                  image: AssetImage("assets/immagine di profilo.jpg"),
-                  fit: BoxFit.fill),
+              : SizedBox(
+                  height: MediaQuery.of(context).size.width,
+                  width: MediaQuery.of(context).size.width,
+                  child: const Image(
+                      image: AssetImage("assets/immagine di profilo.jpg"),
+                      fit: BoxFit.fill),
+                ),
           SizedBox(
             height: screenheight * 5 / 100,
           ),

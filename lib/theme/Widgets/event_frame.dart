@@ -4,7 +4,7 @@
 import 'package:flutter/material.dart';
 
 // widgets
-import 'package:dik/Theme/Widgets/buttons.dart';
+import 'package:dik/Theme/Widgets/hype_button.dart';
 import 'package:dik/Theme/App/Screens/HomeScreen/selected_page.dart';
 
 // colors

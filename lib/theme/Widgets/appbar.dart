@@ -15,7 +15,7 @@ import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:dik/Theme/DatabaseSamples/events_examples.dart';
 
 // widgets
-import 'package:dik/Theme/Widgets/buttons.dart';
+import 'package:dik/Theme/Widgets/hype_button.dart';
 
 //----------------------------------------------------------------------------//
 
