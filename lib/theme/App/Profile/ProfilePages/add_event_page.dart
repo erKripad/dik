@@ -11,7 +11,7 @@ import 'package:dik/Theme/Widgets/title2.dart';
 import 'package:interval_time_picker/interval_time_picker.dart' as interval;
 
 // colors
-import 'package:dik/theme/colors.dart';
+import 'package:dik/theme/MaterialsUI/colors.dart';
 
 // firebase
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -83,9 +83,9 @@ class AddContainerState extends State<AddContainer> {
     double screenheight = MediaQuery.of(context).size.height;
     double screenwidth = MediaQuery.of(context).size.width;
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.transparent,
-        borderRadius: const BorderRadius.all(Radius.circular(20)),
+        borderRadius: BorderRadius.all(Radius.circular(20)),
       ),
       padding: EdgeInsets.all(screenwidth * 1 / 100),
       height: screenheight * 50 / 100,
@@ -267,7 +267,7 @@ class AddContainerState extends State<AddContainer> {
               width: screenwidth * 35 / 100,
               decoration: BoxDecoration(
                 color: primaryPurple.withOpacity(0.8),
-                borderRadius: BorderRadius.all(Radius.circular(20)),
+                borderRadius: const BorderRadius.all(Radius.circular(20)),
               ),
               child: const Center(
                 child: Text2(title: "Add Event"),
