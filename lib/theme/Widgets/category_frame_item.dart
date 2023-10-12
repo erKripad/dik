@@ -11,13 +11,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 // widgets
 import 'package:dik/Theme/Widgets/text2.dart';
-import 'package:dik/Theme/Widgets/title2.dart';
-
-// unused extentions
-
-//import 'package:flutter/scheduler.dart';
-//import 'package:animations/animations.dart';
-//import 'package:infinite_scroll/infinite_scroll.dart';
 
 //----------------------------------------------------------------------------//
 

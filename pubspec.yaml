@@ -40,6 +40,7 @@ dependencies:
   cloud_firestore: ^4.9.1
   firebase_core: ^2.15.1
   interval_time_picker: ^2.0.0+5
+  flutter_spinkit: ^5.2.0
   
 
 #---------------------------------------------------------#

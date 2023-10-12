@@ -15,14 +15,11 @@ Future main() async {
   // configurazione di firestore // if the app is stucked and didn't run or crash make sure if firestore is working correctly
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  main() {
-    // configuration of firestore // if the app is stucked and didn't run or crash make sure if firestore is working correctly
 
-    Paint.enableDithering = true;
+  Paint.enableDithering = true;
 
-    // inizializza tonight
-    runApp(const Tonight());
-  }
+  // inizializza tonight
+  runApp(const Tonight());
 }
 
 //----------------------------------------------------------------------------//

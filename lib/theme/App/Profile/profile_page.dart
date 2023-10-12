@@ -136,9 +136,9 @@ class ProfilePageState extends State<ProfilePage> {
             const Spacer(),
             ProfileMenuWidget(
               title: "Crea Evento",
-              icon: LineAwesomeIcons.info,
+              icon: LineAwesomeIcons.plus_circle,
               onPress: () {
-                Navigator.pushNamed(context, '/new_event');
+                Navigator.pushNamed(context, '/add_event');
               },
               textColor: textColor,
             ),

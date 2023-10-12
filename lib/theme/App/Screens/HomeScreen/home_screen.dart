@@ -17,6 +17,12 @@ import 'package:dik/Theme/MaterialsUI/icons.dart';
 // simil-database
 import 'package:dik/Theme/DatabaseSamples/events_examples.dart';
 
+// firebase
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+// external extentions
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+
 // unused extentions
 
 //import 'package:flutter/scheduler.dart';
@@ -89,11 +95,53 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(
                   height: 10,
                 ),
-                SingleChildScrollView(
-                  physics: BouncingScrollPhysics(
-                      decelerationRate: ScrollDecelerationRate.fast),
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
+
+                // * creazione dei category-widgets tramite firestore
+
+                StreamBuilder(
+                  stream: FirebaseFirestore.instance
+                      .collection("categories")
+                      .snapshots(),
+                  builder: (context, snapshot) {
+                    return !snapshot.hasData
+                        // TODO: creare widget che aspetta 500 ms poi fa coomparire il caricamento
+                        ? Center(
+                            child: SpinKitWave(
+                              color: primaryPurple,
+                              size: screenheight * 2.5 / 100,
+                            ),
+                          )
+                        : SizedBox(
+                            height: screenheight * 8 / 100,
+                            child: ListView.builder(
+                              physics: const BouncingScrollPhysics(
+                                  decelerationRate:
+                                      ScrollDecelerationRate.fast),
+                              scrollDirection: Axis.horizontal,
+                              itemCount: snapshot.data!.docs.length,
+                              itemBuilder: (context, index) {
+                                DocumentSnapshot category =
+                                    snapshot.data!.docs[index];
+                                return CategoryListItem(
+                                  text: category['category'],
+                                  icon: category['categoryIcon'],
+                                  onPress: () => Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => CategoryPage(
+                                        category: category['category'],
+                                        categoryIcon: category['categoryIcon'],
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
+                          );
+                  },
+                ),
+
+                /*Row(
                     children: [
                       CategoryListItem(
                         text: "Disco",
@@ -122,8 +170,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ],
-                  ),
-                ),
+                  ), */
+
                 const SizedBox(
                   height: 45,
                 ),
