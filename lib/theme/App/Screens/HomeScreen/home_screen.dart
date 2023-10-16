@@ -1,12 +1,12 @@
 //----------------------------------------------------------------------------//
 
 // framework
-import 'package:dik/Theme/App/Screens/HomeScreen/category_page.dart';
 import 'package:flutter/material.dart';
 
 // widgets
 import 'package:dik/Theme/Widgets/event_frame.dart';
 import 'package:dik/Theme/Widgets/category_frame_item.dart';
+import 'package:dik/Theme/App/Screens/HomeScreen/category_page.dart';
 
 // colors
 import 'package:dik/Theme/MaterialsUI/colors.dart';
@@ -22,12 +22,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 // external extentions
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-
-// unused extentions
-
-//import 'package:flutter/scheduler.dart';
-//import 'package:animations/animations.dart';
-//import 'package:infinite_scroll/infinite_scroll.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -141,37 +135,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                 ),
 
-                /*Row(
-                    children: [
-                      CategoryListItem(
-                        text: "Disco",
-                        icon: CustomIcons.disco,
-                        onPress: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const CategoryPage(
-                              category: "Disco",
-                              categoryIcon: CustomIcons.disco,
-                            ),
-                          ),
-                        ),
-                      ),
-                      CategoryListItem(
-                        text: "Karaoke",
-                        icon: CustomIcons.mic,
-                        onPress: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const CategoryPage(
-                              category: "Karaoke",
-                              categoryIcon: CustomIcons.mic,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ), */
-
                 const SizedBox(
                   height: 45,
                 ),
@@ -241,4 +204,8 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ));
   }
+}
+
+Future<void> loadSettings() async {
+  await Future.delayed(Duration(seconds: 5));
 }

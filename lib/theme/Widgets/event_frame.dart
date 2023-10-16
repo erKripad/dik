@@ -65,13 +65,13 @@ class _ListItemState extends State<ListItem> {
           children: [
             GestureDetector(
               onTap: () => Future.microtask(
-                () => Timer(Duration(milliseconds: 400), () {
+                () {
                   Navigator.push(
                       context,
-                      CupertinoPageRoute(
+                      MaterialPageRoute(
                           fullscreenDialog: false,
                           builder: (context) => SelectedPage()));
-                }),
+                },
               ).then((val) => {_getRequests()}),
               onDoubleTap: () {
                 hyped == true

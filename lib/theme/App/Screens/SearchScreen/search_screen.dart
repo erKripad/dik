@@ -12,11 +12,11 @@ import 'package:paginated_search_bar/paginated_search_bar.dart';
 //----------------------------------------------------------------------------//
 
 class ExampleItem {
-  final String title;
-
   ExampleItem({
     required this.title,
   });
+
+  final String title;
 }
 
 class ExampleItemPager {
@@ -42,13 +42,15 @@ class ExampleItemPager {
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
+    double screenheight = MediaQuery.of(context).size.height;
+
+    double screenwidth = MediaQuery.of(context).size.width;
     ExampleItemPager pager = ExampleItemPager();
     return Scaffold(
-      extendBodyBehindAppBar: true,
       backgroundColor: primaryBackgroundColor,
-      //floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -56,15 +58,15 @@ class SearchScreen extends StatelessWidget {
             padding: const EdgeInsets.all(20),
             alignment: Alignment.topCenter,
             child: SizedBox(
-              width: 600,
+              height: screenheight * 10 / 100,
               child: PaginatedSearchBar(
                 containerDecoration: BoxDecoration(
                   color: primaryObjColor,
                   borderRadius: BorderRadius.circular(20),
                 ),
-                inputStyle: const TextStyle(
+                inputStyle: TextStyle(
                   fontFamily: "Gelion Medium",
-                  fontSize: 25,
+                  fontSize: screenheight * 3.3 / 100,
                   color: textColor,
                 ),
                 hintText: 'Cerca',

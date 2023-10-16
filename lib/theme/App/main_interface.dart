@@ -56,10 +56,7 @@ class _MainInterfaceState extends State<MainInterface> {
 
   @override
   Widget build(BuildContext context) {
-    //prendo le misure dello schermo
     double screenheight = MediaQuery.of(context).size.height;
-    // ignore: unused_local_variable
-    double screenwidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
       backgroundColor: primaryBackgroundColor,

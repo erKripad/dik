@@ -3,6 +3,7 @@
 // framework
 import 'package:dik/Theme/App/Profile/profile_page.dart';
 import 'package:dik/Theme/App/Notifications/notifications_page.dart';
+import 'package:dik/Theme/Widgets/title1.dart';
 import 'package:flutter/material.dart';
 
 // colors
@@ -46,67 +47,47 @@ class MyAppBar extends StatefulWidget {
 class _MyAppBarState extends State<MyAppBar> {
   @override
   Widget build(BuildContext context) {
-    // ignore: unused_local_variable
     double screenheight = MediaQuery.of(context).size.height;
     double screenwidth = MediaQuery.of(context).size.width;
     return Container(
         color: Colors.transparent,
-        child: Padding(
-          padding: EdgeInsets.all(screenheight * 0.5 / 100),
-          child: SizedBox(
-            height: screenheight * 10 / 100,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        height: screenheight * 10 / 100,
+        padding: EdgeInsets.all(screenheight * 0 / 100),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    widget.gobackbutton == true
-                        ? Row(
-                            children: [GoBackButton(iconSize: widget.iconSize)],
-                          )
-                        : SizedBox(width: screenwidth * 4 / 100),
-                    GestureDetector(
-                      onTap: () {
-                        //_scrollController;
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.all(0),
-                        child: Text(
-                          widget.title ?? "",
-                          style: TextStyle(
-                            fontFamily: "Gelion Bold",
-                            fontSize: screenheight * 4 / 100,
-                            color: textColor,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    widget.notifications == true
-                        ? NotificationsButton(iconSize: screenheight * 5 / 100)
-                        : const SizedBox(),
-                    widget.profile == true
-                        ? ProfileButton(iconSize: screenheight * 5 / 100)
-                        : const SizedBox(),
-                    widget.hype == true
-                        ? ButtonHype(
-                            size: screenheight * 4.5 / 100,
-                            hyped: hyped,
-                            selectedColor: widget.hypeColor,
-                            unselectedColor: iconColor,
-                          )
-                        : const SizedBox(),
-                  ],
-                ),
+                widget.gobackbutton == true
+                    ? Row(
+                        children: [GoBackButton(iconSize: widget.iconSize)],
+                      )
+                    : SizedBox(width: screenwidth * 4 / 100),
+                Title1(title: widget.title ?? ""),
               ],
             ),
-          ),
+            Row(
+              children: [
+                widget.notifications == true
+                    ? NotificationsButton(iconSize: screenheight * 5 / 100)
+                    : const SizedBox(),
+                widget.profile == true
+                    ? ProfileButton(iconSize: screenheight * 5 / 100)
+                    : const SizedBox(),
+                widget.hype == true
+                    ? ButtonHype(
+                        size: screenheight * 4.5 / 100,
+                        hyped: hyped,
+                        selectedColor: widget.hypeColor,
+                        unselectedColor: iconColor,
+                      )
+                    : const SizedBox(),
+              ],
+            ),
+          ],
         ));
   }
 }

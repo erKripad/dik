@@ -81,7 +81,7 @@ class _SelectedPageState extends State<SelectedPage> {
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
                       colors: [itemColor, primaryBackgroundColor],
-                      stops: [0.4, 1],
+                      stops: const [0.2, 1],
                       tileMode: TileMode.clamp),
                 ),
                 child: Padding(
