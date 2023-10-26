@@ -141,29 +141,53 @@ class HypedFrameItemState extends State<HypedFrameItem> {
                                   title: widget.title,
                                   color: primaryPurple,
                                 ),
-                                Spacer(),
+                                const Spacer(),
                                 ButtonHype(
                                   hyped: hyped,
                                   selectedColor: primaryPurple,
+                                  unselectedColor: primaryPurple,
                                 ),
                               ],
                             ),
                           ),
-                          Spacer(),
+                          const Spacer(),
                           Expanded(
-                              child: Row(
-                            children: [
-                              EventInfo(date: widget.date, time: widget.time),
-                              Spacer(),
-                              SvgPicture.asset(
-                                widget.category,
-                                height: screenheight * 4 / 100,
-                                width: screenheight * 4 / 100,
-                                // ignore: deprecated_member_use
-                                color: primaryPurple,
-                              ),
-                            ],
-                          )),
+                            child: Row(
+                              children: [
+                                SvgPicture.asset(
+                                  CustomIcons.map_pin,
+                                  height: screenheight * 2.5 / 100,
+                                  width: screenheight * 2.5 / 100,
+                                  // ignore: deprecated_member_use
+                                  color: iconColor,
+                                ),
+                                SizedBox(width: screenwidth * 2 / 100),
+                                Text2(
+                                  title: place,
+                                ),
+                              ],
+                            ),
+                          ),
+                          const Spacer(),
+                          Expanded(
+                            child: Row(
+                              children: [
+                                EventInfo(
+                                  date: widget.date,
+                                  time: widget.time,
+                                  price: widget.price,
+                                ),
+                                const Spacer(),
+                                SvgPicture.asset(
+                                  widget.category,
+                                  height: screenheight * 4 / 100,
+                                  width: screenheight * 4 / 100,
+                                  // ignore: deprecated_member_use
+                                  color: primaryPurple,
+                                ),
+                              ],
+                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -188,10 +212,12 @@ class EventInfo extends StatelessWidget {
     super.key,
     required this.date,
     required this.time,
+    required this.price,
   });
 
   final String date;
   final String time;
+  final int price;
 
   @override
   Widget build(BuildContext context) {
@@ -200,12 +226,8 @@ class EventInfo extends StatelessWidget {
 
     return Row(
       children: [
-        SvgPicture.asset(
-          CustomIcons.map_pin,
-          height: screenheight * 3 / 100,
-          width: screenheight * 3 / 100,
-          // ignore: deprecated_member_use
-          color: iconColor,
+        Text2(
+          title: "$price\$",
         ),
         SizedBox(width: screenwidth * 2 / 100),
         const Text2(

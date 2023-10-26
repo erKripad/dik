@@ -1,9 +1,9 @@
 //----------------------------------------------------------------------------//
 
 // framework
-import 'dart:async';
-
-import 'package:flutter/cupertino.dart';
+import 'package:dik/Theme/Widgets/text2.dart';
+import 'package:dik/Theme/Widgets/title1.dart';
+import 'package:dik/Theme/Widgets/title2.dart';
 import 'package:flutter/material.dart';
 
 // widgets
@@ -18,6 +18,8 @@ import 'package:dik/Theme/DatabaseSamples/events_examples.dart';
 
 // external extentions
 import 'package:flutter_svg/flutter_svg.dart';
+
+//import 'dart:async';
 
 //----------------------------------------------------------------------------//
 
@@ -70,7 +72,7 @@ class _ListItemState extends State<ListItem> {
                       context,
                       MaterialPageRoute(
                           fullscreenDialog: false,
-                          builder: (context) => SelectedPage()));
+                          builder: (context) => const SelectedPage()));
                 },
               ).then((val) => {_getRequests()}),
               onDoubleTap: () {
@@ -84,9 +86,9 @@ class _ListItemState extends State<ListItem> {
               },
               child: Container(
                 height: screenwidth * 120 / 100,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: primaryObjColor,
-                  borderRadius: const BorderRadius.all(Radius.circular(20)),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
                 ),
                 padding: EdgeInsets.all(screenwidth * 5 / 100),
                 child: Column(
@@ -113,29 +115,51 @@ class _ListItemState extends State<ListItem> {
                               const Spacer(
                                 flex: 2,
                               ),
-                              Text(
-                                widget.title,
-                                textAlign: TextAlign.start,
-                                style: TextStyle(
-                                  fontFamily: "Gelion Bold",
-                                  fontSize: screenheight * 3 / 100,
-                                  color: primaryPurple,
-                                ),
+                              Title2(
+                                title: widget.title,
+                                color: primaryPurple,
                               ),
                               const Spacer(),
-                              EventInfo(
-                                  category: widget.category,
-                                  date: widget.date,
-                                  time: widget.time),
+                              Row(
+                                children: [
+                                  SvgPicture.asset(
+                                    widget.category,
+                                    height: screenheight * 4 / 100,
+                                    width: screenheight * 4 / 100,
+                                    // ignore: deprecated_member_use
+                                    color: iconColor,
+                                  ),
+                                  SizedBox(width: screenwidth * 2 / 100),
+                                  const Text2(
+                                    title: "·",
+                                    color: textColor,
+                                    bold: true,
+                                  ),
+                                  SizedBox(width: screenwidth * 2 / 100),
+                                  Text2(
+                                    title: widget.date,
+                                    color: textColor,
+                                    bold: true,
+                                  ),
+                                  SizedBox(width: screenwidth * 2 / 100),
+                                  const Text2(
+                                    title: "·",
+                                    color: textColor,
+                                    bold: true,
+                                  ),
+                                  SizedBox(width: screenwidth * 2 / 100),
+                                  Text2(
+                                    title: widget.time,
+                                    color: textColor,
+                                    bold: true,
+                                  ),
+                                ],
+                              ),
                               const Spacer(),
-                              Text(
-                                widget.place,
-                                textAlign: TextAlign.start,
-                                style: const TextStyle(
-                                  fontFamily: "Gelion Medium",
-                                  fontSize: 18,
-                                  color: textColor,
-                                ),
+                              Text2(
+                                title: widget.place,
+                                color: textColor,
+                                bold: true,
                               ),
                             ],
                           ),
@@ -174,13 +198,10 @@ class _ListItemState extends State<ListItem> {
             borderRadius: BorderRadius.all(Radius.circular(20)),
           ),
           child: Center(
-            child: Text(
-              "$price\$",
-              style: const TextStyle(
-                fontFamily: "Gelion Medium",
-                fontSize: 18,
-                color: primaryPurple,
-              ),
+            child: Text2(
+              title: "$price\$",
+              color: primaryPurple,
+              bold: true,
             ),
           ),
         ),
@@ -195,75 +216,6 @@ class _ListItemState extends State<ListItem> {
           child: ButtonHype(
             hyped: hyped,
             selectedColor: primaryPurple,
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-//----------------------------------------------------------------------------//
-
-class EventInfo extends StatelessWidget {
-  const EventInfo({
-    super.key,
-    required this.category,
-    required this.date,
-    required this.time,
-  });
-
-  final String category;
-  final String date;
-  final String time;
-
-  @override
-  Widget build(BuildContext context) {
-    double screenheight = MediaQuery.of(context).size.height;
-    double screenwidth = MediaQuery.of(context).size.width;
-
-    return Row(
-      children: [
-        SvgPicture.asset(
-          category,
-          height: screenheight * 4 / 100,
-          width: screenheight * 4 / 100,
-          // ignore: deprecated_member_use
-          color: iconColor,
-        ),
-        SizedBox(width: screenwidth * 2 / 100),
-        const Text(
-          "·",
-          style: TextStyle(
-            fontFamily: "Gelion Bold",
-            fontSize: 18,
-            color: textColor,
-          ),
-        ),
-        SizedBox(width: screenwidth * 2 / 100),
-        Text(
-          date,
-          style: const TextStyle(
-            fontFamily: "Gelion Medium",
-            fontSize: 18,
-            color: textColor,
-          ),
-        ),
-        SizedBox(width: screenwidth * 2 / 100),
-        const Text(
-          "·",
-          style: TextStyle(
-            fontFamily: "Gelion Bold",
-            fontSize: 18,
-            color: textColor,
-          ),
-        ),
-        SizedBox(width: screenwidth * 2 / 100),
-        Text(
-          time,
-          style: const TextStyle(
-            fontFamily: "Gelion Medium",
-            fontSize: 18,
-            color: textColor,
           ),
         ),
       ],

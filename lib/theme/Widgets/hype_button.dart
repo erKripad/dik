@@ -33,7 +33,7 @@ class ButtonHypeState extends State<ButtonHype> {
   @override
   Widget build(BuildContext context) {
     double screenheight = MediaQuery.of(context).size.height;
-    double screenwidth = MediaQuery.of(context).size.width;
+
     return GestureDetector(
       onTap: () {
         widget.hyped == true

@@ -34,7 +34,6 @@ class Tonight extends StatelessWidget {
       DeviceOrientation.portraitDown,
     ]);
 
-    // creazione della material app
     return MaterialApp(
       // percorso iniziale dove si aprirà l'app
       initialRoute: '/',
@@ -44,7 +43,7 @@ class Tonight extends StatelessWidget {
         '/': (context) => const MainInterface(),
         '/settings': (context) => const SettingsPage(),
         '/notifications': (context) => const NotificationScreen(),
-        '/profile': (context) => ProfilePage(),
+        '/profile': (context) => const ProfilePage(),
         '/cart': (context) => const CartPage(),
         '/privacy': (context) => const PrivacyPage(),
         '/info': (context) => const InfoPage(),
