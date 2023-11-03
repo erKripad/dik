@@ -62,18 +62,21 @@ class _MainInterfaceState extends State<MainInterface> {
       backgroundColor: primaryBackgroundColor,
       extendBody: true,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(screenheight / 16),
+        preferredSize: Size.fromHeight(screenheight),
         child: MyAppBar(
           title: title[currentIndex],
-          notifications: true,
+          notifications: false,
           profile: true,
           gobackbutton: false,
         ),
       ),
-      body: _children[currentIndex],
+      body: IndexedStack(
+        children: _children,
+        index: currentIndex,
+      ),
       bottomNavigationBar: MyBottomBar(
         iconColor: iconColor,
-        iconSize: screenheight * 4 / 100,
+        iconSize: screenheight * 4.2 / 100,
         backgroundColor: primaryBackgroundColor,
         selectedColor: primaryPurple,
         items: [

@@ -145,7 +145,10 @@ class _ProfilePictureEditingPageState extends State<ProfilePictureEditingPage>
                 },
                 child: Row(
                   children: [
-                    const Icon(Icons.image),
+                    const Icon(
+                      Icons.image,
+                      color: Colors.white,
+                    ),
                     SizedBox(width: screenwidth * 2 / 100),
                     const Text2(title: "gallery"),
                   ],

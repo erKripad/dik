@@ -3,21 +3,19 @@
 // in questa sezione vengono importati tutti i pacchetti di Dart cioè le estensioni per rendere magico Flutter
 
 import 'package:dik/Theme/App/Profile/profile_page.dart';
-import 'package:dik/Theme/App/Screens/HomeScreen/category_page.dart';
 import 'package:dik/theme/App/Screens/HomeScreen/selected_page.dart';
 import 'package:dik/theme/App/main_interface.dart';
 import 'package:flutter/material.dart';
 import 'package:dik/Theme/App/Profile/ProfilePages/settings_page.dart';
 import 'package:dik/Theme/App/Profile/profile_picture_editing_page.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:dik/Theme/App/Notifications/notifications_page.dart';
 import 'package:dik/Theme/App/Profile/ProfilePages/cart_page.dart';
 import 'package:dik/Theme/App/Profile/ProfilePages/info_page.dart';
 import 'package:dik/Theme/App/Profile/ProfilePages/privacy_page.dart';
 import 'package:dik/Theme/App/Profile/ProfilePages/tickets_page.dart';
-import 'package:dik/Theme/MaterialsUI/icons.dart';
 import 'package:dik/Theme/App/Profile/ProfilePages/add_event_page.dart';
+import 'package:dik/Theme/App/Screens/HomeScreen/host_page.dart';
 
 //----------------------------------------------------------------------------//
 

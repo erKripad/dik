@@ -3,7 +3,6 @@
 // framework
 import 'package:dik/Theme/App/Profile/profile_page.dart';
 import 'package:dik/Theme/App/Notifications/notifications_page.dart';
-import 'package:dik/Theme/Widgets/title1.dart';
 import 'package:flutter/material.dart';
 
 // colors
@@ -16,7 +15,9 @@ import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:dik/Theme/DatabaseSamples/events_examples.dart';
 
 // widgets
-import 'package:dik/Theme/Widgets/hype_button.dart';
+import 'package:dik/Theme/Widgets/Buttons/hype_button.dart';
+import 'package:dik/Theme/Widgets/title1.dart';
+import 'package:dik/Theme/Widgets/Buttons/profile_button.dart';
 
 //----------------------------------------------------------------------------//
 
@@ -51,7 +52,7 @@ class _MyAppBarState extends State<MyAppBar> {
     double screenwidth = MediaQuery.of(context).size.width;
     return Container(
         color: Colors.transparent,
-        height: screenheight * 10 / 100,
+        height: screenheight * 11 / 100,
         padding: EdgeInsets.all(screenheight * 0 / 100),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -75,7 +76,7 @@ class _MyAppBarState extends State<MyAppBar> {
                     ? NotificationsButton(iconSize: screenheight * 5 / 100)
                     : const SizedBox(),
                 widget.profile == true
-                    ? ProfileButton(iconSize: screenheight * 5 / 100)
+                    ? ProfileButton(iconSize: screenheight * 5.2 / 100)
                     : const SizedBox(),
                 widget.hype == true
                     ? ButtonHype(
@@ -89,50 +90,6 @@ class _MyAppBarState extends State<MyAppBar> {
             ),
           ],
         ));
-  }
-}
-
-//----------------------------------------------------------------------------//
-
-class ProfileButton extends StatelessWidget {
-  final double? iconSize;
-  final String? image;
-
-  const ProfileButton({
-    Key? key,
-    this.iconSize,
-    this.image,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    double screenwidth = MediaQuery.of(context).size.width;
-    double screenheight = MediaQuery.of(context).size.height;
-    return Row(
-      children: [
-        //SizedBox(width: screenwidth * 3 / 100),
-        GestureDetector(
-          onTap: () => Navigator.of(context).push(
-            MaterialPageRoute(builder: (_) => ProfilePage()),
-          ),
-          onLongPress: () => Navigator.of(context).push(
-            MaterialPageRoute(builder: (_) => ProfilePage()),
-          ),
-          child: SizedBox(
-            width: iconSize ?? screenheight * 4 / 100,
-            height: iconSize ?? screenheight * 4 / 100,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(100),
-              child: Image(
-                image: AssetImage(image ?? "assets/immagine di profilo.jpg"),
-                fit: BoxFit.fill,
-              ),
-            ),
-          ),
-        ),
-        SizedBox(width: screenwidth * 4 / 100),
-      ],
-    );
   }
 }
 

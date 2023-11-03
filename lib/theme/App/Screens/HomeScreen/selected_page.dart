@@ -1,6 +1,7 @@
 //----------------------------------------------------------------------------//
 
 // framework
+import 'package:dik/Theme/Widgets/title1.dart';
 import 'package:flutter/material.dart';
 
 // colors
@@ -13,6 +14,9 @@ import 'package:dik/Theme/Widgets/text2.dart';
 
 // icons
 import 'package:dik/theme/MaterialsUI/icons.dart';
+
+// other pages
+import 'package:dik/Theme/App/Screens/HomeScreen/host_page.dart';
 
 // external extentions
 import 'package:flutter_svg/flutter_svg.dart';
@@ -76,92 +80,82 @@ class _SelectedPageState extends State<SelectedPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-                decoration: BoxDecoration(
+                /*decoration: BoxDecoration(
                   gradient: LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
                       colors: [itemColor, primaryBackgroundColor],
                       stops: const [0.2, 1],
                       tileMode: TileMode.clamp),
-                ),
+                ),*/
                 child: Padding(
-                  padding: EdgeInsets.all(screenheight * 2.5 / 100),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: screenheight * 6 / 100,
-                      ),
-                      Center(
-                        child: SizedBox(
-                          height: screenwidth * 60 / 100,
-                          width: screenwidth * 60 / 100,
-                          child: ClipRRect(
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(10)),
-                            child: Image(
-                                image: AssetImage(image), fit: BoxFit.fill),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: screenheight * 2 / 100,
-                      ),
-                      SizedBox(
-                        child: Text(
-                          title,
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                            fontFamily: "Gelion Bold",
-                            fontSize: screenheight * 4.4 / 100,
-                            color: textColor,
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: screenheight * 1 / 100,
-                      ),
-                      const Subbox(host: "host"),
-                    ],
+              padding: EdgeInsets.all(screenheight * 2.5 / 100),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: screenheight * 6 / 100,
                   ),
-                )),
+                  Center(
+                    child: SizedBox(
+                      height: screenwidth * 60 / 100,
+                      width: screenwidth * 60 / 100,
+                      child: ClipRRect(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10)),
+                        child:
+                            Image(image: AssetImage(image), fit: BoxFit.fill),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: screenheight * 2 / 100,
+                  ),
+                  Title1(title: title),
+                  SizedBox(
+                    height: screenheight * 1 / 100,
+                  ),
+                  const Subbox(host: "host"),
+                ],
+              ),
+            )),
             Padding(
                 padding: EdgeInsets.all(screenheight * 2.5 / 100),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    DescriptionBox(
+                    /*DescriptionBox(
                       initialHeight: screenheight * 6 / 100,
                       finallHeight: screenheight * 30 / 100,
                     ),
-                    SizedBox(height: screenheight * 3 / 100),
+                    SizedBox(height: screenheight * 4 / 100),*/
                     const Title2(
                       title: "Info",
                       color: textColor,
                     ),
-                    SizedBox(height: screenheight * 1 / 100),
+                    SizedBox(height: screenheight * 2 / 100),
                     const InfoBox(),
-                    SizedBox(height: screenheight * 3 / 100),
+                    SizedBox(height: screenheight * 4 / 100),
                     const Title2(
                       title: "Service",
                       color: textColor,
                     ),
-                    SizedBox(height: screenheight * 1 / 100),
+                    SizedBox(height: screenheight * 2 / 100),
                     const ServiceBox(
                       titleColor: textColor,
                     ),
-                    SizedBox(height: screenheight * 3 / 100),
+                    SizedBox(height: screenheight * 4 / 100),
                     const Title2(
                       title: "Maps",
                       color: textColor,
                     ),
-                    SizedBox(height: screenheight * 1 / 100),
+                    SizedBox(height: screenheight * 2 / 100),
                     const MapBox(),
                     const Title2(
                       title: "Host",
                       color: textColor,
                     ),
-                    SizedBox(height: screenheight * 1 / 100),
+                    SizedBox(height: screenheight * 2 / 100),
                     const HostInfoBox(
                       hostImage: "assets/papera.jpg",
                       telephone: "+39 420 6969",
@@ -199,15 +193,14 @@ class _SelectedPageState extends State<SelectedPage> {
 //----------------------------------------------------------------------------//
 
 class HostingEventProfileButton extends StatefulWidget {
-  const HostingEventProfileButton(
-      {super.key,
-      required this.size,
-      required this.hostImage,
-      required this.navigationTo});
+  const HostingEventProfileButton({
+    super.key,
+    required this.size,
+    required this.hostImage,
+  });
 
   final double size;
   final String hostImage;
-  final String navigationTo;
 
   @override
   State<HostingEventProfileButton> createState() =>
@@ -219,7 +212,14 @@ class _HostingEventProfileButtonState extends State<HostingEventProfileButton> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, widget.navigationTo);
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => HostPage(
+              host: "Host",
+            ),
+          ),
+        );
       },
       child: SizedBox(
         width: widget.size,
@@ -261,20 +261,14 @@ class SubboxState extends State<Subbox> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           HostingEventProfileButton(
-            navigationTo: '/profile',
             size: screenheight * 4 / 100,
-            hostImage: "assets/papera.jpg",
+            hostImage: "assets/concerto.jpeg",
           ),
           SizedBox(width: screenwidth * 3 / 100),
-          Text(
-            widget.host,
-            textAlign: TextAlign.start,
-            style: TextStyle(
-              fontFamily: "Gelion Bold",
-              fontSize: screenheight * 2.2 / 100,
-              color: textColor,
-            ),
-          ),
+          const Text2(
+            title: "host",
+            bold: true,
+          )
         ],
       ),
     );
@@ -310,7 +304,6 @@ class DescriptionBoxState extends State<DescriptionBox> {
         //colorContainer = primaryBackgroundColor;
       } else {
         clicked = false;
-        //colorContainer = primaryObjColor.withOpacity(1);
       }
     });
   }

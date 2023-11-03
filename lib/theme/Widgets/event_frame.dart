@@ -7,7 +7,7 @@ import 'package:dik/Theme/Widgets/title2.dart';
 import 'package:flutter/material.dart';
 
 // widgets
-import 'package:dik/Theme/Widgets/hype_button.dart';
+import 'package:dik/Theme/Widgets/Buttons/hype_button.dart';
 import 'package:dik/Theme/App/Screens/HomeScreen/selected_page.dart';
 
 // colors
@@ -66,7 +66,13 @@ class _ListItemState extends State<ListItem> {
         child: Column(
           children: [
             GestureDetector(
-              onTap: () => Future.microtask(
+              onTap: () => Navigator.of(context)
+                  .push(
+                    MaterialPageRoute(builder: (_) => const SelectedPage()),
+                  )
+                  .then((val) => {_getRequests()}),
+
+              /*() => Future.microtask(
                 () {
                   Navigator.push(
                       context,
@@ -84,6 +90,8 @@ class _ListItemState extends State<ListItem> {
                         hyped = true;
                       });
               },
+              },*/
+
               child: Container(
                 height: screenwidth * 120 / 100,
                 decoration: const BoxDecoration(
@@ -133,25 +141,21 @@ class _ListItemState extends State<ListItem> {
                                   const Text2(
                                     title: "·",
                                     color: textColor,
-                                    bold: true,
                                   ),
                                   SizedBox(width: screenwidth * 2 / 100),
                                   Text2(
                                     title: widget.date,
                                     color: textColor,
-                                    bold: true,
                                   ),
                                   SizedBox(width: screenwidth * 2 / 100),
                                   const Text2(
                                     title: "·",
                                     color: textColor,
-                                    bold: true,
                                   ),
                                   SizedBox(width: screenwidth * 2 / 100),
                                   Text2(
                                     title: widget.time,
                                     color: textColor,
-                                    bold: true,
                                   ),
                                 ],
                               ),
@@ -159,7 +163,6 @@ class _ListItemState extends State<ListItem> {
                               Text2(
                                 title: widget.place,
                                 color: textColor,
-                                bold: true,
                               ),
                             ],
                           ),

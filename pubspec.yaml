@@ -77,6 +77,7 @@ flutter:
     - assets/prova3.jpg
     - assets/prova4.png
     - assets/black.jpg
+    - assets/concerto.jpeg
     - assets/icons/
 
   fonts:

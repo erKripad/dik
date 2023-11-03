@@ -100,8 +100,8 @@ class MyBottomBarState extends State<MyBottomBar> {
                 )
               : SvgPicture.asset(
                   item.customIcon ?? CustomIcons.home,
-                  height: widget.iconSize ?? screenheight * 4 / 100,
-                  width: widget.iconSize ?? screenheight * 4 / 100,
+                  height: widget.iconSize ?? screenheight * 5.2 / 100,
+                  width: widget.iconSize ?? screenheight * 5.2 / 100,
                   // ignore: deprecated_member_use
                   color: index == _currentindex
                       ? widget.selectedColor

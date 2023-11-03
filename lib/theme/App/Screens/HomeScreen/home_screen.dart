@@ -1,6 +1,7 @@
 //----------------------------------------------------------------------------//
 
 // framework
+import 'package:dik/Theme/Widgets/title1.dart';
 import 'package:flutter/material.dart';
 
 // widgets
@@ -72,26 +73,17 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(
-                  height: 15,
-                ),
+                SizedBox(height: screenheight * 2 / 100),
                 Padding(
                   padding: EdgeInsets.all(screenheight * 0.5 / 100),
-                  child: Text(
-                    "Scopri le categorie",
-                    style: TextStyle(
-                      fontFamily: "Gelion Bold",
-                      fontSize: screenheight * 3.5 / 100,
-                      color: textColor,
-                    ),
+                  child: const Title1(
+                    title: "Scopri le categorie",
+                    color: textColor,
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
+                SizedBox(height: screenheight * 2 / 100),
 
                 // * creazione dei category-widgets tramite firestore
-
                 StreamBuilder(
                   stream: FirebaseFirestore.instance
                       .collection("categories")
@@ -135,18 +127,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                 ),
 
-                const SizedBox(
-                  height: 45,
-                ),
+                SizedBox(height: screenheight * 5 / 100),
                 Padding(
                   padding: EdgeInsets.all(screenheight * 0.5 / 100),
-                  child: Text(
-                    "Eventi",
-                    style: TextStyle(
-                      fontFamily: "Gelion Bold",
-                      fontSize: screenheight * 3.5 / 100,
-                      color: textColor,
-                    ),
+                  child: const Title1(
+                    title: "Eventi",
+                    color: textColor,
                   ),
                 ),
                 const SizedBox(
